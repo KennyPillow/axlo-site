@@ -195,10 +195,6 @@
   .wa-btn::after{animation-delay:1.2s}
   @keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(1.7);opacity:0}}
   .wa-badge{position:absolute;top:-2px;right:-2px;width:20px;height:20px;border-radius:50%;background:#E5484D;color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;border:2px solid #fff}
-  .wa-tip{background:#fff;color:var(--ink);border-radius:16px 16px 4px 16px;padding:12px 14px;font-size:13px;font-weight:500;box-shadow:0 16px 40px -16px rgba(0,0,0,.3);max-width:230px;line-height:1.35;opacity:0;transform:translateX(12px);transition:opacity .4s,transform .5s var(--ease);pointer-events:none}
-  .wa-tip b{display:block;font-size:13px}
-  .wa.tip .wa-tip{opacity:1;transform:none;pointer-events:auto}
-  .wa-tip button{float:right;margin:-6px -6px 0 6px;border:0;background:none;cursor:pointer;color:var(--ink-2);width:22px;height:22px}
   .row{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:8px 0;border-top:1px solid var(--line)}
   .row span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
   .tag{display:inline-flex;align-items:center;gap:6px;background:var(--brand-soft);color:var(--brand-dark);font-weight:600;font-size:12px;padding:5px 10px;border-radius:999px;margin:4px 4px 0 0}
@@ -439,12 +435,19 @@
     /* foto quase quadrada (corta pouco) e o cartão logo abaixo, encostando só na base da foto */
     .hs{padding:0 12px 28px}
     .hs-slide{grid-template-columns:1fr;align-items:start}
-    .hs-media{height:auto;aspect-ratio:1/1.02;border-radius:26px;clip-path:inset(0 0 0 100% round 26px)}
+    .hs-media{height:clamp(220px,min(78vw,44svh),340px);border-radius:26px;clip-path:inset(0 0 0 100% round 26px)}
     .on .hs-media{clip-path:inset(0 0 0 0 round 26px)}
     .hs-media img{transform:scale(1.07)}
     .on .hs-media img{transform:scale(1)}
     .hs-media::after{background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 24%)}
-    .hs-side{margin:-52px 10px 0}
+    .hs-side{margin:-34px 10px 0}
+  }
+  @media (max-width:380px){
+    .hero h1{font-size:36px}
+    .hs-card{padding:14px}
+    .hs-total{font-size:30px}
+    .hs-card li{padding:6px 0}
+    .hs-head small{display:none}
     .hs-card{padding:16px;border-radius:20px;background:rgba(255,255,255,.92)}
     .hs-head{margin-bottom:8px}
     .hs-av{width:30px;height:30px}
@@ -461,7 +464,6 @@
     .hs-bars button{font-size:0;gap:0}
     .wa{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
     .wa-btn{width:56px;height:56px}
-    .wa-tip{max-width:190px;font-size:12px}
     .op{height:56px;min-width:128px;padding:0 16px}
     .op img{max-height:28px;max-width:110px}
     .stepper{grid-template-columns:52px 1fr 52px}
@@ -957,7 +959,6 @@
 </footer>
 
 <div class="wa" id="wa">
-  <div class="wa-tip" role="status"><button type="button" aria-label="Fechar">✕</button><b>Fale com um especialista</b>Cotação do seu plano em até 24 h, sem compromisso.</div>
   <a class="wa-btn js-wa" href="#cotacao" aria-label="Falar no WhatsApp">
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.3.6 4.5 1.8 6.4L3.2 29l7.2-1.9c1.8 1 3.8 1.5 5.9 1.5 7 0 12.7-5.6 12.7-12.6S23 3 16 3Zm0 23.2c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4a10.4 10.4 0 0 1-1.6-5.5C5.1 9.9 10 5.1 16 5.1s10.9 4.8 10.9 10.6S22 26.2 16 26.2Zm6-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg>
     <span class="wa-badge">1</span>
@@ -1065,13 +1066,12 @@
   /* WhatsApp flutuante: preencher o número da Axlo para o botão abrir a conversa */
   const WHATSAPP = ''; // ex.: '5511999999999'
   const WA_MSG = 'Olá! Vim pelo site e quero uma cotação de plano de saúde.';
-  if (WHATSAPP) $('.js-wa').forEach(a => { a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(WA_MSG); a.target = '_blank'; a.rel = 'noopener'; });
+  if (WHATSAPP) $$('.js-wa').forEach(a => { a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(WA_MSG); a.target = '_blank'; a.rel = 'noopener'; });
   const wa = $('#wa');
-  setTimeout(() => wa.classList.add('show'), 1400);
-  setTimeout(() => wa.classList.add('tip'), 4200);
-  setTimeout(() => wa.classList.remove('tip'), 12000);
-  $('.wa-tip button', wa).addEventListener('click', () => wa.classList.remove('tip'));
-  $('.wa-btn', wa).addEventListener('click', () => { wa.classList.remove('tip'); const b = $('.wa-badge', wa); b && b.remove(); });
+  // no celular o botão só aparece depois do slider, para não cobrir o cartão de valores
+  const waShow = () => wa.classList.toggle('show', innerWidth > 980 || scrollY > innerHeight * .7);
+  addEventListener('scroll', waShow, { passive: true }); addEventListener('resize', waShow); setTimeout(waShow, 1400);
+  $('.wa-btn', wa).addEventListener('click', () => { const b = $('.wa-badge', wa); b && b.remove(); });
 
   /* slider do topo */
   (() => {
