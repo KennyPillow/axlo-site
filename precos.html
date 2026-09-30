@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preços | Axlo</title>
+<meta name="description" content="Consultoria da Axlo sem custo: veja quanto custa o plano de saúde da sua empresa por número de vidas.">
+<meta name="theme-color" content="#280F91">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="page-pr">
+
+<div class="progress" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo" aria-label="Axlo Health & Insurance, início"><img src="assets/img/axlo-logo.png" alt="Axlo Health & Insurance" width="170" height="34"></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="index.html#como-funciona">Como funciona</a>
+      <a href="index.html#solucoes">Soluções</a>
+      <a href="precos.html" aria-current="page">Preços</a>
+      <a href="index.html#cotacao">Cotação</a>
+      <a href="index.html#atendimento">Atendimento</a>
+      <a href="index.html#duvidas">Dúvidas</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="bell-wrap">
+        <button class="bell" type="button" aria-label="Novidades: 2 novas" aria-expanded="false" aria-controls="bellPanel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9Z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg>
+          <span class="bell-dot">2</span>
+        </button>
+        <div class="bell-panel" id="bellPanel" hidden>
+          <p class="bp-title">Novidades <span>2 novas</span></p>
+          <a href="index.html#cotacao" class="bp-item"><span class="bp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5Z"/></svg></span><div><b>Nova plataforma Axlo para empresas<span class="bp-new">NOVO</span></b><small>Cotação, contratação e painel do RH num só lugar.</small></div></a>
+          <a href="index.html#cotacao" class="bp-item"><span class="bp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span><div><b>Cotação em até 24 horas</b><small>Compare operadoras sem compromisso.</small></div></a>
+        </div>
+      </div>
+      <a href="" class="signin">Entrar</a>
+      <a href="index.html#cotacao" class="btn btn-brand">Fazer cotação</a>
+      <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" aria-label="Menu mobile">
+  <a class="dl" href="index.html#como-funciona">Como funciona</a>
+  <a class="dl" href="index.html#solucoes">Soluções</a>
+  <a class="dl" href="precos.html">Preços</a>
+  <a class="dl" href="index.html#cotacao">Cotação</a>
+  <a class="dl" href="index.html#atendimento">Atendimento</a>
+  <a class="dl" href="index.html#duvidas">Dúvidas</a>
+  <a href="index.html#cotacao" class="btn btn-brand">Fazer cotação</a>
+</nav>
+
+<main id="topo">
+  <section class="pr-hero" id="pr">
+    <div class="wrap">
+      <h1 class="rv in">Preços simples e transparentes</h1>
+      <p class="lead rv in">A consultoria da Axlo não custa nada para a sua empresa. Você paga só a mensalidade do plano, direto para a operadora, e só pelas pessoas que entram no plano.</p>
+
+      <div class="pr-grid">
+        <article class="pr-card">
+          <div class="pr-top"><span class="pr-name">PME</span><span class="pr-chip">2 a 29 vidas</span></div>
+          <div class="pr-price">R$ <span id="prPrice">3.468</span><small>/mês</small></div>
+          <p class="pr-math" id="prMath">R$ 289 × 12 vidas · média por vida (exemplo)</p>
+          <div class="pr-size"><label for="prVidas">Tamanho do time</label><output id="prVidasOut" for="prVidas">12 vidas</output></div>
+          <div class="pr-ctrl">
+            <button type="button" data-pstep="-1" aria-label="Menos uma vida">−</button>
+            <input type="range" id="prVidas" min="2" max="30" value="12" step="1">
+            <button type="button" data-pstep="1" aria-label="Mais uma vida">+</button>
+          </div>
+          <p class="pr-more" id="prMore" aria-live="polite"></p>
+          <a href="index.html#cotacao" class="btn btn-brand">Fazer cotação <span class="arr">→</span></a>
+          <ul class="pr-list">
+            <li>Cotação comparada entre várias operadoras</li>
+            <li>Rede filtrada pelos médicos e hospitais da equipe</li>
+            <li>Contratação, carteirinhas e inclusões por nossa conta</li>
+            <li>Atendimento humano por WhatsApp, telefone e e-mail</li>
+            <li>Negociação ativa no reajuste anual</li>
+            <li>Painel do RH com vidas, custos e movimentações</li>
+            <li>Axlo Benefícios incluído, sem custo extra</li>
+          </ul>
+        </article>
+
+        <article class="pr-card custom" id="prCustom">
+          <div class="pr-sky">
+            <div class="pr-top"><span class="pr-name">Empresarial</span><span class="pr-chip">30+ vidas</span></div>
+            <div class="pr-price">Sob medida</div>
+            <p class="pr-math">Condições negociadas para grupos a partir de 30 vidas</p>
+          </div>
+          <div class="pr-body">
+            <a href="index.html#cotacao" class="btn btn-outline">Falar com a gente</a>
+            <ul class="pr-list">
+              <li class="sub">Tudo do PME, mais:</li>
+              <li>Gerente de conta dedicado</li>
+              <li>Estudo de uso do plano para negociar o reajuste</li>
+              <li>Implantação presencial com a equipe</li>
+              <li>Relatórios mensais para a diretoria</li>
+              <li>Programas de saúde para reduzir custos</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <p class="pr-note">Valores ilustrativos deste esboço. O preço real depende das idades (as 10 faixas etárias da ANS), da cidade, da operadora e do tipo de plano.</p>
+    </div>
+  </section>
+
+  <div class="pr-logos">
+    <p class="eyebrow wrap">14 operadoras parceiras</p>
+    <div class="marquee">
+      <div class="mq-track">
+        <div class="op"><img src="assets/operadoras/amil.png" alt="Amil" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/bradesco.png" alt="Bradesco Saúde" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/sulamerica.png" alt="SulAmérica" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/porto.png" alt="Porto Seguro" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/notredame.png" alt="NotreDame Intermédica" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/hapvida.png" alt="Hapvida" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/segurosunimed.png" alt="Seguros Unimed" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/alice.png" alt="Alice" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/prevent.png" alt="Prevent Senior" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/medsenior.png" alt="MedSênior" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/qualicorp.png" alt="Qualicorp" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/sami.png" alt="Sami" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/biovida.png" alt="BioVida" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/trasmontano.png" alt="Trasmontano" loading="lazy" height="34"></div>
+        <div class="op"><img src="assets/operadoras/amil.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/bradesco.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/sulamerica.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/porto.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/notredame.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/hapvida.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/segurosunimed.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/alice.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/prevent.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/medsenior.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/qualicorp.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/sami.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/biovida.png" alt="" loading="lazy" height="34"></div><div class="op"><img src="assets/operadoras/trasmontano.png" alt="" loading="lazy" height="34"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="pr-faq" id="duvidas">
+    <div class="wrap faq-grid">
+      <div><h2 class="rv">Dúvidas sobre preço</h2></div>
+      <div class="faq rv" style="--d:.1s">
+        <details open><summary>A Axlo cobra pela consultoria?<span class="plus"></span></summary><div class="ans"><div><p>Não. Quem remunera a corretora é a operadora escolhida. A sua empresa paga só a mensalidade do plano.</p></div></div></details>
+        <details><summary>Como o preço do plano é calculado?<span class="plus"></span></summary><div class="ans"><div><p>Cada pessoa entra numa das 10 faixas etárias definidas pela ANS, e cada faixa tem um valor. O total é a soma de todas as vidas, e muda com a cidade, a rede e o tipo de acomodação.</p></div></div></details>
+        <details><summary>Quando a empresa começa a pagar?<span class="plus"></span></summary><div class="ans"><div><p>A partir do início da vigência do contrato com a operadora. A Axlo acompanha a primeira fatura com você.</p></div></div></details>
+        <details><summary>O que é coparticipação?<span class="plus"></span></summary><div class="ans"><div><p>É uma parte do valor de consultas e exames paga quando o plano é usado. Planos com coparticipação têm mensalidade menor. Mostramos as duas opções na cotação.</p></div></div></details>
+        <details><summary>O preço muda com o tempo?<span class="plus"></span></summary><div class="ans"><div><p>Sim, no reajuste anual e quando alguém muda de faixa etária. No reajuste, a Axlo analisa o índice e negocia com a operadora.</p></div></div></details>
+        <details><summary>Posso incluir dependentes?<span class="plus"></span></summary><div class="ans"><div><p>Sim. Cônjuge e filhos normalmente podem entrar, e cada dependente é cobrado pela própria faixa etária.</p></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="pr-quote">
+    <div class="wrap">
+      <figure class="pr-quote-box rv">
+        <div>
+          <blockquote>“A Axlo encontrou um plano melhor para a nossa equipe e ainda negociou o reajuste. Pagamos menos do que no ano passado.”</blockquote>
+          <figcaption class="who"><img class="hs-av" src="assets/img/av-helena.jpg" alt="" width="44" height="44"><div style="text-align:left"><b>Nome do cliente</b>Diretora financeira, Empresa exemplo</div></figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow rv">Por que Axlo</p>
+        <h2 class="rv" style="margin-top:14px;--d:.08s">Plano de saúde do jeito que deveria ser</h2>
+      </div>
+      <div class="pr-why">
+        <div class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h6"/></svg></span><h3>Comparação real</h3><p>Várias operadoras lado a lado, com a rede que a sua equipe usa.</p></div>
+        <div class="rv" style="--d:.06s"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 10l7-7 7 7"/></svg></span><h3>Menos burocracia</h3><p>Contrato, carteirinhas e inclusões ficam com a gente.</p></div>
+        <div class="rv" style="--d:.12s"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><h3>Rápido</h3><p>Cotação em até 24 horas e implantação acompanhada.</p></div>
+        <div class="rv" style="--d:.18s"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></span><h3>Gente de verdade</h3><p>Atendimento humano para o RH e para cada colaborador.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contato">
+    <div class="wrap">
+      <div class="cta-box rv">
+        <span class="orb o1"></span><span class="orb o2"></span>
+        <p class="eyebrow">Comece agora</p>
+        <h2>Descubra quanto a sua empresa pagaria</h2>
+        <p>Conte quantas pessoas são e a cidade. A gente volta com as melhores opções em até 24 horas.</p>
+        <div class="cta-btns">
+          <a href="index.html#cotacao" class="btn btn-light js-wa">Falar no WhatsApp</a>
+          <a href="index.html#cotacao" class="btn btn-brand">Fazer cotação <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="index.html" class="logo"><img src="assets/img/axlo-logo-white.png" alt="Axlo Health & Insurance" width="170" height="34"></a>
+        <p class="f-claim">Construindo uma saúde<br>que as pessoas gostam</p>
+      </div>
+      <div><h5>Soluções</h5><ul><li><a href="index.html#solucoes">PME</a></li><li><a href="index.html#solucoes">Startups</a></li><li><a href="index.html#solucoes">Grandes empresas</a></li><li><a href="index.html#solucoes">Famílias</a></li></ul></div>
+      <div><h5>Conteúdo</h5><ul><li><a href="index.html#duvidas">Guia do plano empresarial</a></li><li><a href="index.html#duvidas">Coparticipação</a></li><li><a href="index.html#duvidas">Reajuste anual</a></li></ul></div>
+      <div><h5>Empresa</h5><ul><li><a href="">Sobre nós</a></li><li><a href="">Carreiras</a></li><li><a href="">Blog</a></li></ul></div>
+      <div><h5>Contato</h5><ul><li><a href="index.html#cotacao">Comercial</a></li><li><a href="index.html#atendimento">Suporte</a></li><li><a href="index.html#cotacao">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Axlo. Todos os direitos reservados.</span>
+      <span>Política de privacidade · Termos de uso · LGPD</span>
+    </div>
+    <p class="f-legal">Axlo Corretora de Seguros Ltda. · CNPJ 00.000.000/0000-00 · SUSEP nº 000000000. Informações de exemplo para esboço de layout.</p>
+  </div>
+</footer>
+
+<div class="wa" id="wa">
+  <a class="wa-btn js-wa" href="index.html#cotacao" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.3.6 4.5 1.8 6.4L3.2 29l7.2-1.9c1.8 1 3.8 1.5 5.9 1.5 7 0 12.7-5.6 12.7-12.6S23 3 16 3Zm0 23.2c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4a10.4 10.4 0 0 1-1.6-5.5C5.1 9.9 10 5.1 16 5.1s10.9 4.8 10.9 10.6S22 26.2 16 26.2Zm6-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg>
+    <span class="wa-badge">1</span>
+  </a>
+</div>
+
+<div class="draft" id="draft">Esboço de layout · textos e números de exemplo <button aria-label="Fechar aviso">✕</button></div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
