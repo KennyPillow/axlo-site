@@ -157,6 +157,45 @@ collections:
         fields: *titulo_texto
       - *seo
 
+  # ---------------------------------------------------------------- blog
+  - name: blog
+    label: Blog
+    label_singular: Artigo
+    description: "Artigos em /blog/{endereço}. Comece pela resposta: a caixa “Em resumo” aparece no topo e é o que buscadores com IA mais usam."
+    folder: content/blog
+    format: json
+    extension: json
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: titulo
+    summary: "{{publicadoEm}} · {{titulo}}"
+    sortable_fields:
+      fields: [publicadoEm, titulo]
+      default: { field: publicadoEm, direction: descending }
+    view_groups:
+      - { label: Tema, field: categoria }
+    fields:
+      - { label: Título (H1), name: titulo, widget: string, pattern: ['^.{20,75}$', 'Use entre 20 e 75 caracteres'] }
+      - { label: Endereço do artigo, name: slug, widget: string, pattern: ['^[a-z0-9-]+$', 'Só letras minúsculas sem acento, números e hífen'], hint: "Ex.: reajuste-plano-de-saude-empresarial. Não mude depois de publicado." }
+      - { label: Tema, name: categoria, widget: select, options: ["Saúde empresarial", "Benefícios e RH", "Seguros corporativos", "Gestão de riscos"] }
+      - { label: Resumo para o card, name: resumo, widget: text, pattern: ['^[\s\S]{80,170}$', 'Use entre 80 e 170 caracteres'] }
+      - { label: Em resumo (3 ou 4 frases com a resposta direta), name: emResumo, widget: list, min: 2, max: 5, field: { label: Frase, name: frase, widget: text } }
+      - { label: Texto, name: corpo, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list], editor_components: [], hint: "Use subtítulos (H2) em forma de pergunta. Eles viram o sumário do artigo." }
+      - label: Perguntas frequentes
+        name: faq
+        widget: list
+        required: false
+        summary: "{{fields.pergunta}}"
+        fields:
+          - { label: Pergunta, name: pergunta, widget: string }
+          - { label: Resposta, name: resposta, widget: text }
+      - { label: Palavras-chave, name: tags, widget: list, required: false }
+      - { label: Produtos relacionados, name: relacionados, widget: select, multiple: true, required: false, options: [{ label: "Plano de saúde empresarial", value: plano-de-saude-empresarial }, { label: "Plano odontológico empresarial", value: plano-odontologico }, { label: "Seguro de vida em grupo", value: seguro-de-vida-em-grupo }, { label: "Telemedicina para colaboradores", value: telemedicina }, { label: "Gestão de NR-01", value: gestao-nr-01 }, { label: "Seguro D&O", value: d-o }, { label: "Seguro de Responsabilidade Civil", value: responsabilidade-civil }, { label: "Seguro Patrimonial Empresarial", value: patrimonial }, { label: "Seguro Garantia", value: seguro-garantia }, { label: "Seguro de Riscos de Engenharia", value: riscos-de-engenharia }, { label: "Seguro de Riscos Cibernéticos", value: riscos-ciberneticos }, { label: "Seguro de Frota", value: frota }], hint: "Liga o artigo às páginas de produto e vice-versa." }
+      - { label: Publicado em, name: publicadoEm, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Atualizado em, name: atualizadoEm, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Rascunho (não publicar), name: rascunho, widget: boolean, default: false, required: false }
+      - *seo
+
   # ---------------------------------------------------------------- páginas
   - name: paginas
     label: Páginas

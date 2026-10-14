@@ -1,0 +1,107 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-10-14 00:00:00",
+  "containerVersion": {
+    "path": "accounts/0/containers/0/versions/0",
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "name": "Site AXLO - configuração inicial",
+    "container": {
+      "path": "accounts/0/containers/0",
+      "accountId": "0",
+      "containerId": "0",
+      "name": "AXLO site",
+      "usageContext": ["WEB"]
+    },
+    "tag": [
+      {
+        "accountId": "0", "containerId": "0", "tagId": "1",
+        "name": "GA4 - Google tag",
+        "type": "googtag",
+        "parameter": [{ "type": "TEMPLATE", "key": "tagId", "value": "{{Const - GA4 ID}}" }],
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "consentSettings": { "consentStatus": "NEEDED", "consentType": { "type": "LIST", "list": [{ "type": "TEMPLATE", "value": "analytics_storage" }] } }
+      },
+      {
+        "accountId": "0", "containerId": "0", "tagId": "2",
+        "name": "GA4 - generate_lead (formulário)",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "generate_lead" },
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{Const - GA4 ID}}" },
+          { "type": "LIST", "key": "eventSettingsTable", "list": [
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "origem" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - origem}}" }] },
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "interesse" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - interesse}}" }] },
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "colaboradores" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - colaboradores}}" }] },
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "cargo" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - cargo}}" }] }
+          ] }
+        ],
+        "firingTriggerId": ["10"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0", "containerId": "0", "tagId": "3",
+        "name": "GA4 - whatsapp_click",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "whatsapp_click" },
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{Const - GA4 ID}}" },
+          { "type": "LIST", "key": "eventSettingsTable", "list": [
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "origem" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - origem}}" }] },
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "pagina" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - pagina}}" }] }
+          ] }
+        ],
+        "firingTriggerId": ["11"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0", "containerId": "0", "tagId": "4",
+        "name": "GA4 - form_start",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "form_start" },
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{Const - GA4 ID}}" },
+          { "type": "LIST", "key": "eventSettingsTable", "list": [
+            { "type": "MAP", "map": [{ "type": "TEMPLATE", "key": "parameter", "value": "origem" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - origem}}" }] }
+          ] }
+        ],
+        "firingTriggerId": ["12"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "10",
+        "name": "Evento - generate_lead",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "generate_lead" }] }]
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "11",
+        "name": "Evento - whatsapp_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "whatsapp_click" }] }]
+      },
+      {
+        "accountId": "0", "containerId": "0", "triggerId": "12",
+        "name": "Evento - form_start",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "form_start" }] }]
+      }
+    ],
+    "variable": [
+      { "accountId": "0", "containerId": "0", "variableId": "20", "name": "Const - GA4 ID", "type": "c", "parameter": [{ "type": "TEMPLATE", "key": "value", "value": "G-XXXXXXXXXX" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "21", "name": "DLV - origem", "type": "v", "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "origem" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "22", "name": "DLV - interesse", "type": "v", "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "interesse" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "23", "name": "DLV - colaboradores", "type": "v", "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "colaboradores" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "24", "name": "DLV - cargo", "type": "v", "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "cargo" }] },
+      { "accountId": "0", "containerId": "0", "variableId": "25", "name": "DLV - pagina", "type": "v", "parameter": [{ "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "pagina" }] }
+    ],
+    "builtInVariable": [
+      { "accountId": "0", "containerId": "0", "type": "EVENT", "name": "Event" },
+      { "accountId": "0", "containerId": "0", "type": "PAGE_PATH", "name": "Page Path" }
+    ]
+  }
+}

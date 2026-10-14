@@ -5,6 +5,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import zlib from 'node:zlib';
 
 const PORT = Number(process.env.PORT || 3040);
 const DIST = path.resolve('dist');
@@ -46,7 +47,13 @@ http.createServer(async (req, res) => {
   for (const c of candidates) {
     const f = path.join(DIST, c);
     if (f.startsWith(DIST) && fs.existsSync(f) && fs.statSync(f).isFile()) {
-      res.setHeader('content-type', TYPES[path.extname(f)] || 'application/octet-stream');
+      const ext = path.extname(f);
+      res.setHeader('content-type', TYPES[ext] || 'application/octet-stream');
+      // comprime texto como a Vercel faz em produção, para as medições de performance serem realistas
+      if (/\.(html|css|js|json|svg|xml|txt|yml|webmanifest)$/.test(ext) && /gzip/.test(req.headers['accept-encoding'] || '')) {
+        res.setHeader('content-encoding', 'gzip');
+        return fs.createReadStream(f).pipe(zlib.createGzip()).pipe(res);
+      }
       return fs.createReadStream(f).pipe(res);
     }
   }

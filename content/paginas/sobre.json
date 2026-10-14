@@ -19,17 +19,38 @@
     ]
   },
   "pilares": [
-    { "rotulo": "Propósito", "texto": "Fazer a empresa enxergar a saúde de quem trabalha nela, para decidir melhor e cuidar melhor." },
-    { "rotulo": "Missão", "texto": "Gerir saúde e seguros corporativos o ano inteiro, transformando os dados do contrato em decisões que protegem pessoas e orçamento." },
-    { "rotulo": "Visão", "texto": "Ser a referência brasileira em gestão inteligente de saúde e seguros corporativos, da pequena empresa ao grande contrato." }
+    {
+      "rotulo": "Propósito",
+      "texto": "Fazer a empresa enxergar a saúde de quem trabalha nela, para decidir melhor e cuidar melhor."
+    },
+    {
+      "rotulo": "Missão",
+      "texto": "Gerir saúde e seguros corporativos o ano inteiro, transformando os dados do contrato em decisões que protegem pessoas e orçamento."
+    },
+    {
+      "rotulo": "Visão",
+      "texto": "Ser a referência brasileira em gestão inteligente de saúde e seguros corporativos, da pequena empresa ao grande contrato."
+    }
   ],
   "valores": {
     "titulo": "Quatro valores, cada um com um comportamento que dá para observar",
     "itens": [
-      { "titulo": "Clareza", "texto": "Explicamos reajuste, carência e cobertura em linguagem que o RH consegue repetir sem consultar ninguém." },
-      { "titulo": "Rigor", "texto": "Toda recomendação vem com o dado que a sustenta. Quando não há dado, dizemos que é opinião." },
-      { "titulo": "Presença", "texto": "Quem vendeu continua respondendo. O cliente fala com a AXLO fora da época de renovação." },
-      { "titulo": "Franqueza", "texto": "Dizemos quando não vale trocar de operadora, mesmo que isso signifique não vender." }
+      {
+        "titulo": "Clareza",
+        "texto": "Explicamos reajuste, carência e cobertura em linguagem que o RH consegue repetir sem consultar ninguém."
+      },
+      {
+        "titulo": "Rigor",
+        "texto": "Toda recomendação vem com o dado que a sustenta. Quando não há dado, dizemos que é opinião."
+      },
+      {
+        "titulo": "Presença",
+        "texto": "Quem vendeu continua respondendo. O cliente fala com a AXLO fora da época de renovação."
+      },
+      {
+        "titulo": "Franqueza",
+        "texto": "Dizemos quando não vale trocar de operadora, mesmo que isso signifique não vender."
+      }
     ]
   },
   "simbolo": {
@@ -43,5 +64,54 @@
   "registro": {
     "titulo": "Corretora registrada na SUSEP",
     "texto": "A AXLO é registrada na Superintendência de Seguros Privados sob o nº 252175030. Você pode consultar o registro no site da SUSEP."
+  },
+  "comparativo": {
+    "eyebrow": "A diferença na prática",
+    "titulo": "O corretor que só aparece no reajuste x a AXLO",
+    "colunaAxlo": "AXLO",
+    "colunaOutro": "Só na renovação",
+    "linhas": [
+      {
+        "axlo": "Acompanha o contrato o ano inteiro",
+        "outro": "Aparece quando o reajuste chega"
+      },
+      {
+        "axlo": "Explica o custo com dados do próprio contrato",
+        "outro": "Repassa o número da operadora"
+      },
+      {
+        "axlo": "Negocia com argumento e antecedência",
+        "outro": "Negocia em cima do prazo"
+      },
+      {
+        "axlo": "Diz quando não vale trocar de operadora",
+        "outro": "Troca para vender de novo"
+      },
+      {
+        "axlo": "Atendimento humano para RH e colaboradores",
+        "outro": "Chamado registrado e espera"
+      }
+    ]
+  },
+  "metodo": {
+    "titulo": "Método em quatro etapas",
+    "etapas": [
+      {
+        "titulo": "Diagnóstico",
+        "texto": "Lemos o contrato atual, o uso e os riscos antes de propor qualquer mudança."
+      },
+      {
+        "titulo": "Monitoramento mensal",
+        "texto": "Acompanhamos custo, uso e movimentações todo mês, não só na renovação."
+      },
+      {
+        "titulo": "Ações de prevenção",
+        "texto": "Propomos programas de saúde e ajustes de contrato a partir dos dados."
+      },
+      {
+        "titulo": "Relatório com indicadores",
+        "texto": "RH, financeiro e diretoria recebem relatórios que dá para ler e repetir."
+      }
+    ]
   }
 }

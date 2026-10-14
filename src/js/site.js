@@ -114,6 +114,11 @@
   }
   addEventListener('resize', reveal);
   reveal();
+  // segundo gatilho: se a rolagem não for detectada (rolagem programática, alguns navegadores), o observer revela
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { reveal(); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    pending.forEach(el => io.observe(el));
+  }
 
   /* ---------- slider do topo ---------- */
   const hs = $('#hs');
@@ -226,6 +231,72 @@
       }
     });
   });
+
+  /* ---------- abas de soluções ---------- */
+  $$('.tabs').forEach(tl => {
+    const tabs = $$('[role=tab]', tl), ink = $('.tab-ink', tl);
+    const moveInk = t => { if (ink) { ink.style.width = t.offsetWidth + 'px'; ink.style.transform = `translateX(${t.offsetLeft}px)`; } };
+    const select = (t, foco) => {
+      tabs.forEach(x => {
+        const on = x === t;
+        x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+        const p = document.getElementById(x.getAttribute('aria-controls'));
+        if (p) p.classList.toggle('on', on);
+      });
+      moveInk(t);
+      if (foco) t.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', e => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
+      });
+    });
+    const atual = tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0];
+    moveInk(atual);
+    addEventListener('resize', () => moveInk(tabs.find(t => t.getAttribute('aria-selected') === 'true')));
+    document.fonts && document.fonts.ready.then(() => moveInk(tabs.find(t => t.getAttribute('aria-selected') === 'true')));
+  });
+
+  /* ---------- linha do tempo: preenche conforme a rolagem ---------- */
+  const tl = $('.timeline');
+  const timeline = () => {
+    if (!tl) return;
+    const r = tl.getBoundingClientRect(), vh = innerHeight;
+    const p = Math.min(Math.max((vh * 0.75 - r.top) / (r.height + vh * 0.15), 0), 1);
+    tl.style.setProperty('--prog', reduce ? 1 : p.toFixed(3));
+    const passos = $$('.tl-step', tl);
+    passos.forEach((s, i) => s.classList.toggle('lit', reduce || p >= (i + 0.35) / passos.length));
+  };
+  addEventListener('scroll', () => requestAnimationFrame(timeline), { passive: true });
+  timeline();
+
+  /* ---------- blog: filtro por tema ---------- */
+  const chips = $$('.chip[data-filtro]');
+  chips.forEach(c => c.addEventListener('click', () => {
+    const f = c.dataset.filtro;
+    chips.forEach(x => { x.classList.toggle('on', x === c); x.setAttribute('aria-pressed', x === c); });
+    $$('.post-grid-feature .post-card').forEach(card => { card.hidden = f !== 'todos' && card.dataset.cat !== f; if (!card.hidden) card.classList.add('in'); });
+  }));
+
+  /* ---------- artigo: sumário acompanha a leitura ---------- */
+  const tocLinks = $$('.toc a');
+  if (tocLinks.length) {
+    const alvos = tocLinks.map(a => document.getElementById(decodeURIComponent(a.hash.slice(1)))).filter(Boolean);
+    const marca = () => {
+      let atual = alvos[0];
+      for (const h of alvos) if (h.getBoundingClientRect().top < 140) atual = h;
+      tocLinks.forEach(a => a.classList.toggle('on', a.hash.slice(1) === atual.id));
+    };
+    addEventListener('scroll', () => requestAnimationFrame(marca), { passive: true });
+    marca();
+  }
+
+  /* ---------- sanfonas do rodapé e do sumário: fechadas no celular, abertas no computador ---------- */
+  const ajustaSanfonas = () => { const m = innerWidth <= 640; $$('.f-col, .toc-d').forEach(d => { if (m && !d.dataset.mexeu) d.open = false; if (!m) d.open = true; }); };
+  $$('.f-col summary, .toc-d summary').forEach(s => s.addEventListener('click', e => { if (innerWidth > 640) e.preventDefault(); else s.parentElement.dataset.mexeu = '1'; }));
+  ajustaSanfonas(); addEventListener('resize', ajustaSanfonas);
 
   /* ---------- cookies (LGPD) com Consent Mode do Google ---------- */
   const banner = $('#cookie');
