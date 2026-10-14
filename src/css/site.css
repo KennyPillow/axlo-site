@@ -233,7 +233,12 @@ p{text-wrap:pretty}
 .marquee:hover .mq-track{animation-play-state:paused}
 @keyframes scroll{to{transform:translateX(calc(-50% - 7px))}}
 .op{height:60px;min-width:150px;padding:0 22px;border-radius:12px;border:1px solid var(--linha);background:#fff;display:flex;align-items:center;justify-content:center}
-.op img{max-height:30px;max-width:120px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.7}
+.op{transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
+.op img{max-height:30px;max-width:120px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .35s,opacity .35s,transform .35s var(--ease)}
+.op:hover{border-color:var(--lilas);box-shadow:0 10px 24px -16px rgba(40,15,145,.45);transform:translateY(-2px)}
+.op:hover img{filter:none;opacity:1;transform:scale(1.04)}
+/* no celular não existe "passar o mouse": as logos já aparecem coloridas */
+@media (hover:none){.op img{filter:none;opacity:1}}
 
 /* manifesto e mensagens */
 .manifesto .wrap{position:relative}
