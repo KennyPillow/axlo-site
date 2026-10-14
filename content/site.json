@@ -1,0 +1,108 @@
+{
+  "nome": "AXLO",
+  "descritor": "Saúde & Seguros Corporativos",
+  "tagline": "Dado que vira cuidado.",
+  "url": "https://axlo.com.br",
+  "contato": {
+    "telefone": "(11) 2362-4077",
+    "whatsapp": "",
+    "whatsappMensagem": "Olá! Vim pelo site da AXLO e quero falar sobre a saúde e os seguros da minha empresa.",
+    "email": "axlo@axlo.com.br",
+    "horario": "Segunda a sexta, das 9h às 18h"
+  },
+  "empresa": {
+    "razaoSocial": "",
+    "cnpj": "",
+    "susep": "252175030",
+    "endereco": "",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "cep": ""
+  },
+  "redes": {
+    "linkedin": "",
+    "instagram": ""
+  },
+  "rastreamento": {
+    "gtmId": "",
+    "ga4Id": "",
+    "searchConsole": ""
+  },
+  "novidades": [
+    {
+      "titulo": "Diagnóstico do contrato",
+      "texto": "Entenda o que explica o custo do seu plano antes da próxima renovação.",
+      "link": "/contato"
+    },
+    {
+      "titulo": "Gestão de NR-01",
+      "texto": "Riscos psicossociais agora fazem parte do gerenciamento de riscos ocupacionais.",
+      "link": "/saude-e-beneficios/gestao-nr-01"
+    }
+  ],
+  "operadoras": {
+    "mostrar": true,
+    "titulo": "Operadoras e seguradoras do mercado",
+    "logos": [
+      {
+        "nome": "Amil",
+        "arquivo": "/assets/operadoras/amil.png"
+      },
+      {
+        "nome": "Bradesco Saúde",
+        "arquivo": "/assets/operadoras/bradesco.png"
+      },
+      {
+        "nome": "SulAmérica",
+        "arquivo": "/assets/operadoras/sulamerica.png"
+      },
+      {
+        "nome": "Porto Seguro",
+        "arquivo": "/assets/operadoras/porto.png"
+      },
+      {
+        "nome": "NotreDame Intermédica",
+        "arquivo": "/assets/operadoras/notredame.png"
+      },
+      {
+        "nome": "Hapvida",
+        "arquivo": "/assets/operadoras/hapvida.png"
+      },
+      {
+        "nome": "Seguros Unimed",
+        "arquivo": "/assets/operadoras/segurosunimed.png"
+      },
+      {
+        "nome": "Alice",
+        "arquivo": "/assets/operadoras/alice.png"
+      },
+      {
+        "nome": "Prevent Senior",
+        "arquivo": "/assets/operadoras/prevent.png"
+      },
+      {
+        "nome": "MedSênior",
+        "arquivo": "/assets/operadoras/medsenior.png"
+      },
+      {
+        "nome": "Qualicorp",
+        "arquivo": "/assets/operadoras/qualicorp.png"
+      },
+      {
+        "nome": "Sami",
+        "arquivo": "/assets/operadoras/sami.png"
+      },
+      {
+        "nome": "BioVida",
+        "arquivo": "/assets/operadoras/biovida.png"
+      },
+      {
+        "nome": "Trasmontano",
+        "arquivo": "/assets/operadoras/trasmontano.png"
+      }
+    ]
+  },
+  "seo": {
+    "imagemPadrao": "/assets/og/axlo-og.png"
+  }
+}

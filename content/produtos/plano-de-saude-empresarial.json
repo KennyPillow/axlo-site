@@ -1,0 +1,91 @@
+{
+  "slug": "plano-de-saude-empresarial",
+  "categoria": "beneficios",
+  "ordem": 1,
+  "titulo": "Plano de saúde empresarial",
+  "nomeCurto": "Plano de saúde",
+  "icone": "heart-pulse",
+  "resumo": "Da pequena empresa ao grande contrato, com gestão de sinistralidade, reajuste e atendimento ao colaborador.",
+  "hero": {
+    "eyebrow": "Saúde & Benefícios",
+    "titulo": "Plano de saúde acompanhado o ano inteiro, não só no reajuste",
+    "subtitulo": "Contratamos, monitoramos e cuidamos do plano de saúde da sua empresa com dados mensais, ações de prevenção e gente de verdade atendendo RH e colaboradores."
+  },
+  "paraQuem": "Empresas de todos os portes, da PME com poucos colaboradores ao contrato com milhares de beneficiários. O plano de saúde costuma ser um dos maiores custos da folha. Sócios e financeiro precisam de previsibilidade, e o RH precisa de um parceiro que resolva as demandas do dia a dia.",
+  "protege": [
+    {
+      "titulo": "Consultas e exames",
+      "texto": "Atendimento ambulatorial com consultas, exames e terapias previstos no rol da ANS e no contrato escolhido."
+    },
+    {
+      "titulo": "Internação e cirurgias",
+      "texto": "Internações clínicas e cirúrgicas, UTI e procedimentos hospitalares, conforme a segmentação contratada."
+    },
+    {
+      "titulo": "Urgência e emergência",
+      "texto": "Atendimento em pronto-socorro na rede credenciada, nas condições previstas no contrato."
+    },
+    {
+      "titulo": "Obstetrícia",
+      "texto": "Pré-natal, parto e cobertura do recém-nascido, quando a segmentação contratada inclui obstetrícia."
+    },
+    {
+      "titulo": "Rede e reembolso",
+      "texto": "Acesso à rede credenciada do plano e, em produtos com essa opção, reembolso de atendimentos fora da rede dentro dos limites contratuais."
+    }
+  ],
+  "situacoes": [
+    "O reajuste anual chega acima do esperado e o financeiro precisa entender o que explica o aumento.",
+    "Poucos casos de alto custo concentram a maior parte da sinistralidade, ou seja, de quanto do valor pago voltou em uso.",
+    "O RH gasta horas por semana com inclusões, exclusões e pedidos de segunda via de carteirinha.",
+    "Colaboradores não sabem como pedir autorização de um exame e recorrem ao pronto-socorro."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico do contrato",
+      "texto": "Analisamos regras de reajuste, coparticipação, rede e utilização para mostrar o X da questão no seu custo e dizer com franqueza se vale trocar."
+    },
+    {
+      "titulo": "Monitoramento e relatórios",
+      "texto": "Acompanhamos a sinistralidade todo mês no Dashboard AXLO e entregamos relatórios executivos para RH, financeiro e diretoria."
+    },
+    {
+      "titulo": "Movimentações e concierge",
+      "texto": "Cuidamos de inclusões, exclusões, segunda via e cadastro, e orientamos colaboradores sobre rede, agendamento, autorização e reembolso."
+    },
+    {
+      "titulo": "Prevenção e reajuste preparado",
+      "texto": "Propomos ações de prevenção com base nos dados e preparamos a negociação do reajuste com meses de antecedência."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "Como é calculado o reajuste do plano empresarial?",
+      "resposta": "Em contratos menores, o reajuste costuma ser calculado em conjunto com outros contratos da operadora. Em contratos maiores, ele considera principalmente a sinistralidade do próprio grupo e a variação dos custos médicos. O monitoramento mensal permite antecipar e negociar esse número."
+    },
+    {
+      "pergunta": "O plano empresarial tem carência?",
+      "resposta": "Depende do porte do contrato e do prazo de adesão do colaborador, conforme as regras da ANS e da operadora. Em contratos maiores, a adesão dentro do prazo previsto pode dispensar carências."
+    },
+    {
+      "pergunta": "Coparticipação vale a pena?",
+      "resposta": "Pode reduzir a mensalidade e estimular o uso consciente, mas transfere parte do custo ao colaborador. Avaliamos o perfil de uso antes de recomendar."
+    },
+    {
+      "pergunta": "Trocar de operadora sempre reduz o custo?",
+      "resposta": "Nem sempre. Uma troca pode trazer custo menor no primeiro ano e reajustes maiores depois, além de mudanças de rede. Dizemos quando não vale trocar."
+    },
+    {
+      "pergunta": "Quem atende o colaborador no dia a dia?",
+      "resposta": "O concierge de saúde da AXLO orienta sobre rede, agendamentos, autorizações e reembolsos, com gente de verdade no atendimento."
+    }
+  ],
+  "cta": {
+    "titulo": "Encontre o X da questão no seu plano de saúde",
+    "texto": "O primeiro passo é um diagnóstico do contrato atual, da utilização e do histórico de reajustes."
+  },
+  "seo": {
+    "title": "Plano de saúde empresarial com gestão | AXLO",
+    "description": "Plano de saúde empresarial da PME ao grande contrato, com gestão de sinistralidade, preparo do reajuste, movimentações e concierge de saúde da AXLO."
+  }
+}

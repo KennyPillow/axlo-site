@@ -1,0 +1,91 @@
+{
+  "slug": "seguro-de-vida-em-grupo",
+  "categoria": "beneficios",
+  "ordem": 3,
+  "titulo": "Seguro de vida em grupo",
+  "nomeCurto": "Vida em grupo",
+  "icone": "users",
+  "resumo": "Proteção financeira para colaboradores e famílias em caso de morte, invalidez e outros eventos cobertos.",
+  "hero": {
+    "eyebrow": "Saúde & Benefícios",
+    "titulo": "Amparo para as famílias e segurança para a empresa",
+    "subtitulo": "O seguro de vida em grupo paga indenização aos beneficiários do colaborador em caso de morte ou invalidez, e ajuda a empresa a cumprir exigências de convenções coletivas."
+  },
+  "paraQuem": "Empresas de todos os portes, especialmente as que têm convenção coletiva com exigência de seguro de vida. O benefício tem custo baixo por colaborador e alto valor percebido. RH e jurídico precisam conferir se o capital segurado e as coberturas atendem ao que a convenção pede.",
+  "protege": [
+    {
+      "titulo": "Morte natural ou acidental",
+      "texto": "Indenização aos beneficiários indicados pelo colaborador, no valor do capital segurado."
+    },
+    {
+      "titulo": "Invalidez por acidente",
+      "texto": "Indenização total ou parcial em caso de invalidez permanente causada por acidente, conforme tabela da apólice."
+    },
+    {
+      "titulo": "Invalidez por doença",
+      "texto": "Indenização quando uma doença causa perda da autonomia do colaborador, nos critérios definidos na apólice."
+    },
+    {
+      "titulo": "Assistência funeral",
+      "texto": "Organização e custeio do funeral do colaborador e, conforme o plano, de familiares."
+    },
+    {
+      "titulo": "Doenças graves",
+      "texto": "Antecipação de parte do capital no diagnóstico de doenças previstas na apólice, quando contratada."
+    },
+    {
+      "titulo": "Cônjuge e filhos",
+      "texto": "Extensão da cobertura para cônjuge e filhos, com percentual do capital do titular."
+    }
+  ],
+  "situacoes": [
+    "A convenção coletiva da categoria passa a exigir seguro de vida com capital mínimo definido.",
+    "Um colaborador sofre um acidente fora do trabalho e fica com sequela permanente.",
+    "A família de um colaborador falecido precisa de apoio imediato para despesas e organização do funeral.",
+    "A empresa contrata novos colaboradores todos os meses e precisa manter a lista de segurados atualizada."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Leitura da convenção",
+      "texto": "Conferimos o que a convenção coletiva exige e desenhamos capital e coberturas para atender sem pagar pelo que não é necessário."
+    },
+    {
+      "titulo": "Capital bem definido",
+      "texto": "Comparamos capital fixo e múltiplo salarial, e mostramos o custo de cada opção para cada grupo de colaboradores."
+    },
+    {
+      "titulo": "Movimentações mensais",
+      "texto": "Cuidamos da atualização da lista de segurados, inclusões, exclusões e ajustes salariais, para ninguém ficar descoberto."
+    },
+    {
+      "titulo": "Apoio à família no sinistro",
+      "texto": "Orientamos o RH e os beneficiários sobre documentos e prazos, e acompanhamos o processo até o pagamento."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O seguro de vida em grupo é obrigatório?",
+      "resposta": "Não existe obrigação geral, mas muitas convenções coletivas exigem. Vale verificar a convenção do sindicato da sua categoria."
+    },
+    {
+      "pergunta": "Quem escolhe os beneficiários?",
+      "resposta": "O próprio colaborador. Na falta de indicação, a indenização segue a ordem prevista na legislação."
+    },
+    {
+      "pergunta": "Doenças preexistentes estão cobertas?",
+      "resposta": "Depende das condições da apólice. Em seguros em grupo, as regras de aceitação e de doenças preexistentes variam conforme a seguradora e o tamanho do grupo."
+    },
+    {
+      "pergunta": "A indenização entra no inventário?",
+      "resposta": "Em regra, o capital do seguro de vida é pago diretamente aos beneficiários e não integra a herança. Casos específicos devem ser avaliados com o jurídico."
+    }
+  ],
+  "cta": {
+    "titulo": "Sua apólice atende a convenção?",
+    "texto": "Comece por um diagnóstico da apólice atual e das exigências da convenção coletiva da sua empresa."
+  },
+  "seo": {
+    "title": "Seguro de vida em grupo para empresas | AXLO",
+    "description": "Seguro de vida em grupo para empresas, com capital alinhado à convenção coletiva, gestão mensal de segurados e apoio da AXLO às famílias no sinistro."
+  }
+}

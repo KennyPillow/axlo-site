@@ -1,0 +1,28 @@
+{
+  "seo": {
+    "title": "Seguros corporativos e gestão de riscos | AXLO",
+    "description": "D&O, responsabilidade civil, patrimonial, seguro garantia, riscos de engenharia, riscos cibernéticos e frota, com diagnóstico de riscos e apoio no sinistro."
+  },
+  "hero": {
+    "eyebrow": "AXLO Seguros Corporativos",
+    "titulo": "Gestão de riscos para empresas, do diagnóstico ao sinistro",
+    "subtitulo": "Atuamos em todos os ramos de seguro empresarial. Mapeamos os riscos da operação, comparamos apólices com critério e acompanhamos o contrato o ano inteiro."
+  },
+  "intro": {
+    "titulo": "Seguro bem contratado começa pelo risco certo",
+    "texto": "Antes de cotar, entendemos a operação: contratos, ativos, dados, frota, obras e a exposição de quem administra a empresa. Assim a apólice cobre o que de fato pode acontecer."
+  },
+  "etapas": {
+    "titulo": "Como conduzimos",
+    "itens": [
+      { "titulo": "Mapa de riscos", "texto": "Levantamos a exposição da empresa por área e priorizamos o que tem maior impacto." },
+      { "titulo": "Desenho da proteção", "texto": "Definimos coberturas, limites e franquias adequados ao porte e ao contrato." },
+      { "titulo": "Comparação com critério", "texto": "Comparamos propostas por cobertura e exclusões, não só por preço." },
+      { "titulo": "Acompanhamento e sinistro", "texto": "Revisamos a apólice quando a operação muda e conduzimos o sinistro ao lado da empresa." }
+    ]
+  },
+  "ctaFinal": {
+    "titulo": "Qual é o X do risco da sua empresa?",
+    "texto": "Peça um diagnóstico de riscos. Mostramos onde a empresa está exposta e o que vale proteger primeiro."
+  }
+}

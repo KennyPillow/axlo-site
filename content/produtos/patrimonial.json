@@ -1,0 +1,91 @@
+{
+  "slug": "patrimonial",
+  "categoria": "seguros",
+  "ordem": 3,
+  "titulo": "Seguro Patrimonial Empresarial",
+  "nomeCurto": "Patrimonial",
+  "icone": "building",
+  "resumo": "Protege imóveis, máquinas, estoque e o faturamento da empresa contra incêndio, danos e paralisações.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "O patrimônio da empresa protegido do prédio ao estoque",
+    "subtitulo": "O seguro patrimonial cobre danos a imóveis, máquinas, equipamentos e mercadorias, e pode incluir a perda de receita enquanto a operação está parada."
+  },
+  "paraQuem": "Indústrias, centros de distribuição, varejo, escritórios, clínicas e qualquer empresa com ativos físicos relevantes. Um incêndio ou uma pane elétrica pode parar a operação por semanas. O sócio e o financeiro precisam saber se o valor segurado reflete o custo real de reposição e se a empresa aguenta o tempo de recuperação.",
+  "protege": [
+    {
+      "titulo": "Incêndio, raio e explosão",
+      "texto": "Cobertura básica que responde por danos materiais causados por esses eventos ao imóvel e ao conteúdo."
+    },
+    {
+      "titulo": "Danos elétricos",
+      "texto": "Danos a máquinas e equipamentos causados por curto-circuito, variação de tensão ou descarga elétrica."
+    },
+    {
+      "titulo": "Vendaval e eventos da natureza",
+      "texto": "Vendaval, granizo, alagamento e outros eventos, conforme as coberturas adicionais escolhidas."
+    },
+    {
+      "titulo": "Roubo e furto qualificado",
+      "texto": "Subtração de bens e mercadorias com vestígios de arrombamento ou uso de violência, dentro dos limites contratados."
+    },
+    {
+      "titulo": "Quebra de máquinas",
+      "texto": "Danos internos a máquinas e equipamentos por falha mecânica ou operacional, quando incluída na apólice."
+    },
+    {
+      "titulo": "Lucros cessantes",
+      "texto": "Perda de lucro bruto e despesas fixas que continuam durante a paralisação causada por um sinistro coberto."
+    }
+  ],
+  "situacoes": [
+    "Um curto-circuito no quadro de energia provoca incêndio no depósito e destrói parte do estoque.",
+    "Uma descarga elétrica queima o compressor de uma câmara fria e a mercadoria perece antes do conserto.",
+    "A fábrica fica 40 dias parada após um sinistro, mas a folha de pagamento e os aluguéis continuam vencendo.",
+    "Um vendaval danifica o telhado do galpão e a água atinge equipamentos da linha de produção."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Levantamento de valores",
+      "texto": "Revisamos o valor de reposição de imóveis, máquinas e estoque para reduzir o risco de seguro abaixo do necessário."
+    },
+    {
+      "titulo": "Desenho das coberturas",
+      "texto": "Comparamos riscos nomeados e apólices de cobertura ampla, e explicamos o que cada adicional cobre e quanto custa."
+    },
+    {
+      "titulo": "Prevenção com a seguradora",
+      "texto": "Apoiamos a empresa na inspeção de risco e nas recomendações de segurança, que influenciam aceitação e preço."
+    },
+    {
+      "titulo": "Sinistro acompanhado",
+      "texto": "Orientamos o aviso, a documentação e a vistoria, e acompanhamos a regulação junto com o financeiro da empresa."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O que acontece se o valor segurado estiver abaixo do valor real?",
+      "resposta": "Muitas apólices aplicam a cláusula de rateio: a indenização é reduzida na proporção da diferença. Por isso revisamos os valores antes da contratação e da renovação."
+    },
+    {
+      "pergunta": "Imóvel alugado também pode ser segurado?",
+      "resposta": "Sim. A empresa locatária pode segurar conteúdo, benfeitorias e lucros cessantes, e o contrato de locação costuma definir quem segura o prédio."
+    },
+    {
+      "pergunta": "Lucros cessantes precisa ser contratado separado?",
+      "resposta": "É uma cobertura adicional, vinculada a um dano material coberto. O período de indenização e a forma de cálculo são definidos na contratação."
+    },
+    {
+      "pergunta": "Estoque que varia ao longo do ano pode ser segurado?",
+      "resposta": "Sim. Existem formas de contratação com valor ajustável ou declarações periódicas, conforme a seguradora e o perfil do estoque."
+    }
+  ],
+  "cta": {
+    "titulo": "Seu valor segurado está certo?",
+    "texto": "Comece por um diagnóstico da apólice atual e dos valores em risco da sua operação."
+  },
+  "seo": {
+    "title": "Seguro Patrimonial Empresarial para empresas | AXLO",
+    "description": "Seguro patrimonial empresarial para imóveis, máquinas, estoque e lucros cessantes, com revisão de valores e acompanhamento da AXLO no sinistro."
+  }
+}
