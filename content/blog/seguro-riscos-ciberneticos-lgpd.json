@@ -1,0 +1,47 @@
+{
+  "slug": "seguro-riscos-ciberneticos-lgpd",
+  "titulo": "Seguro de riscos cibernéticos e LGPD: coberturas e exigências",
+  "resumo": "Veja o que o seguro de riscos cibernéticos costuma cobrir, como ele se relaciona com a LGPD e quais controles a seguradora pede antes de aceitar o risco.",
+  "emResumo": [
+    "O seguro de riscos cibernéticos ajuda a empresa a pagar a resposta a um ataque ou vazamento de dados e as reclamações de terceiros que vêm depois.",
+    "As coberturas típicas incluem resposta a incidentes, perícia, notificação de titulares, interrupção de negócios e responsabilidade perante terceiros.",
+    "Multas e pagamento de resgate dependem da apólice e da possibilidade legal de serem seguradas.",
+    "A seguradora costuma exigir controles mínimos, como autenticação em dois fatores, backup isolado e atualização de sistemas."
+  ],
+  "categoria": "Gestão de riscos",
+  "tags": [
+    "seguro cyber",
+    "seguro de riscos cibernéticos",
+    "LGPD",
+    "vazamento de dados",
+    "ransomware"
+  ],
+  "relacionados": [
+    "riscos-ciberneticos"
+  ],
+  "publicadoEm": "2026-10-13",
+  "atualizadoEm": "2026-10-13",
+  "corpo": "Um ataque de sequestro de dados ou um vazamento de informações de clientes pode parar a operação e gerar custos em várias frentes ao mesmo tempo. O **seguro de riscos cibernéticos**, também chamado de **seguro cyber**, foi criado para ajudar a empresa a responder a esse tipo de evento. Neste artigo, você entende o que ele costuma cobrir, o que depende da apólice e como a LGPD entra nessa conta.\n\n## O que é o seguro de riscos cibernéticos?\n\nÉ um seguro que responde a perdas causadas por **incidentes de segurança da informação**. Isso inclui invasões, vírus, sequestro de dados (*ransomware*), vazamento de dados pessoais, erros humanos que expõem informações e falhas que tiram sistemas do ar.\n\nA apólice costuma ter duas partes. A primeira cobre os **danos próprios**, ou seja, os custos que a empresa tem para se recuperar. A segunda cobre a **responsabilidade perante terceiros**, quando clientes, parceiros ou titulares de dados pedem reparação.\n\n### Como a LGPD se relaciona com o seguro?\n\nA **LGPD** (Lei Geral de Proteção de Dados) define regras para coletar, guardar e tratar dados pessoais. Quando há um incidente com esses dados, a empresa pode ter de comunicar a autoridade nacional e os titulares afetados, além de responder a reclamações. O seguro cyber pode ajudar a custear essa resposta, mas não substitui o programa de adequação à LGPD. A seguradora, inclusive, costuma avaliar esse programa antes de aceitar o risco.\n\n## Quais coberturas o seguro cyber costuma ter?\n\nAs coberturas variam entre apólices e cada uma pode ter sublimite próprio. As mais comuns são:\n\n- **Resposta a incidentes**: acesso a uma equipe especializada logo após o ataque, muitas vezes por um canal de atendimento disponível o dia inteiro.\n- **Perícia forense**: investigação técnica para descobrir como o ataque aconteceu, o que foi afetado e como conter o problema.\n- **Notificação**: custos para comunicar titulares de dados e autoridades, incluindo central de atendimento e, em alguns casos, monitoramento de crédito para os afetados.\n- **Assessoria jurídica e de imagem**: apoio para cumprir obrigações legais e reduzir o dano à reputação.\n- **Recuperação de dados e sistemas**: despesas para restaurar arquivos, reconstruir bancos de dados e voltar a operar.\n- **Interrupção de negócios**: perda de lucro e despesas extras enquanto a operação está parada por causa do incidente, depois de um período de carência definido em horas.\n- **Responsabilidade perante terceiros**: defesa e indenizações quando clientes, parceiros ou titulares processam a empresa pelo vazamento ou pela falha de segurança.\n- **Processos administrativos**: defesa em procedimentos de órgãos de proteção de dados e de defesa do consumidor, conforme a apólice.\n\nAlgumas apólices também tratam de **fraude por engenharia social**, quando um funcionário é enganado e faz um pagamento para um golpista. Essa cobertura costuma ter limite reduzido e nem sempre vem incluída.\n\n## O que depende da apólice e da lei?\n\nDois temas geram muitas dúvidas: multas e pagamento de resgate.\n\n### Multas e sanções\n\nAlgumas apólices preveem cobertura para multas administrativas, mas isso depende das condições contratadas e da possibilidade legal de segurar esse tipo de penalidade. Não assuma que a multa está coberta. Peça para o corretor mostrar a cláusula e o entendimento da seguradora por escrito.\n\n### Pagamento de resgate\n\nO pagamento de resgate em ataques de *ransomware* também depende da apólice. Algumas tratam o tema com regras específicas, exigem aprovação prévia da seguradora e podem limitar ou excluir esse reembolso. Além disso, a decisão de pagar envolve questões legais e éticas que precisam ser avaliadas caso a caso. O foco da apólice costuma estar na contenção, na recuperação e na defesa.\n\n### Exclusões comuns\n\nEntre as exclusões frequentes estão:\n\n- falhas de infraestrutura externa, como queda geral de energia ou de internet;\n- incidentes conhecidos antes da contratação e não informados;\n- atos de guerra, conforme a redação da apólice;\n- investimentos em sistemas que vão além de restaurar a situação anterior;\n- perda de valor de propriedade intelectual.\n\n## Quais medidas a seguradora costuma exigir?\n\nAntes de emitir a apólice, a seguradora envia um questionário técnico. As respostas influenciam a aceitação, o preço e a franquia. Em geral, ela verifica:\n\n1. **Autenticação em dois fatores** (MFA) para e-mail, acesso remoto e contas com privilégios de administrador.\n2. **Backup isolado** da rede principal, testado com frequência.\n3. **Atualização de sistemas** e correção de falhas de segurança em prazo definido.\n4. **Antivírus e monitoramento de endpoints**, ou seja, das máquinas e servidores conectados.\n5. **Treinamento de funcionários** contra golpes por e-mail e mensagens.\n6. **Plano de resposta a incidentes** documentado, com responsáveis definidos.\n7. **Controle de acessos**, com permissões revisadas e desligamento rápido de contas de ex-funcionários.\n8. **Programa de privacidade** alinhado à LGPD, com encarregado de dados nomeado.\n\nResponder ao questionário com precisão é essencial. Uma resposta incorreta pode comprometer a indenização no momento do sinistro. Se algum controle ainda não existe, o recomendado é informar e mostrar o plano para implantar.\n\n## Como definir o limite do seguro cyber?\n\nO limite deve refletir o custo provável de um incidente para o seu negócio. Alguns pontos ajudam nessa conta:\n\n- volume e sensibilidade dos dados pessoais tratados;\n- dependência da operação em sistemas digitais;\n- faturamento diário que seria perdido com a operação parada;\n- contratos com clientes que exigem seguro cyber com limite mínimo;\n- custo estimado de perícia, notificação e defesa.\n\nVale também conversar com a área de TI sobre o tempo realista de recuperação. Esse dado ajuda a dimensionar a cobertura de interrupção de negócios.\n\n## Como a AXLO ajuda\n\nA AXLO começa pelo diagnóstico: entende a operação, os dados tratados e os controles existentes junto com TI e jurídico. Depois compara apólices por cobertura, sublimites e exclusões, com atenção aos temas que dependem da apólice. Durante a vigência, acompanhamos mudanças de risco e apoiamos a empresa no acionamento se houver um incidente. Veja mais na página de [riscos cibernéticos](/seguros-corporativos/riscos-ciberneticos) e, para a proteção da diretoria, no artigo sobre [seguro D&O](/blog/seguro-d-o-o-que-cobre).",
+  "faq": [
+    {
+      "pergunta": "Pequenas empresas precisam de seguro cyber?",
+      "resposta": "Empresas pequenas também sofrem ataques e tratam dados pessoais. A necessidade depende do quanto a operação depende de sistemas e do volume de dados guardados."
+    },
+    {
+      "pergunta": "O seguro cyber cobre multas da LGPD?",
+      "resposta": "Depende da apólice e da possibilidade legal de segurar esse tipo de penalidade. É preciso conferir a cláusula específica antes de contratar."
+    },
+    {
+      "pergunta": "O que fazer logo após um ataque se tenho seguro cyber?",
+      "resposta": "Acione o canal de resposta a incidentes indicado na apólice o quanto antes e avise o corretor. Evite tomar decisões sobre pagamento de resgate ou contratação de fornecedores sem falar com a seguradora."
+    },
+    {
+      "pergunta": "O seguro cyber substitui investimento em segurança?",
+      "resposta": "Não substitui. A seguradora exige controles mínimos para aceitar o risco, e o seguro funciona como apoio financeiro quando um incidente acontece mesmo assim."
+    }
+  ],
+  "seo": {
+    "title": "Seguro de riscos cibernéticos e LGPD | AXLO",
+    "description": "Entenda o que o seguro cyber cobre, o que depende da apólice, como multas e resgate, e quais controles a seguradora exige das empresas brasileiras."
+  }
+}

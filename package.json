@@ -21,6 +21,7 @@
   "homepage": "https://github.com/KennyPillow/axlo-site#readme",
   "devDependencies": {
     "decap-server": "^3.11.3",
+    "puppeteer-core": "^25.13.0",
     "sharp": "^0.35.5"
   },
   "private": true,
