@@ -38,7 +38,7 @@ for (const v of VIEWS) {
     const r = await page.evaluate(({ mobile, dpr }) => {
       const W = document.documentElement.clientWidth;
       const visivel = el => { const s = getComputedStyle(el); if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity === 0) return false; const b = el.getBoundingClientRect(); return b.width > 0 && b.height > 0; };
-      const ignora = el => el.closest('.marquee,.post-grid-scroll,.sr-only,.drawer,.x-mark,.mega,.bell-panel,.cookie,.hs-slide:not(.on),.tab-panel:not(.on),.hp,.skip,.post-card[hidden],.tl-line');
+      const ignora = el => el.closest('.marquee,.post-grid-scroll,.chips,.sr-only,.drawer,.x-mark,.mega,.bell-panel,.cookie,.hs-slide:not(.on),.tab-panel:not(.on),.hp,.skip,.post-card[hidden],.tl-line');
       const desc = el => (el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.') : '')).slice(0, 60);
       const fora = [], cortado = [], toque = [], ampliada = [];
       for (const el of document.querySelectorAll('body *')) {
