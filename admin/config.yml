@@ -1,0 +1,429 @@
+# Painel de edição do site AXLO (Decap CMS).
+# Cada alteração salva aqui vira um commit no GitHub da AXLO e a Vercel publica o site sozinha em 1 a 2 minutos.
+# __CMS_REPO__, __CMS_BRANCH__ e __SITE_URL__ são preenchidos no build (variáveis CMS_REPO, CMS_BRANCH e site.url).
+
+backend:
+  name: github
+  repo: __CMS_REPO__
+  branch: __CMS_BRANCH__
+  base_url: __SITE_URL__
+  auth_endpoint: api/auth
+  commit_messages:
+    create: "Painel: cria {{collection}} “{{slug}}”"
+    update: "Painel: atualiza {{collection}} “{{slug}}”"
+    delete: "Painel: remove {{collection}} “{{slug}}”"
+    uploadMedia: "Painel: envia {{path}}"
+    deleteMedia: "Painel: remove {{path}}"
+
+# no computador do desenvolvedor, com `npx decap-server`, o painel edita os arquivos locais
+local_backend: true
+
+locale: pt
+site_url: __SITE_URL__
+display_url: __SITE_URL__
+logo_url: /assets/brand/axlo-horizontal.svg
+media_folder: src/uploads
+public_folder: /uploads
+
+# blocos reaproveitados
+_seo: &seo
+  label: SEO (Google)
+  name: seo
+  widget: object
+  collapsed: true
+  hint: "Título até 60 caracteres e descrição entre 130 e 155. É o que aparece no resultado do Google."
+  fields:
+    - { label: Título da página, name: title, widget: string, pattern: ['^.{10,65}$', 'Use entre 10 e 65 caracteres'] }
+    - { label: Descrição, name: description, widget: text, pattern: ['^[\s\S]{70,170}$', 'Use entre 70 e 170 caracteres'] }
+
+_hero: &hero
+  label: Topo da página
+  name: hero
+  widget: object
+  fields:
+    - { label: Rótulo acima do título, name: eyebrow, widget: string }
+    - { label: "Título (H1)", name: titulo, widget: string }
+    - { label: Subtítulo, name: subtitulo, widget: text }
+
+_titulo_texto: &titulo_texto
+  - { label: Título, name: titulo, widget: string }
+  - { label: Texto, name: texto, widget: text }
+
+_icone: &icone
+  label: Ícone
+  name: icone
+  widget: select
+  options: [shield, scale, building, file-check, crane, lock, truck, heart-pulse, tooth, users, video, clipboard, chart, sprout, refresh, headset]
+
+_cta: &cta
+  label: Chamada final (com formulário)
+  name: ctaFinal
+  widget: object
+  fields: *titulo_texto
+
+collections:
+  # ---------------------------------------------------------------- produtos
+  - name: seguros
+    label: Seguros corporativos
+    label_singular: Seguro
+    description: Páginas de cada seguro corporativo. O endereço fica em /seguros-corporativos/{endereço}.
+    folder: content/produtos
+    format: json
+    extension: json
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: titulo
+    filter: { field: categoria, value: seguros }
+    summary: "{{ordem}} · {{titulo}}"
+    sortable_fields:
+      fields: [ordem, titulo]
+      default: { field: ordem, direction: ascending }
+    fields: &produto
+      - { label: Categoria, name: categoria, widget: hidden, default: seguros }
+      - { label: Nome do produto, name: titulo, widget: string }
+      - { label: Nome curto, name: nomeCurto, widget: string }
+      - { label: Endereço da página, name: slug, widget: string, pattern: ['^[a-z0-9-]+$', 'Só letras minúsculas sem acento, números e hífen'], hint: "Ex.: riscos-ciberneticos. Mudar o endereço quebra links já indexados no Google." }
+      - { label: Ordem na lista, name: ordem, widget: number, value_type: int, min: 1 }
+      - *icone
+      - { label: Resumo para os cards, name: resumo, widget: text, pattern: ['^[\s\S]{20,130}$', 'Use até 130 caracteres'] }
+      - label: Topo da página
+        name: hero
+        widget: object
+        fields:
+          - { label: Rótulo acima do título, name: eyebrow, widget: string }
+          - { label: "Título (H1)", name: titulo, widget: string }
+          - { label: Subtítulo, name: subtitulo, widget: text }
+      - { label: Para quem é, name: paraQuem, widget: text }
+      - { label: O que protege / o que inclui, name: protege, widget: list, min: 3, max: 6, summary: "{{fields.titulo}}", fields: *titulo_texto }
+      - { label: Situações em que faz diferença, name: situacoes, widget: list, field: { label: Situação, name: situacao, widget: string } }
+      - { label: "Como a AXLO atua (4 etapas)", name: comoAxloAtua, widget: list, min: 4, max: 4, summary: "{{fields.titulo}}", fields: *titulo_texto }
+      - label: Perguntas frequentes
+        name: faq
+        widget: list
+        summary: "{{fields.pergunta}}"
+        fields:
+          - { label: Pergunta, name: pergunta, widget: string }
+          - { label: Resposta, name: resposta, widget: text }
+      - label: Chamada final
+        name: cta
+        widget: object
+        fields: *titulo_texto
+      - *seo
+
+  - name: beneficios
+    label: Saúde e benefícios
+    label_singular: Benefício
+    description: Páginas de cada benefício corporativo. O endereço fica em /saude-e-beneficios/{endereço}.
+    folder: content/produtos
+    format: json
+    extension: json
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: titulo
+    filter: { field: categoria, value: beneficios }
+    summary: "{{ordem}} · {{titulo}}"
+    sortable_fields:
+      fields: [ordem, titulo]
+      default: { field: ordem, direction: ascending }
+    fields:
+      - { label: Categoria, name: categoria, widget: hidden, default: beneficios }
+      - { label: Nome do produto, name: titulo, widget: string }
+      - { label: Nome curto, name: nomeCurto, widget: string }
+      - { label: Endereço da página, name: slug, widget: string, pattern: ['^[a-z0-9-]+$', 'Só letras minúsculas sem acento, números e hífen'] }
+      - { label: Ordem na lista, name: ordem, widget: number, value_type: int, min: 1 }
+      - *icone
+      - { label: Resumo para os cards, name: resumo, widget: text, pattern: ['^[\s\S]{20,130}$', 'Use até 130 caracteres'] }
+      - label: Topo da página
+        name: hero
+        widget: object
+        fields:
+          - { label: Rótulo acima do título, name: eyebrow, widget: string }
+          - { label: "Título (H1)", name: titulo, widget: string }
+          - { label: Subtítulo, name: subtitulo, widget: text }
+      - { label: Para quem é, name: paraQuem, widget: text }
+      - { label: O que inclui, name: protege, widget: list, min: 3, max: 6, summary: "{{fields.titulo}}", fields: *titulo_texto }
+      - { label: Situações em que faz diferença, name: situacoes, widget: list, field: { label: Situação, name: situacao, widget: string } }
+      - { label: "Como a AXLO atua (4 etapas)", name: comoAxloAtua, widget: list, min: 4, max: 4, summary: "{{fields.titulo}}", fields: *titulo_texto }
+      - label: Perguntas frequentes
+        name: faq
+        widget: list
+        summary: "{{fields.pergunta}}"
+        fields:
+          - { label: Pergunta, name: pergunta, widget: string }
+          - { label: Resposta, name: resposta, widget: text }
+      - label: Chamada final
+        name: cta
+        widget: object
+        fields: *titulo_texto
+      - *seo
+
+  # ---------------------------------------------------------------- páginas
+  - name: paginas
+    label: Páginas
+    files:
+      - label: Página inicial
+        name: home
+        file: content/paginas/home.json
+        format: json
+        fields:
+          - *seo
+          - label: Topo
+            name: hero
+            widget: object
+            fields:
+              - { label: Rótulo acima do título, name: eyebrow, widget: string }
+              - { label: "Título (H1)", name: titulo, widget: string }
+              - { label: Subtítulo, name: subtitulo, widget: text }
+              - { label: Texto do botão, name: cta, widget: string }
+              - { label: Texto do link secundário, name: linkTexto, widget: string }
+              - { label: Endereço do link secundário, name: linkUrl, widget: string }
+          - label: Slider (exemplos com fotos)
+            name: slides
+            widget: list
+            summary: "{{fields.nome}} · {{fields.papel}}"
+            hint: "Os números são exemplos ilustrativos e aparecem marcados assim no site."
+            fields:
+              - { label: Nome, name: nome, widget: string }
+              - { label: Papel na empresa, name: papel, widget: string }
+              - { label: "Foto (larga, pessoa de um lado e espaço livre do outro)", name: foto, widget: image }
+              - { label: "Foto pequena (rosto, quadrada)", name: avatar, widget: image }
+              - { label: Lado do cartão, name: lado, widget: select, options: [{ label: Direita, value: direita }, { label: Esquerda, value: esquerda }], hint: "O cartão vai no lado livre da foto, longe do rosto." }
+              - { label: "Posição do rosto no celular (0% a 100%)", name: posicaoMobile, widget: string, default: "50%" }
+              - { label: Notificação, name: notificacao, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Texto, name: texto, widget: string }] }
+              - { label: Etiquetas sobre a foto, name: etiquetas, widget: list, max: 3, field: { label: Etiqueta, name: etiqueta, widget: string } }
+              - label: Cartão de dados
+                name: card
+                widget: object
+                fields:
+                  - { label: Título, name: titulo, widget: string }
+                  - { label: Número principal, name: valor, widget: number, value_type: int }
+                  - { label: "Sufixo do número (ex.: %)", name: sufixo, widget: string, required: false }
+                  - { label: Legenda, name: legenda, widget: string }
+                  - label: Itens (a barra colorida usa a proporção entre eles)
+                    name: itens
+                    widget: list
+                    max: 3
+                    fields:
+                      - { label: Rótulo, name: rotulo, widget: string }
+                      - { label: Valor, name: valor, widget: number, value_type: int }
+                      - { label: Sufixo, name: sufixo, widget: string, required: false }
+              - label: Indicadores (computador)
+                name: indicadores
+                widget: list
+                max: 2
+                fields:
+                  - { label: Valor, name: valor, widget: number, value_type: int }
+                  - { label: Sufixo, name: sufixo, widget: string, required: false }
+                  - { label: Rótulo, name: rotulo, widget: string }
+          - label: Manifesto
+            name: manifesto
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+              - { label: Mensagens por público, name: mensagens, widget: list, fields: [{ label: Para, name: para, widget: string }, { label: Texto, name: texto, widget: text }] }
+          - label: Quatro frentes
+            name: frentes
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Frentes, name: itens, widget: list, fields: [{ label: Título, name: titulo, widget: string }, { label: Texto, name: texto, widget: text }, { label: Link, name: link, widget: string }, *icone] }
+          - label: Bloco de seguros corporativos
+            name: seguros
+            widget: object
+            hint: "A lista de seguros vem da seção Seguros corporativos."
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+              - { label: Texto do link, name: linkTexto, widget: string }
+          - label: Bloco de benefícios
+            name: beneficios
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+              - { label: Serviços em destaque, name: servicos, widget: list, fields: [{ label: Título, name: titulo, widget: string }, { label: Texto, name: texto, widget: text }, *icone] }
+              - { label: Texto do link, name: linkTexto, widget: string }
+          - label: Método
+            name: metodo
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Etapas, name: etapas, widget: list, min: 4, max: 4, fields: *titulo_texto }
+              - { label: Texto do link, name: linkTexto, widget: string }
+          - label: Para quem (porte)
+            name: porte
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Itens, name: itens, widget: list, min: 3, max: 3, fields: *titulo_texto }
+          - label: Diferenciais
+            name: diferenciais
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Itens, name: itens, widget: list, fields: *titulo_texto }
+          - label: Comparativo
+            name: comparativo
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Nome da coluna AXLO, name: colunaAxlo, widget: string }
+              - { label: Nome da outra coluna, name: colunaOutro, widget: string }
+              - { label: Linhas, name: linhas, widget: list, fields: [{ label: AXLO, name: axlo, widget: string }, { label: Outro, name: outro, widget: string }] }
+          - label: Perguntas frequentes
+            name: faq
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Perguntas, name: itens, widget: list, summary: "{{fields.pergunta}}", fields: [{ label: Pergunta, name: pergunta, widget: string }, { label: Resposta, name: resposta, widget: text }] }
+          - label: Chamada final (com formulário)
+            name: ctaFinal
+            widget: object
+            fields:
+              - { label: Rótulo, name: eyebrow, widget: string }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: text }
+
+      - label: Sobre
+        name: sobre
+        file: content/paginas/sobre.json
+        format: json
+        fields:
+          - *seo
+          - *hero
+          - { label: Manifesto, name: manifesto, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Parágrafos, name: paragrafos, widget: list, field: { label: Parágrafo, name: p, widget: text } }] }
+          - { label: "Propósito, missão e visão", name: pilares, widget: list, fields: [{ label: Rótulo, name: rotulo, widget: string }, { label: Texto, name: texto, widget: text }] }
+          - { label: Valores, name: valores, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Valores, name: itens, widget: list, fields: *titulo_texto }] }
+          - { label: O símbolo, name: simbolo, widget: object, fields: *titulo_texto }
+          - { label: Liderança, name: lideranca, widget: object, fields: *titulo_texto }
+          - { label: Registro SUSEP, name: registro, widget: object, fields: *titulo_texto }
+
+      - label: Saúde e benefícios (visão geral)
+        name: saude
+        file: content/paginas/saude-e-beneficios.json
+        format: json
+        fields:
+          - *seo
+          - *hero
+          - { label: Introdução, name: intro, widget: object, fields: *titulo_texto }
+          - { label: Serviços, name: servicos, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Serviços, name: itens, widget: list, fields: [{ label: Título, name: titulo, widget: string }, { label: Texto, name: texto, widget: text }, *icone] }] }
+          - *cta
+
+      - label: Seguros corporativos (visão geral)
+        name: seguros-hub
+        file: content/paginas/seguros-corporativos.json
+        format: json
+        fields:
+          - *seo
+          - *hero
+          - { label: Introdução, name: intro, widget: object, fields: *titulo_texto }
+          - { label: Como conduzimos, name: etapas, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Etapas, name: itens, widget: list, min: 4, max: 4, fields: *titulo_texto }] }
+          - *cta
+
+      - label: Gestão e inteligência
+        name: gestao
+        file: content/paginas/gestao-e-inteligencia.json
+        format: json
+        fields:
+          - *seo
+          - *hero
+          - { label: Método, name: metodo, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Etapas, name: etapas, widget: list, min: 4, max: 4, fields: *titulo_texto }] }
+          - { label: Dashboard AXLO, name: dashboard, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Texto, name: texto, widget: text }, { label: Indicadores, name: indicadores, widget: list, field: { label: Indicador, name: i, widget: string } }, { label: Nota de privacidade, name: nota, widget: string }] }
+          - { label: Relatórios executivos, name: relatorios, widget: object, fields: *titulo_texto }
+          - { label: Programas de saúde, name: programas, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Texto, name: texto, widget: text }, { label: Programas, name: itens, widget: list, fields: *titulo_texto }] }
+          - *cta
+
+      - label: Contato
+        name: contato
+        file: content/paginas/contato.json
+        format: json
+        fields:
+          - *seo
+          - *hero
+          - label: Formulário
+            name: formulario
+            widget: object
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto do botão, name: botao, widget: string }
+              - { label: Título da mensagem de sucesso, name: sucessoTitulo, widget: string }
+              - { label: Texto da mensagem de sucesso, name: sucessoTexto, widget: text }
+          - { label: Próximos passos, name: proximosPassos, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Passos, name: itens, widget: list, field: { label: Passo, name: p, widget: string } }] }
+
+      - label: Política de privacidade
+        name: privacidade
+        file: content/paginas/privacidade.json
+        format: json
+        fields:
+          - *seo
+          - { label: Título, name: titulo, widget: string }
+          - { label: Atualizada em, name: atualizadoEm, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+          - { label: Texto, name: corpo, widget: markdown, buttons: [bold, link, heading-two, bulleted-list], editor_components: [], hint: "Use ## para subtítulos e - para listas. {{nome}}, {{email}}, {{susep}} e similares são trocados pelos dados de Configurações." }
+
+  # ---------------------------------------------------------------- configurações
+  - name: configuracoes
+    label: Configurações
+    files:
+      - label: Dados da empresa, contato e rastreamento
+        name: site
+        file: content/site.json
+        format: json
+        fields:
+          - { label: Nome, name: nome, widget: string }
+          - { label: Descritor, name: descritor, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Endereço do site, name: url, widget: string, hint: "Ex.: https://axlo.com.br. Usado no canonical, no sitemap e no compartilhamento." }
+          - label: Contato
+            name: contato
+            widget: object
+            fields:
+              - { label: Telefone, name: telefone, widget: string }
+              - { label: "WhatsApp (só números, com DDI e DDD)", name: whatsapp, widget: string, required: false, pattern: ['^(55\d{10,11})?$', 'Ex.: 5511999999999'], hint: "Vazio esconde o botão flutuante. Precisa ser o número conectado ao Kommo." }
+              - { label: Mensagem inicial do WhatsApp, name: whatsappMensagem, widget: text }
+              - { label: E-mail, name: email, widget: string }
+              - { label: Horário de atendimento, name: horario, widget: string }
+          - label: Empresa
+            name: empresa
+            widget: object
+            fields:
+              - { label: Razão social, name: razaoSocial, widget: string, required: false }
+              - { label: CNPJ, name: cnpj, widget: string, required: false }
+              - { label: Registro SUSEP, name: susep, widget: string }
+              - { label: "Endereço (rua, número e complemento)", name: endereco, widget: string, required: false }
+              - { label: Cidade, name: cidade, widget: string }
+              - { label: UF, name: uf, widget: string }
+              - { label: CEP, name: cep, widget: string, required: false }
+          - { label: Redes sociais, name: redes, widget: object, fields: [{ label: LinkedIn, name: linkedin, widget: string, required: false }, { label: Instagram, name: instagram, widget: string, required: false }] }
+          - label: Rastreamento
+            name: rastreamento
+            widget: object
+            hint: "Preencha o Tag Manager (recomendado). O GA4 direto só é usado se não houver Tag Manager."
+            fields:
+              - { label: ID do Google Tag Manager, name: gtmId, widget: string, required: false, pattern: ['^(GTM-[A-Z0-9]+)?$', 'Formato GTM-XXXXXXX'] }
+              - { label: ID do Google Analytics 4, name: ga4Id, widget: string, required: false, pattern: ['^(G-[A-Z0-9]+)?$', 'Formato G-XXXXXXXXXX'] }
+              - { label: "Código de verificação do Search Console (meta tag)", name: searchConsole, widget: string, required: false }
+          - label: Novidades (sino do topo)
+            name: novidades
+            widget: list
+            max: 4
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: string }
+              - { label: Link, name: link, widget: string }
+          - label: Faixa de operadoras
+            name: operadoras
+            widget: object
+            fields:
+              - { label: Mostrar no site, name: mostrar, widget: boolean }
+              - { label: Título, name: titulo, widget: string }
+              - { label: Logos, name: logos, widget: list, fields: [{ label: Nome, name: nome, widget: string }, { label: Arquivo, name: arquivo, widget: image }] }
+          - { label: SEO padrão, name: seo, widget: object, fields: [{ label: "Imagem de compartilhamento (1200×630)", name: imagemPadrao, widget: image }] }

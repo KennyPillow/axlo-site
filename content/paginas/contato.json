@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "Contato e diagnóstico do contrato | AXLO",
+    "description": "Fale com a AXLO. Peça um diagnóstico do contrato de saúde ou dos seguros da sua empresa. Atendimento em São Paulo e em todo o Brasil."
+  },
+  "hero": {
+    "eyebrow": "Contato",
+    "titulo": "Peça um diagnóstico do contrato",
+    "subtitulo": "Conte um pouco sobre a empresa. Uma pessoa da AXLO responde em horário comercial, com nome e prazo."
+  },
+  "formulario": {
+    "titulo": "Fale com a AXLO",
+    "botao": "Enviar pedido de diagnóstico",
+    "sucessoTitulo": "Recebemos o seu pedido.",
+    "sucessoTexto": "Uma pessoa da AXLO vai entrar em contato em horário comercial, com nome e prazo."
+  },
+  "proximosPassos": {
+    "titulo": "O que acontece depois",
+    "itens": [
+      "Uma pessoa da AXLO entra em contato para entender o contrato atual.",
+      "Pedimos os documentos necessários para o diagnóstico.",
+      "Apresentamos o que explica o custo e o que dá para fazer, com o dado que sustenta cada ponto."
+    ]
+  }
+}

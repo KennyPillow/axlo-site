@@ -1,0 +1,87 @@
+{
+  "slug": "gestao-nr-01",
+  "categoria": "beneficios",
+  "ordem": 5,
+  "titulo": "Gestão de NR-01",
+  "nomeCurto": "NR-01",
+  "icone": "clipboard",
+  "resumo": "Apoio para incluir os riscos psicossociais na gestão de riscos da empresa, com dados e programas de saúde mental.",
+  "hero": {
+    "eyebrow": "Saúde & Benefícios",
+    "titulo": "Riscos psicossociais na gestão, com dados e método",
+    "subtitulo": "A atualização da NR-01 inclui os riscos psicossociais no gerenciamento de riscos ocupacionais. A AXLO apoia sua empresa com diagnóstico, dados do plano e programas de saúde mental."
+  },
+  "paraQuem": "Empresas de todos os portes que precisam incluir fatores como sobrecarga, metas excessivas, assédio e falta de autonomia no gerenciamento de riscos ocupacionais (GRO) e no Programa de Gerenciamento de Riscos (PGR). RH, jurídico e a área de saúde e segurança do trabalho precisam de informação confiável para mapear esses riscos e agir. A responsabilidade legal pelo PGR segue com a empresa e seus profissionais de SST.",
+  "protege": [
+    {
+      "titulo": "Diagnóstico psicossocial",
+      "texto": "Levantamento estruturado de fatores de risco psicossocial por área, função e unidade, para alimentar o inventário de riscos."
+    },
+    {
+      "titulo": "Dados do plano de saúde",
+      "texto": "Leitura de afastamentos, atendimentos em saúde mental e uso do plano, de forma agregada e sem identificar pessoas."
+    },
+    {
+      "titulo": "Programas de saúde mental",
+      "texto": "Ações de bem-estar, apoio psicológico e orientação a gestores, ligadas aos riscos identificados."
+    },
+    {
+      "titulo": "Integração com SST",
+      "texto": "Trabalho conjunto com a medicina ocupacional e os profissionais de SST, que conduzem o PGR."
+    },
+    {
+      "titulo": "Indicadores para a diretoria",
+      "texto": "Relatórios executivos que mostram evolução dos indicadores e das ações para RH, financeiro e diretoria."
+    }
+  ],
+  "situacoes": [
+    "O PGR da empresa ainda não considera riscos psicossociais e o RH não sabe por onde começar.",
+    "Afastamentos por saúde mental aumentam em uma área com metas muito apertadas.",
+    "A diretoria precisa de dados para justificar mudanças de jornada ou de organização do trabalho.",
+    "A empresa oferece apoio psicológico, mas não consegue medir se ele está chegando a quem precisa."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico inicial",
+      "texto": "Levantamos fatores de risco psicossocial e cruzamos com dados agregados do plano de saúde para mostrar onde está o X da questão."
+    },
+    {
+      "titulo": "Apoio ao PGR",
+      "texto": "Entregamos as informações para que a empresa e seus profissionais de SST incluam esses riscos no inventário e no plano de ação."
+    },
+    {
+      "titulo": "Programas e concierge",
+      "texto": "Implantamos programas de saúde mental e bem-estar e orientamos colaboradores pelo concierge de saúde sobre como buscar apoio no plano."
+    },
+    {
+      "titulo": "Monitoramento contínuo",
+      "texto": "Acompanhamos indicadores mês a mês no Dashboard AXLO e revisamos as ações com RH, SST e diretoria."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O que muda com a atualização da NR-01?",
+      "resposta": "Os riscos psicossociais passam a fazer parte do gerenciamento de riscos ocupacionais e do PGR, ao lado de riscos físicos, químicos, biológicos e ergonômicos."
+    },
+    {
+      "pergunta": "A AXLO assina ou elabora o PGR?",
+      "resposta": "Não. O PGR é responsabilidade da empresa e de seus profissionais de SST. A AXLO apoia com diagnóstico, dados, programas e integração com a medicina ocupacional."
+    },
+    {
+      "pergunta": "Os dados de saúde dos colaboradores ficam expostos?",
+      "resposta": "Não. Trabalhamos com dados agregados e sem identificação individual, respeitando a LGPD e o sigilo médico."
+    },
+    {
+      "pergunta": "Pequenas empresas também precisam se adequar?",
+      "resposta": "A NR-01 se aplica às empresas com empregados regidos pela CLT, com regras diferenciadas para alguns portes e graus de risco. Vale confirmar o enquadramento da sua empresa com seu profissional de SST."
+    }
+  ],
+  "cta": {
+    "titulo": "Qual é o X da questão na saúde da sua equipe?",
+    "texto": "Comece por um diagnóstico dos riscos psicossociais e dos dados de saúde da sua empresa."
+  },
+  "seo": {
+    "title": "Gestão de NR-01 e riscos psicossociais | AXLO",
+    "description": "Apoio à NR-01 com diagnóstico de riscos psicossociais, dados do plano de saúde e programas de saúde mental da AXLO, integrados à SST da sua empresa."
+  }
+}

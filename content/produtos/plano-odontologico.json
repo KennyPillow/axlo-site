@@ -1,0 +1,91 @@
+{
+  "slug": "plano-odontologico",
+  "categoria": "beneficios",
+  "ordem": 2,
+  "titulo": "Plano odontológico empresarial",
+  "nomeCurto": "Odontológico",
+  "icone": "tooth",
+  "resumo": "Benefício de custo acessível e alta adesão, com cuidado preventivo para colaboradores e dependentes.",
+  "hero": {
+    "eyebrow": "Saúde & Benefícios",
+    "titulo": "Um benefício que os colaboradores usam e reconhecem",
+    "subtitulo": "O plano odontológico empresarial oferece consultas, prevenção e tratamentos para colaboradores e dependentes, com custo acessível para a empresa e gestão feita pela AXLO."
+  },
+  "paraQuem": "Empresas que querem ampliar o pacote de benefícios com investimento previsível, inclusive pequenas empresas. O plano pode ser custeado pela empresa, pelo colaborador ou de forma compartilhada. O RH ganha um benefício valorizado na atração e na retenção de pessoas.",
+  "protege": [
+    {
+      "titulo": "Consultas e urgências",
+      "texto": "Consultas de rotina e atendimento de urgência odontológica na rede credenciada."
+    },
+    {
+      "titulo": "Prevenção e limpeza",
+      "texto": "Limpeza, aplicação de flúor e orientação de higiene bucal, base do cuidado preventivo."
+    },
+    {
+      "titulo": "Restaurações e canal",
+      "texto": "Tratamento de cáries, restaurações e tratamento de canal, conforme o rol da ANS."
+    },
+    {
+      "titulo": "Gengiva e extrações",
+      "texto": "Tratamentos periodontais e cirurgias simples, como extrações, previstos na cobertura."
+    },
+    {
+      "titulo": "Radiografias",
+      "texto": "Exames de imagem odontológicos necessários ao diagnóstico e ao tratamento."
+    },
+    {
+      "titulo": "Planos ampliados",
+      "texto": "Ortodontia, próteses e outros procedimentos podem estar disponíveis em planos específicos, conforme o contrato."
+    }
+  ],
+  "situacoes": [
+    "A empresa quer reforçar o pacote de benefícios sem comprometer o orçamento do ano.",
+    "Faltas por dor de dente e urgências odontológicas começam a aparecer nos registros do RH.",
+    "Colaboradores pedem para incluir dependentes com desconto em folha.",
+    "A empresa já oferece o plano, mas a adesão e o uso preventivo estão baixos."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico e desenho",
+      "texto": "Avaliamos o perfil dos colaboradores, a rede nas regiões da empresa e o modelo de custeio que faz sentido."
+    },
+    {
+      "titulo": "Movimentações sem atrito",
+      "texto": "Cuidamos de inclusões, exclusões, dependentes e segunda via, para o RH não perder tempo com cadastro."
+    },
+    {
+      "titulo": "Concierge para o colaborador",
+      "texto": "Orientamos colaboradores sobre rede credenciada, agendamento e cobertura de cada procedimento."
+    },
+    {
+      "titulo": "Uso acompanhado",
+      "texto": "Acompanhamos adesão e utilização e propomos ações de prevenção, como campanhas de check-up odontológico."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O plano odontológico empresarial tem carência?",
+      "resposta": "Depende do porte do contrato e das regras da operadora. Em muitos contratos empresariais, as carências são reduzidas ou dispensadas quando a adesão acontece no prazo previsto."
+    },
+    {
+      "pergunta": "Pequenas empresas podem contratar?",
+      "resposta": "Sim. Existem planos para empresas com poucos colaboradores, conforme as regras de cada operadora."
+    },
+    {
+      "pergunta": "Ortodontia está incluída?",
+      "resposta": "Não nos planos básicos. Aparelhos ortodônticos e próteses dependem de planos ampliados ou coberturas adicionais."
+    },
+    {
+      "pergunta": "A empresa precisa pagar o plano inteiro?",
+      "resposta": "Não. O custeio pode ser integral, compartilhado ou pago pelo colaborador com desconto em folha. Cada modelo tem impacto diferente na adesão."
+    }
+  ],
+  "cta": {
+    "titulo": "Um benefício simples, bem desenhado",
+    "texto": "Comece por um diagnóstico do seu pacote de benefícios e do perfil dos seus colaboradores."
+  },
+  "seo": {
+    "title": "Plano odontológico empresarial | AXLO",
+    "description": "Plano odontológico empresarial para colaboradores e dependentes, com custo acessível, gestão de movimentações e orientação ao colaborador pela AXLO."
+  }
+}

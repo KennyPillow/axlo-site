@@ -1,1 +1,10 @@
-assets/WhatsApp Image*
+# arquivos recebidos do cliente (brand book confidencial, zips, fotos originais): nunca versionar
+/assets/
+_brand/
+_shots/
+node_modules/
+dist/
+.env
+.env.*
+*.log
+.kommo-mock.json

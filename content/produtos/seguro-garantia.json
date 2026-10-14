@@ -1,0 +1,91 @@
+{
+  "slug": "seguro-garantia",
+  "categoria": "seguros",
+  "ordem": 4,
+  "titulo": "Seguro Garantia",
+  "nomeCurto": "Garantia",
+  "icone": "file-check",
+  "resumo": "Substitui fiança bancária e depósitos em contratos, licitações e processos judiciais, preservando o caixa.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Cumpra exigências contratuais e judiciais sem travar o caixa",
+    "subtitulo": "O Seguro Garantia assegura ao contratante, ao órgão público ou ao juízo que as obrigações da sua empresa serão cumpridas, sem imobilizar dinheiro nem consumir limite bancário."
+  },
+  "paraQuem": "Construtoras, fornecedores do setor público, prestadores de serviço em contratos de longo prazo e empresas com processos judiciais, tributários ou trabalhistas. O financeiro troca um depósito ou uma fiança por um prêmio, e o jurídico atende a exigência do contrato ou do processo. A contratação depende de análise de crédito da empresa pela seguradora.",
+  "protege": [
+    {
+      "titulo": "Licitante",
+      "texto": "Assegura que a empresa vencedora de uma licitação vai assinar o contrato nas condições propostas."
+    },
+    {
+      "titulo": "Executante (performance)",
+      "texto": "Assegura ao contratante o cumprimento das obrigações de um contrato de obra, fornecimento ou serviço."
+    },
+    {
+      "titulo": "Adiantamento de pagamento",
+      "texto": "Protege o contratante que antecipou valores caso a empresa não entregue o que foi pago."
+    },
+    {
+      "titulo": "Judicial",
+      "texto": "Substitui depósito em dinheiro ou penhora em execuções fiscais e ações cíveis, quando aceito pelo juízo."
+    },
+    {
+      "titulo": "Judicial trabalhista",
+      "texto": "Pode substituir o depósito recursal e a penhora em processos trabalhistas, conforme as regras aplicáveis."
+    },
+    {
+      "titulo": "Retenção e manutenção",
+      "texto": "Substitui retenções contratuais e cobre obrigações de correção após a entrega, conforme o contrato."
+    }
+  ],
+  "situacoes": [
+    "Um edital exige garantia de proposta para participar de uma licitação de serviços de engenharia.",
+    "Um contrato de fornecimento de longo prazo exige garantia de execução sobre parte do valor total.",
+    "Uma execução fiscal pede garantia do débito para que a empresa possa apresentar defesa.",
+    "A empresa precisa recorrer de uma condenação trabalhista sem retirar recursos do capital de giro."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Cadastro e limite de crédito",
+      "texto": "Organizamos a documentação financeira e negociamos o limite da empresa junto às seguradoras antes da necessidade surgir."
+    },
+    {
+      "titulo": "Leitura do edital ou do processo",
+      "texto": "Conferimos modalidade, valor, prazo e cláusulas exigidas, para que a apólice seja aceita na primeira apresentação."
+    },
+    {
+      "titulo": "Emissão e endossos",
+      "texto": "Cuidamos da emissão, das prorrogações e dos ajustes de valor ao longo do contrato ou do processo."
+    },
+    {
+      "titulo": "Carteira acompanhada",
+      "texto": "Monitoramos vencimentos e o uso do limite, e avisamos com antecedência o que precisa ser renovado ou baixado."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "Seguro Garantia protege a minha empresa?",
+      "resposta": "Ele protege o segurado, que é o contratante, o órgão público ou o credor no processo. Se houver indenização, a seguradora pode cobrar o valor da sua empresa, conforme o contrato de contragarantia."
+    },
+    {
+      "pergunta": "Qual a vantagem em relação à fiança bancária?",
+      "resposta": "Em geral, o Seguro Garantia não consome o limite de crédito bancário e não exige imobilizar recursos. O custo e as condições variam conforme o perfil financeiro da empresa."
+    },
+    {
+      "pergunta": "Todo juiz aceita o Seguro Garantia judicial?",
+      "resposta": "É uma forma de garantia amplamente utilizada, mas a aceitação depende do tipo de processo e de requisitos da apólice, como valor e prazo. Por isso a emissão segue o que o juízo exige."
+    },
+    {
+      "pergunta": "Quanto tempo leva para emitir?",
+      "resposta": "Depende de a empresa já ter cadastro e limite aprovados na seguradora. Com o cadastro em dia, a emissão costuma ser bem mais rápida, por isso recomendamos aprovar o limite antes de precisar."
+    }
+  ],
+  "cta": {
+    "titulo": "Tenha limite aprovado antes do próximo edital",
+    "texto": "Comece por um diagnóstico das suas garantias atuais e das exigências que estão por vir."
+  },
+  "seo": {
+    "title": "Seguro Garantia para contratos e processos | AXLO",
+    "description": "Seguro Garantia para licitações, contratos e processos judiciais, com cadastro, emissão e acompanhamento da AXLO para preservar o caixa da empresa."
+  }
+}

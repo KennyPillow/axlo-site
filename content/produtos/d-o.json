@@ -1,0 +1,95 @@
+{
+  "slug": "d-o",
+  "categoria": "seguros",
+  "ordem": 1,
+  "titulo": "Seguro D&O",
+  "nomeCurto": "D&O",
+  "icone": "shield",
+  "resumo": "Protege o patrimônio pessoal de diretores e administradores contra reclamações ligadas a atos de gestão.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Quem decide pela empresa precisa de proteção própria",
+    "subtitulo": "O seguro D&O cobre custos de defesa e indenizações quando diretores, conselheiros e gestores são cobrados pessoalmente por decisões tomadas no exercício do cargo."
+  },
+  "paraQuem": "Empresas de capital aberto ou fechado, com conselho, sócios investidores, operações reguladas ou dívida relevante. Em uma reclamação por ato de gestão, os bens pessoais do administrador podem ser alcançados. O D&O ajuda a atrair e manter executivos e dá ao sócio, ao CEO e ao jurídico uma resposta estruturada quando a cobrança chega.",
+  "protege": [
+    {
+      "titulo": "Custos de defesa",
+      "texto": "Honorários de advogados, custas e perícias em processos judiciais, administrativos e arbitrais ligados a atos de gestão."
+    },
+    {
+      "titulo": "Indenizações e acordos",
+      "texto": "Valores que o administrador seja condenado a pagar a terceiros, ou acordos aprovados pela seguradora, dentro do limite contratado."
+    },
+    {
+      "titulo": "Investigações e órgãos reguladores",
+      "texto": "Custos para responder a inquéritos e procedimentos de órgãos reguladores e fiscalizadores, conforme as condições da apólice."
+    },
+    {
+      "titulo": "Bloqueio de bens",
+      "texto": "Despesas pessoais básicas e custos para tentar reverter a indisponibilidade de bens do administrador, quando a apólice prevê essa extensão."
+    },
+    {
+      "titulo": "Reembolso à empresa",
+      "texto": "Quando a própria empresa adianta a defesa do diretor, a apólice pode reembolsá-la, nos termos e limites contratados."
+    },
+    {
+      "titulo": "Ex-administradores",
+      "texto": "Pessoas que já deixaram o cargo seguem protegidas por atos praticados durante a gestão, conforme o período coberto."
+    }
+  ],
+  "situacoes": [
+    "Um investidor minoritário entra com ação contra o diretor financeiro alegando que uma aquisição foi mal conduzida.",
+    "O fisco redireciona uma execução tributária para o patrimônio pessoal dos sócios administradores.",
+    "Um órgão regulador abre procedimento para apurar falhas de informação ao mercado e convoca os conselheiros.",
+    "Após uma recuperação judicial, credores questionam decisões da antiga diretoria."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico de exposição",
+      "texto": "Mapeamos estrutura societária, setor, passivos e histórico de reclamações para dimensionar limite e extensões necessárias."
+    },
+    {
+      "titulo": "Comparação de apólices",
+      "texto": "Colocamos lado a lado textos de cobertura, exclusões e franquias, e explicamos em linguagem clara o que muda entre uma proposta e outra."
+    },
+    {
+      "titulo": "Presença no sinistro",
+      "texto": "Quando a reclamação chega, orientamos o aviso à seguradora, organizamos documentos e acompanhamos o processo com o jurídico da empresa."
+    },
+    {
+      "titulo": "Renovação com antecedência",
+      "texto": "Revisamos o risco ao longo do ano e começamos a renovação cedo, para negociar com dados e sem pressa."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O D&O cobre atos com dolo ou fraude?",
+      "resposta": "Não. Atos dolosos, fraudes e vantagens ilícitas costumam ser excluídos. Em muitas apólices, a defesa é adiantada até que haja decisão que comprove o dolo, conforme o contrato."
+    },
+    {
+      "pergunta": "Empresa de capital fechado precisa de D&O?",
+      "resposta": "Pode precisar. Reclamações trabalhistas, tributárias, de credores e de sócios também atingem administradores de empresas fechadas. O diagnóstico indica se o risco justifica a contratação."
+    },
+    {
+      "pergunta": "Fatos anteriores à contratação estão cobertos?",
+      "resposta": "Em geral, a apólice responde por reclamações apresentadas durante a vigência. Fatos já conhecidos antes da contratação costumam ser excluídos, e o período de retroatividade depende do que for negociado."
+    },
+    {
+      "pergunta": "O que acontece se a empresa trocar de controle ou encerrar a apólice?",
+      "resposta": "É possível negociar um prazo complementar para que reclamações futuras sobre atos passados continuem cobertas. Esse ponto deve ser tratado antes de uma operação societária."
+    },
+    {
+      "pergunta": "Quem é considerado segurado?",
+      "resposta": "Normalmente diretores, conselheiros, administradores e gestores com poder de decisão, inclusive ex-ocupantes desses cargos. A definição exata está na apólice e vale ser revisada."
+    }
+  ],
+  "cta": {
+    "titulo": "Qual é o X da questão na sua diretoria?",
+    "texto": "Comece por um diagnóstico da exposição dos seus administradores e da apólice atual, se houver."
+  },
+  "seo": {
+    "title": "Seguro D&O para diretores e administradores | AXLO",
+    "description": "Seguro D&O para proteger diretores e conselheiros contra reclamações por atos de gestão, com diagnóstico do risco e apoio da AXLO em todo o contrato."
+  }
+}

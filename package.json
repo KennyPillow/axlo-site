@@ -1,0 +1,30 @@
+{
+  "name": "axlo-site",
+  "version": "1.0.0",
+  "description": "Site institucional AXLO | Saúde & Seguros Corporativos",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:preview": "BASE_PATH=/axlo-site PREVIEW=1 node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "cms": "npx decap-server",
+    "test": "node scripts/test.mjs",
+    "brand": "node scripts/brand.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KennyPillow/axlo-site.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/KennyPillow/axlo-site/issues"
+  },
+  "homepage": "https://github.com/KennyPillow/axlo-site#readme",
+  "devDependencies": {
+    "decap-server": "^3.11.3",
+    "sharp": "^0.35.5"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

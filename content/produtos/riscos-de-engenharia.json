@@ -1,0 +1,91 @@
+{
+  "slug": "riscos-de-engenharia",
+  "categoria": "seguros",
+  "ordem": 5,
+  "titulo": "Seguro de Riscos de Engenharia",
+  "nomeCurto": "Riscos de Engenharia",
+  "icone": "crane",
+  "resumo": "Cobre danos durante obras civis e projetos de instalação e montagem, do canteiro à entrega.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Obra protegida do primeiro dia até a entrega",
+    "subtitulo": "O seguro de Riscos de Engenharia cobre danos materiais à obra, a equipamentos em montagem e a terceiros durante a execução de construções, reformas e instalações."
+  },
+  "paraQuem": "Construtoras, incorporadoras, empresas que ampliam fábricas ou reformam unidades, e contratantes de instalação e montagem de equipamentos. Muitos contratos e financiamentos exigem essa apólice. O dono da obra e o executor dividem riscos que precisam estar claros antes do início.",
+  "protege": [
+    {
+      "titulo": "Cobertura básica da obra",
+      "texto": "Danos materiais súbitos e imprevistos à obra durante a execução, como incêndio, desmoronamento e eventos da natureza, conforme a apólice."
+    },
+    {
+      "titulo": "Instalação e montagem",
+      "texto": "Danos a máquinas e equipamentos durante a montagem, os testes e o comissionamento."
+    },
+    {
+      "titulo": "Erro de projeto",
+      "texto": "Danos à obra decorrentes de falha de projeto, quando contratada essa cobertura adicional."
+    },
+    {
+      "titulo": "Responsabilidade civil da obra",
+      "texto": "Danos materiais e corporais a terceiros e a imóveis vizinhos causados pela execução da obra."
+    },
+    {
+      "titulo": "Despesas extraordinárias",
+      "texto": "Custos de desentulho, horas extras e fretes urgentes após um sinistro coberto, dentro dos limites contratados."
+    },
+    {
+      "titulo": "Período de manutenção",
+      "texto": "Danos causados pelo construtor durante o período de manutenção após a entrega, conforme a apólice."
+    }
+  ],
+  "situacoes": [
+    "Uma chuva forte provoca deslizamento de terra e destrói parte das fundações já executadas.",
+    "Durante o içamento, um equipamento importado cai e é danificado antes de entrar em operação.",
+    "A escavação causa trincas no imóvel vizinho e o proprietário cobra o reparo.",
+    "Um incêndio no canteiro atinge materiais estocados e atrasa o cronograma."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Leitura do contrato e do cronograma",
+      "texto": "Analisamos o contrato de obra, o financiamento e as etapas para definir valor, prazo e quem deve ser segurado."
+    },
+    {
+      "titulo": "Coberturas sob medida",
+      "texto": "Comparamos propostas e explicamos o peso de cada adicional, como erro de projeto e responsabilidade cruzada."
+    },
+    {
+      "titulo": "Ajustes durante a obra",
+      "texto": "Prorrogações de prazo e mudanças de valor são tratadas por endosso, para que a apólice acompanhe a obra real."
+    },
+    {
+      "titulo": "Sinistro no canteiro",
+      "texto": "Orientamos o registro do evento, a documentação técnica e a vistoria, e acompanhamos a regulação até a indenização."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "Quem deve contratar: o dono da obra ou a construtora?",
+      "resposta": "Pode ser qualquer um dos dois, conforme o contrato. O importante é que ambos estejam incluídos como segurados para evitar disputa em caso de sinistro."
+    },
+    {
+      "pergunta": "Reformas pequenas também podem ser seguradas?",
+      "resposta": "Sim. Existem apólices para reformas e ampliações, com valores e coberturas proporcionais ao projeto."
+    },
+    {
+      "pergunta": "E se a obra atrasar?",
+      "resposta": "A vigência precisa ser estendida por endosso antes do vencimento. Acompanhamos o cronograma para que a obra não fique descoberta."
+    },
+    {
+      "pergunta": "Desgaste ou falha de execução estão cobertos?",
+      "resposta": "Desgaste natural e falhas de qualidade costumam ser excluídos. A apólice cobre danos súbitos e imprevistos, e os limites dependem do contrato escolhido."
+    }
+  ],
+  "cta": {
+    "titulo": "O X da questão está no contrato da obra",
+    "texto": "Comece por um diagnóstico do projeto, do contrato e das exigências de seguro antes do início."
+  },
+  "seo": {
+    "title": "Seguro de Riscos de Engenharia para obras | AXLO",
+    "description": "Seguro de Riscos de Engenharia para obras civis, instalação e montagem, com análise do contrato e acompanhamento da AXLO do canteiro até a entrega."
+  }
+}

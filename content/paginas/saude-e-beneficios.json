@@ -1,0 +1,28 @@
+{
+  "seo": {
+    "title": "Saúde e benefícios corporativos | AXLO",
+    "description": "Plano de saúde empresarial, odontológico, vida em grupo, telemedicina e gestão de NR-01, com gestão de movimentações e concierge de saúde para o RH."
+  },
+  "hero": {
+    "eyebrow": "AXLO Saúde & Benefícios",
+    "titulo": "Benefícios corporativos geridos o ano inteiro",
+    "subtitulo": "Planos de saúde e odontológicos, vida em grupo, telemedicina e NR-01, com uma equipe que cuida das movimentações e orienta cada colaborador."
+  },
+  "intro": {
+    "titulo": "Do contrato de 10 pessoas ao de 10 mil",
+    "texto": "Planos para empresas de todos os portes: PME, empresarial e grandes contratos. O que muda é a escala, não o método. Diagnóstico, monitoramento mensal, prevenção e relatório para a diretoria."
+  },
+  "servicos": {
+    "titulo": "O que a AXLO faz depois da contratação",
+    "itens": [
+      { "titulo": "Gestão de movimentações", "texto": "Inclusões, exclusões, segunda via e alterações cadastrais tratadas pela AXLO, com conferência na fatura.", "icone": "refresh" },
+      { "titulo": "Concierge de saúde", "texto": "Orientação ao colaborador sobre rede, agendamento, autorização e reembolso, com o nome de quem atende e o prazo em cada resposta.", "icone": "headset" },
+      { "titulo": "Gestão de sinistralidade", "texto": "Acompanhamento mensal do uso do plano para chegar à renovação com argumento.", "icone": "chart" },
+      { "titulo": "Programas de saúde", "texto": "Prevenção, bem-estar e saúde mental, com ações escolhidas a partir do uso real do plano.", "icone": "sprout" }
+    ]
+  },
+  "ctaFinal": {
+    "titulo": "Qual é o X do seu plano de saúde?",
+    "texto": "Peça um diagnóstico do contrato atual. Explicamos o custo e mostramos o que dá para fazer antes da renovação."
+  }
+}

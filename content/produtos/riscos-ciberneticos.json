@@ -1,0 +1,91 @@
+{
+  "slug": "riscos-ciberneticos",
+  "categoria": "seguros",
+  "ordem": 6,
+  "titulo": "Seguro de Riscos Cibernéticos",
+  "nomeCurto": "Riscos Cibernéticos",
+  "icone": "lock",
+  "resumo": "Cobre custos de resposta, interrupção e reclamações após vazamento de dados ou ataque cibernético.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Um ataque cibernético afeta caixa, operação e reputação",
+    "subtitulo": "O seguro de Riscos Cibernéticos cobre custos de resposta a incidentes, perda de receita e reclamações de terceiros após vazamento de dados, invasão ou sequestro de sistemas."
+  },
+  "paraQuem": "Empresas que guardam dados pessoais de clientes e colaboradores, dependem de sistemas para faturar ou atuam em setores como saúde, varejo, serviços financeiros e tecnologia. Com a LGPD, um vazamento pode gerar notificações, processos e procedimentos administrativos. Sócios, financeiro, jurídico e TI precisam saber quem paga a conta e quem atende a crise.",
+  "protege": [
+    {
+      "titulo": "Resposta a incidentes",
+      "texto": "Perícia forense, contenção do ataque, assessoria jurídica e gestão de crise logo após o incidente."
+    },
+    {
+      "titulo": "Notificação e monitoramento",
+      "texto": "Custos para comunicar titulares de dados e autoridades, e para oferecer monitoramento às pessoas afetadas."
+    },
+    {
+      "titulo": "Restauração de dados",
+      "texto": "Recuperação ou recriação de dados e sistemas danificados pelo incidente coberto."
+    },
+    {
+      "titulo": "Interrupção de negócios",
+      "texto": "Perda de lucro e despesas extras enquanto os sistemas estão fora do ar, após o período de carência horária da apólice."
+    },
+    {
+      "titulo": "Extorsão cibernética",
+      "texto": "Custos de negociação e resposta em casos de sequestro de dados, nos termos da apólice e da legislação aplicável."
+    },
+    {
+      "titulo": "Responsabilidade por dados",
+      "texto": "Defesa e indenizações em reclamações de terceiros e procedimentos administrativos ligados à proteção de dados, conforme a apólice."
+    }
+  ],
+  "situacoes": [
+    "Um ransomware criptografa os servidores e a empresa fica sem emitir notas fiscais por vários dias.",
+    "Uma falha de configuração expõe dados cadastrais de clientes e a empresa precisa notificar os titulares.",
+    "Um colaborador clica em um e-mail falso e um invasor acessa a base de dados de RH.",
+    "Clientes afetados por um vazamento entram com ações pedindo indenização."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico de maturidade",
+      "texto": "Levantamos controles de segurança, backups e dados tratados, que definem a aceitação e o custo do seguro."
+    },
+    {
+      "titulo": "Tradução do contrato",
+      "texto": "Explicamos coberturas, sublimites e exclusões em linguagem clara para sócios, jurídico e TI decidirem juntos."
+    },
+    {
+      "titulo": "Plano de resposta pronto",
+      "texto": "Deixamos claro quem acionar e em que ordem, para que o incidente seja avisado à seguradora dentro do prazo."
+    },
+    {
+      "titulo": "Renovação com evolução",
+      "texto": "Acompanhamos os avanços de segurança ao longo do ano e levamos esses dados para a negociação da renovação."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O seguro cobre multas aplicadas com base na LGPD?",
+      "resposta": "Depende da apólice e da possibilidade legal de segurar a penalidade. Custos de defesa em procedimentos administrativos costumam ser cobertos, e o tratamento de multas deve ser verificado caso a caso."
+    },
+    {
+      "pergunta": "Pequenas e médias empresas precisam desse seguro?",
+      "resposta": "Empresas menores costumam ter menos estrutura para responder a um ataque, o que aumenta o impacto. O diagnóstico mostra se a exposição justifica a contratação."
+    },
+    {
+      "pergunta": "A seguradora exige controles de segurança?",
+      "resposta": "Sim. Questões como autenticação em dois fatores, backups e atualização de sistemas pesam na aceitação e no preço."
+    },
+    {
+      "pergunta": "Golpes de engenharia social estão cobertos?",
+      "resposta": "Algumas apólices oferecem cobertura para fraudes como transferências induzidas por e-mail falso, geralmente com sublimite. É um ponto a confirmar na proposta."
+    }
+  ],
+  "cta": {
+    "titulo": "Encontre o X da questão antes do invasor",
+    "texto": "Comece por um diagnóstico da sua exposição a dados e dos controles que a seguradora vai avaliar."
+  },
+  "seo": {
+    "title": "Seguro de Riscos Cibernéticos para empresas | AXLO",
+    "description": "Seguro de riscos cibernéticos para empresas: resposta a incidentes, vazamento de dados, ransomware e LGPD, com diagnóstico e apoio da AXLO na crise."
+  }
+}

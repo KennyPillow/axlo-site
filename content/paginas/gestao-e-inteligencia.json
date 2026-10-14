@@ -1,0 +1,49 @@
+{
+  "seo": {
+    "title": "Dashboard AXLO e gestão de saúde corporativa | AXLO",
+    "description": "Método em quatro etapas, Dashboard AXLO, relatórios executivos e programas de saúde para gerir o plano da empresa com dados, todo mês."
+  },
+  "hero": {
+    "eyebrow": "AXLO Inteligência",
+    "titulo": "O contrato traduzido em decisão, todo mês",
+    "subtitulo": "O Dashboard AXLO e os relatórios executivos mostram o que explica o custo do plano e o que dá para fazer antes da renovação."
+  },
+  "metodo": {
+    "titulo": "Método em quatro etapas",
+    "etapas": [
+      { "titulo": "Diagnóstico", "texto": "Leitura do contrato, do histórico de uso e dos reajustes anteriores. O resultado é um mapa do que pesa no custo." },
+      { "titulo": "Monitoramento mensal", "texto": "Sinistralidade, custo por pessoa, eventos de alto custo e movimentações acompanhados todo mês." },
+      { "titulo": "Ações de prevenção", "texto": "Programas de saúde e ajustes de contrato escolhidos a partir do que os dados mostram." },
+      { "titulo": "Relatório com indicadores", "texto": "Relatórios executivos para RH, financeiro e diretoria, com a conclusão no título de cada gráfico." }
+    ]
+  },
+  "dashboard": {
+    "titulo": "Dashboard AXLO",
+    "texto": "Os números do contrato num só lugar, com a explicação ao lado de cada indicador.",
+    "indicadores": [
+      "Sinistralidade mês a mês e comparação com o ponto de equilíbrio",
+      "Custo por pessoa e por faixa etária",
+      "Uso por tipo de atendimento: consultas, exames, internações e terapias",
+      "Eventos de alto custo acompanhados com cuidado e sigilo",
+      "Movimentações do mês e conferência da fatura"
+    ],
+    "nota": "Os dados de saúde são tratados de forma agregada e anonimizada, conforme a LGPD."
+  },
+  "relatorios": {
+    "titulo": "Relatórios executivos",
+    "texto": "Cada público recebe o que precisa para decidir: o financeiro vê previsibilidade, o RH vê movimentação e atendimento, a diretoria vê risco e tendência. A renovação chega preparada, com argumento para negociar."
+  },
+  "programas": {
+    "titulo": "AXLO Programas de Saúde",
+    "texto": "Ações de prevenção escolhidas a partir do uso real do plano, e não de um catálogo pronto.",
+    "itens": [
+      { "titulo": "Prevenção", "texto": "Campanhas e check-ups direcionados aos grupos que concentram o uso." },
+      { "titulo": "Bem-estar", "texto": "Atividade física, nutrição e sono, com adesão medida." },
+      { "titulo": "Saúde mental", "texto": "Apoio psicológico e ações ligadas aos riscos psicossociais previstos na NR-01." }
+    ]
+  },
+  "ctaFinal": {
+    "titulo": "Veja o seu contrato com outros olhos",
+    "texto": "Peça um diagnóstico. A primeira leitura do contrato mostra onde está o X da questão."
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "slug": "telemedicina",
+  "categoria": "beneficios",
+  "ordem": 4,
+  "titulo": "Telemedicina para colaboradores",
+  "nomeCurto": "Telemedicina",
+  "icone": "video",
+  "resumo": "Atendimento médico por vídeo para colaboradores e dependentes, com orientação e encaminhamento quando necessário.",
+  "hero": {
+    "eyebrow": "Saúde & Benefícios",
+    "titulo": "Atendimento médico onde o colaborador estiver",
+    "subtitulo": "A telemedicina oferece consultas por vídeo para colaboradores e dependentes, com receitas e atestados digitais e encaminhamento para atendimento presencial quando necessário."
+  },
+  "paraQuem": "Empresas com equipes em várias cidades, em trabalho remoto ou híbrido, em turnos ou em regiões com pouca rede médica. Também atende empresas que ainda não oferecem plano de saúde e querem um primeiro benefício de saúde. Para o RH, ajuda a reduzir idas desnecessárias ao pronto-socorro e o tempo fora do trabalho.",
+  "protege": [
+    {
+      "titulo": "Pronto atendimento virtual",
+      "texto": "Consulta por vídeo para queixas comuns, como gripes, dores e mal-estar, conforme os horários do serviço contratado."
+    },
+    {
+      "titulo": "Consultas com especialistas",
+      "texto": "Agendamento de consultas com especialidades disponíveis na plataforma, conforme o plano."
+    },
+    {
+      "titulo": "Receitas e atestados digitais",
+      "texto": "Documentos emitidos eletronicamente pelo médico, quando indicado no atendimento."
+    },
+    {
+      "titulo": "Saúde emocional",
+      "texto": "Atendimento com psicólogos por vídeo, quando incluído no serviço contratado."
+    },
+    {
+      "titulo": "Orientação e encaminhamento",
+      "texto": "Quando o caso exige exame ou avaliação presencial, o colaborador recebe orientação sobre onde buscar atendimento."
+    }
+  ],
+  "situacoes": [
+    "Um colaborador em home office acorda com febre e quer saber se precisa ir ao pronto-socorro.",
+    "A filial fica em uma cidade com poucos especialistas e as consultas demoram semanas.",
+    "A empresa quer oferecer um benefício de saúde antes de ter porte para um plano completo.",
+    "Colaboradores de turno noturno não conseguem consultar em horário comercial."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico de necessidade",
+      "texto": "Avaliamos se a telemedicina já está incluída no plano de saúde atual ou se faz sentido contratar como benefício separado."
+    },
+    {
+      "titulo": "Escolha do serviço",
+      "texto": "Comparamos horários, especialidades, saúde emocional e experiência de uso antes de recomendar uma solução."
+    },
+    {
+      "titulo": "Implantação e comunicação",
+      "texto": "Cuidamos do cadastro dos colaboradores e apoiamos o RH na comunicação para que as pessoas saibam como usar."
+    },
+    {
+      "titulo": "Uso medido e concierge",
+      "texto": "Acompanhamos a utilização nos relatórios e orientamos colaboradores pelo concierge de saúde quando precisam do próximo passo."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "Telemedicina substitui o plano de saúde?",
+      "resposta": "Não. Ela resolve boa parte das demandas de baixa complexidade, mas não cobre exames, internações e cirurgias. Pode ser um primeiro benefício ou um complemento ao plano."
+    },
+    {
+      "pergunta": "Atestados emitidos por telemedicina são válidos?",
+      "resposta": "Sim, quando emitidos por médico habilitado e conforme a regulamentação do Conselho Federal de Medicina para o atendimento a distância."
+    },
+    {
+      "pergunta": "Meu plano de saúde já tem telemedicina. Preciso contratar outra?",
+      "resposta": "Talvez não. Muitos planos já incluem o serviço. O diagnóstico mostra se o que você tem atende ou se há lacunas, como saúde emocional ou horários."
+    },
+    {
+      "pergunta": "Dependentes podem usar?",
+      "resposta": "Depende do serviço contratado. Muitos modelos permitem incluir dependentes, com ou sem custo adicional."
+    }
+  ],
+  "cta": {
+    "titulo": "Saúde acessível para toda a equipe",
+    "texto": "Comece por um diagnóstico dos benefícios atuais e de como seus colaboradores buscam atendimento."
+  },
+  "seo": {
+    "title": "Telemedicina para colaboradores e empresas | AXLO",
+    "description": "Telemedicina para colaboradores e dependentes, com consulta por vídeo, receitas e atestados digitais, implantação e acompanhamento de uso pela AXLO."
+  }
+}

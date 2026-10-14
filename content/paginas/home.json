@@ -1,0 +1,374 @@
+{
+  "seo": {
+    "title": "AXLO | Saúde e Seguros Corporativos em São Paulo",
+    "description": "Corretora de saúde e seguros corporativos em São Paulo que acompanha o contrato o ano inteiro: planos de saúde, benefícios e seguros empresariais."
+  },
+  "hero": {
+    "eyebrow": "Saúde & Seguros Corporativos",
+    "titulo": "Saúde e seguros da sua empresa, acompanhados o ano inteiro.",
+    "subtitulo": "A AXLO é a corretora que lê os dados do seu contrato todo mês, explica o custo e prepara a renovação antes do reajuste. Com gente de verdade no atendimento.",
+    "cta": "Pedir diagnóstico do contrato",
+    "linkTexto": "Ver soluções",
+    "linkUrl": "/saude-e-beneficios"
+  },
+  "slides": [
+    {
+      "nome": "Ricardo",
+      "papel": "Sócio e CEO",
+      "foto": "/assets/img/hero-ricardo.jpg",
+      "avatar": "/assets/img/av-ricardo.jpg",
+      "lado": "direita",
+      "posicaoMobile": "24%",
+      "notificacao": {
+        "titulo": "Renovação em 60 dias",
+        "texto": "argumentos prontos"
+      },
+      "etiquetas": [
+        "Diagnóstico do contrato",
+        "Negociação com argumento",
+        "Renovação preparada"
+      ],
+      "card": {
+        "titulo": "Reajuste proposto pela operadora",
+        "valor": 18,
+        "sufixo": "%",
+        "legenda": "Três fatores explicam:",
+        "itens": [
+          {
+            "rotulo": "Uso do grupo (reajuste técnico)",
+            "valor": 9,
+            "sufixo": "%"
+          },
+          {
+            "rotulo": "Inflação médica",
+            "valor": 6,
+            "sufixo": "%"
+          },
+          {
+            "rotulo": "Mudança de faixa etária",
+            "valor": 3,
+            "sufixo": "%"
+          }
+        ]
+      },
+      "indicadores": [
+        {
+          "valor": 60,
+          "sufixo": " dias",
+          "rotulo": "de antecedência para negociar"
+        },
+        {
+          "valor": 3,
+          "sufixo": "",
+          "rotulo": "fatores explicados ao conselho"
+        }
+      ]
+    },
+    {
+      "nome": "Helena",
+      "papel": "Diretora financeira",
+      "foto": "/assets/img/hero-helena.jpg",
+      "avatar": "/assets/img/av-helena.jpg",
+      "lado": "esquerda",
+      "posicaoMobile": "72%",
+      "notificacao": {
+        "titulo": "Relatório do mês",
+        "texto": "enviado à diretoria"
+      },
+      "etiquetas": [
+        "Indicadores todo mês",
+        "Orçamento previsível",
+        "Relatório executivo"
+      ],
+      "card": {
+        "titulo": "Sinistralidade do contrato",
+        "valor": 82,
+        "sufixo": "%",
+        "legenda": "De cada R$ 100 pagos, R$ 82 voltaram em uso:",
+        "itens": [
+          {
+            "rotulo": "Consultas e exames",
+            "valor": 38,
+            "sufixo": "%"
+          },
+          {
+            "rotulo": "Internações",
+            "valor": 31,
+            "sufixo": "%"
+          },
+          {
+            "rotulo": "Terapias e outros",
+            "valor": 13,
+            "sufixo": "%"
+          }
+        ]
+      },
+      "indicadores": [
+        {
+          "valor": 70,
+          "sufixo": "%",
+          "rotulo": "é o ponto de equilíbrio do contrato"
+        },
+        {
+          "valor": 12,
+          "sufixo": "",
+          "rotulo": "relatórios executivos por ano"
+        }
+      ]
+    },
+    {
+      "nome": "Juliana",
+      "papel": "Gerente de RH",
+      "foto": "/assets/img/hero-juliana.jpg",
+      "avatar": "/assets/img/av-juliana.jpg",
+      "lado": "esquerda",
+      "posicaoMobile": "70%",
+      "notificacao": {
+        "titulo": "Concierge de saúde",
+        "texto": "consulta agendada para um colaborador"
+      },
+      "etiquetas": [
+        "Gestão de movimentações",
+        "Concierge de saúde",
+        "Uma equipe que responde"
+      ],
+      "card": {
+        "titulo": "Movimentações do mês",
+        "valor": 17,
+        "sufixo": "",
+        "legenda": "Tratadas pela AXLO, sem planilha para o RH:",
+        "itens": [
+          {
+            "rotulo": "Inclusões",
+            "valor": 11,
+            "sufixo": ""
+          },
+          {
+            "rotulo": "Exclusões",
+            "valor": 4,
+            "sufixo": ""
+          },
+          {
+            "rotulo": "Alterações cadastrais",
+            "valor": 2,
+            "sufixo": ""
+          }
+        ]
+      },
+      "indicadores": [
+        {
+          "valor": 0,
+          "sufixo": "",
+          "rotulo": "pendências abertas no fechamento"
+        },
+        {
+          "valor": 3,
+          "sufixo": "",
+          "rotulo": "canais: WhatsApp, telefone e e-mail"
+        }
+      ]
+    }
+  ],
+  "manifesto": {
+    "eyebrow": "O X da questão",
+    "titulo": "Toda empresa sabe quanto paga pelo plano de saúde. Poucas sabem por quê.",
+    "texto": "O reajuste chega uma vez por ano, com um número e pouca explicação. No resto do tempo, o contrato fica sozinho. A AXLO nasceu para ocupar esse intervalo: lemos os dados todo mês, mostramos onde está o uso e o risco, e negociamos com argumento.",
+    "mensagens": [
+      {
+        "para": "Sócio ou CEO",
+        "texto": "Você sabe quanto paga. A AXLO mostra por que paga e o que dá para mudar."
+      },
+      {
+        "para": "Financeiro",
+        "texto": "Saúde deixa de ser surpresa no orçamento: indicadores todo mês e renovação preparada com antecedência."
+      },
+      {
+        "para": "RH e Benefícios",
+        "texto": "Menos planilha e menos cobrança: movimentação, dúvidas e relatórios com uma equipe que responde."
+      },
+      {
+        "para": "Colaborador",
+        "texto": "Quando você precisar usar o plano, tem alguém da AXLO para orientar."
+      }
+    ]
+  },
+  "frentes": {
+    "eyebrow": "Uma marca, quatro frentes",
+    "titulo": "Tudo o que protege as pessoas e o patrimônio da empresa",
+    "itens": [
+      {
+        "titulo": "Saúde & Benefícios",
+        "texto": "Planos de saúde e odontológicos, vida em grupo, telemedicina e gestão do benefício com apoio ao RH.",
+        "link": "/saude-e-beneficios",
+        "icone": "heart-pulse"
+      },
+      {
+        "titulo": "Seguros Corporativos",
+        "texto": "D&O, responsabilidade civil, patrimonial, garantia, riscos de engenharia, cyber e frota.",
+        "link": "/seguros-corporativos",
+        "icone": "shield"
+      },
+      {
+        "titulo": "Inteligência",
+        "texto": "Dashboard AXLO e relatórios executivos que traduzem o contrato para RH, financeiro e diretoria.",
+        "link": "/gestao-e-inteligencia",
+        "icone": "chart"
+      },
+      {
+        "titulo": "Programas de Saúde",
+        "texto": "Prevenção, bem-estar e saúde mental, com ações escolhidas a partir do uso real do plano.",
+        "link": "/gestao-e-inteligencia#programas",
+        "icone": "sprout"
+      }
+    ]
+  },
+  "seguros": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Gestão de riscos para quem decide pela empresa",
+    "texto": "Mapeamos os riscos da operação, comparamos apólices com critério e acompanhamos o contrato até o sinistro, se ele acontecer.",
+    "linkTexto": "Ver todos os seguros corporativos"
+  },
+  "beneficios": {
+    "eyebrow": "Benefícios corporativos",
+    "titulo": "Benefícios que funcionam no dia a dia, não só no contrato",
+    "texto": "Da pequena empresa ao grande contrato, a AXLO cuida da escolha, da gestão e do uso dos benefícios.",
+    "servicos": [
+      {
+        "titulo": "Gestão de movimentações",
+        "texto": "Inclusões, exclusões, segunda via e alterações cadastrais com a AXLO. O RH não vira central de atendimento.",
+        "icone": "refresh"
+      },
+      {
+        "titulo": "Concierge de saúde",
+        "texto": "Quando um colaborador precisa usar o plano, uma pessoa da AXLO orienta sobre rede, agendamento, autorização e reembolso.",
+        "icone": "headset"
+      }
+    ],
+    "linkTexto": "Ver saúde e benefícios"
+  },
+  "metodo": {
+    "eyebrow": "Como trabalhamos",
+    "titulo": "Um método em quatro etapas, do diagnóstico ao resultado medido",
+    "etapas": [
+      {
+        "titulo": "Diagnóstico",
+        "texto": "Lemos o contrato atual, o uso e os riscos. Você sabe onde está o X da questão antes de decidir qualquer coisa."
+      },
+      {
+        "titulo": "Monitoramento mensal",
+        "texto": "Acompanhamos sinistralidade, custo e movimentações todo mês, não só na renovação."
+      },
+      {
+        "titulo": "Ações de prevenção",
+        "texto": "Propomos programas de saúde e ajustes no contrato a partir do que os dados mostram."
+      },
+      {
+        "titulo": "Relatório com indicadores",
+        "texto": "RH, financeiro e diretoria recebem relatórios executivos que dá para ler e repetir."
+      }
+    ],
+    "linkTexto": "Conhecer o Dashboard AXLO"
+  },
+  "porte": {
+    "eyebrow": "Para quem",
+    "titulo": "O mesmo método da pequena empresa ao grande contrato",
+    "itens": [
+      {
+        "titulo": "Pequenas empresas",
+        "texto": "Benefício competitivo desde o começo, com orientação clara sobre carência, rede e coparticipação."
+      },
+      {
+        "titulo": "Médias empresas",
+        "texto": "Custo previsível, movimentações em dia e renovação preparada com antecedência."
+      },
+      {
+        "titulo": "Grandes contratos",
+        "texto": "Gestão de sinistralidade, programas de saúde, relatórios executivos e todos os ramos de seguro empresarial."
+      }
+    ]
+  },
+  "diferenciais": {
+    "eyebrow": "Por que a AXLO",
+    "titulo": "Cinco razões para confiar o contrato à AXLO",
+    "itens": [
+      {
+        "titulo": "Método em quatro etapas",
+        "texto": "Do diagnóstico ao resultado medido, com o dado que sustenta cada recomendação."
+      },
+      {
+        "titulo": "Dashboard AXLO",
+        "texto": "Relatórios executivos para RH, financeiro e diretoria, todo mês."
+      },
+      {
+        "titulo": "Todos os ramos de seguro empresarial",
+        "texto": "Saúde, vida, patrimonial, frota, responsabilidade civil, D&O, garantia e cyber num só parceiro."
+      },
+      {
+        "titulo": "Liderança médica",
+        "texto": "Vivência em saúde ocupacional para ler o uso do plano e propor prevenção."
+      },
+      {
+        "titulo": "Corretora registrada na SUSEP",
+        "texto": "Registro nº 252175030, visível em todos os canais."
+      }
+    ]
+  },
+  "comparativo": {
+    "eyebrow": "A diferença na prática",
+    "titulo": "O corretor que só aparece no reajuste x a AXLO",
+    "colunaAxlo": "AXLO",
+    "colunaOutro": "Só na renovação",
+    "linhas": [
+      {
+        "axlo": "Acompanha o contrato o ano inteiro",
+        "outro": "Aparece quando o reajuste chega"
+      },
+      {
+        "axlo": "Explica o custo com dados do próprio contrato",
+        "outro": "Repassa o número da operadora"
+      },
+      {
+        "axlo": "Negocia com argumento e antecedência",
+        "outro": "Negocia em cima do prazo"
+      },
+      {
+        "axlo": "Diz quando não vale trocar de operadora",
+        "outro": "Troca para vender de novo"
+      },
+      {
+        "axlo": "Atendimento humano para RH e colaboradores",
+        "outro": "Chamado registrado e espera"
+      }
+    ]
+  },
+  "faq": {
+    "titulo": "Perguntas frequentes",
+    "itens": [
+      {
+        "pergunta": "A AXLO cobra pela consultoria?",
+        "resposta": "Não. A remuneração da corretora vem das operadoras e seguradoras. A empresa paga o plano e as apólices contratadas."
+      },
+      {
+        "pergunta": "Já tenho corretor. Por que olhar para a AXLO?",
+        "resposta": "Comece pelo diagnóstico do contrato atual. Se não houver o que melhorar, dizemos isso com clareza, mesmo que signifique não trocar."
+      },
+      {
+        "pergunta": "Trocar de operadora tem risco de carência?",
+        "resposta": "Depende do caso. Muitas vezes é possível aproveitar carências já cumpridas, pelas regras de portabilidade. Avaliamos o histórico do grupo antes de qualquer proposta."
+      },
+      {
+        "pergunta": "A AXLO atende empresas pequenas?",
+        "resposta": "Sim. Atendemos da pequena empresa ao grande contrato, com o mesmo método de acompanhamento."
+      },
+      {
+        "pergunta": "Que seguros corporativos vocês fazem?",
+        "resposta": "Todos os ramos de seguro empresarial, entre eles D&O, responsabilidade civil, patrimonial, garantia, riscos de engenharia, riscos cibernéticos, frota e vida em grupo."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "eyebrow": "Primeiro passo",
+    "titulo": "Qual é o X do seu contrato?",
+    "texto": "Peça um diagnóstico do contrato atual. Mostramos o que explica o custo e o que dá para fazer antes da próxima renovação."
+  }
+}

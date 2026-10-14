@@ -1,0 +1,87 @@
+{
+  "slug": "frota",
+  "categoria": "seguros",
+  "ordem": 7,
+  "titulo": "Seguro de Frota",
+  "nomeCurto": "Frota",
+  "icone": "truck",
+  "resumo": "Uma apólice para os veículos da empresa, com gestão de sinistros e dados para reduzir ocorrências.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Sua frota em uma apólice, com dados para decidir",
+    "subtitulo": "O seguro de frota protege carros, utilitários e caminhões da empresa contra colisão, roubo e danos a terceiros, com gestão centralizada de inclusões, exclusões e sinistros."
+  },
+  "paraQuem": "Empresas com veículos de vendas, entregas, serviços técnicos ou transporte, a partir de poucos veículos, conforme as regras da seguradora. Gerir apólices individuais consome tempo do financeiro e do administrativo. Uma apólice de frota concentra vencimentos e permite enxergar onde estão os sinistros.",
+  "protege": [
+    {
+      "titulo": "Casco",
+      "texto": "Danos ao próprio veículo por colisão, incêndio, roubo, furto e eventos da natureza, conforme a cobertura escolhida."
+    },
+    {
+      "titulo": "Danos a terceiros",
+      "texto": "Responsabilidade civil por danos materiais e corporais causados a terceiros em acidentes com os veículos da empresa."
+    },
+    {
+      "titulo": "Acidentes pessoais",
+      "texto": "Indenização por morte ou invalidez do motorista e dos passageiros, quando contratada."
+    },
+    {
+      "titulo": "Assistência 24 horas",
+      "texto": "Guincho, socorro mecânico e outros serviços, conforme o plano de assistência contratado."
+    },
+    {
+      "titulo": "Carro reserva e vidros",
+      "texto": "Coberturas adicionais que reduzem o tempo de veículo parado e os custos menores de reparo."
+    }
+  ],
+  "situacoes": [
+    "Um veículo de entregas colide com um carro particular e o motorista do outro veículo se fere.",
+    "Uma van de serviço técnico é roubada com ferramentas e equipamentos dentro.",
+    "A empresa contrata três novos vendedores e precisa incluir os veículos na apólice sem atraso.",
+    "O número de colisões em uma região aumenta e o custo da renovação sobe."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Diagnóstico da frota",
+      "texto": "Levantamos veículos, uso, regiões e histórico de sinistros para definir coberturas e franquias por perfil."
+    },
+    {
+      "titulo": "Movimentações do dia a dia",
+      "texto": "Cuidamos de inclusões, exclusões e substituições de veículos, para que nenhum carro rode sem cobertura."
+    },
+    {
+      "titulo": "Sinistralidade acompanhada",
+      "texto": "Mostramos onde, com quem e em que tipo de ocorrência estão os sinistros, e sugerimos ações de prevenção com os motoristas."
+    },
+    {
+      "titulo": "Renovação com histórico",
+      "texto": "Preparamos a renovação com antecedência e com os dados do ano, para negociar com base no comportamento real da frota."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "A partir de quantos veículos vale ter apólice de frota?",
+      "resposta": "Depende da seguradora e do perfil dos veículos. Com poucos veículos já pode fazer sentido pela gestão centralizada, e o diagnóstico mostra se compensa."
+    },
+    {
+      "pergunta": "Qualquer colaborador pode dirigir o veículo segurado?",
+      "resposta": "Depende das condições da apólice e do perfil de condutores declarado. Informações incorretas podem afetar uma indenização, por isso revisamos esse ponto na contratação."
+    },
+    {
+      "pergunta": "Veículos com rastreador pagam menos?",
+      "resposta": "Rastreadores e telemetria podem influenciar aceitação e preço, conforme a seguradora e o tipo de veículo."
+    },
+    {
+      "pergunta": "Carga transportada está coberta?",
+      "resposta": "Não, em geral. Mercadorias transportadas exigem seguro de transporte específico, que também pode ser estruturado."
+    }
+  ],
+  "cta": {
+    "titulo": "Qual é o X da questão na sua frota?",
+    "texto": "Comece por um diagnóstico dos veículos, das apólices atuais e do histórico de sinistros."
+  },
+  "seo": {
+    "title": "Seguro de Frota para veículos da empresa | AXLO",
+    "description": "Seguro de frota para veículos da empresa, com gestão de inclusões e sinistros e dados de ocorrências para preparar a renovação com a AXLO."
+  }
+}

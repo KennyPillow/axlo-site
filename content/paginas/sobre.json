@@ -1,0 +1,47 @@
+{
+  "seo": {
+    "title": "Sobre a AXLO | Corretora de saúde e seguros corporativos",
+    "description": "Conheça a AXLO: propósito, valores e método. A corretora de São Paulo que acompanha o contrato de saúde e seguros da empresa o ano inteiro."
+  },
+  "hero": {
+    "eyebrow": "Sobre a AXLO",
+    "titulo": "A AXLO existe para a empresa enxergar a saúde de quem trabalha nela.",
+    "subtitulo": "Somos uma corretora de saúde e seguros corporativos com sede em São Paulo. Acompanhamos o contrato o ano inteiro e transformamos os dados em decisões que protegem pessoas e orçamento."
+  },
+  "manifesto": {
+    "titulo": "Manifesto",
+    "paragrafos": [
+      "Toda empresa sabe quanto paga pelo plano de saúde. Poucas sabem por quê.",
+      "O reajuste chega uma vez por ano, com um número e pouca explicação. No resto do tempo, o contrato fica sozinho.",
+      "A AXLO nasceu para ocupar esse intervalo. Lemos os dados do contrato todo mês. Mostramos onde está o uso, onde está o risco e o que dá para fazer antes da renovação. Negociamos com a operadora com argumento, não com apelo.",
+      "E quando alguém da sua equipe precisa usar o plano, tem uma pessoa do outro lado.",
+      "Dado para decidir. Gente para cuidar. Esse é o X da questão."
+    ]
+  },
+  "pilares": [
+    { "rotulo": "Propósito", "texto": "Fazer a empresa enxergar a saúde de quem trabalha nela, para decidir melhor e cuidar melhor." },
+    { "rotulo": "Missão", "texto": "Gerir saúde e seguros corporativos o ano inteiro, transformando os dados do contrato em decisões que protegem pessoas e orçamento." },
+    { "rotulo": "Visão", "texto": "Ser a referência brasileira em gestão inteligente de saúde e seguros corporativos, da pequena empresa ao grande contrato." }
+  ],
+  "valores": {
+    "titulo": "Quatro valores, cada um com um comportamento que dá para observar",
+    "itens": [
+      { "titulo": "Clareza", "texto": "Explicamos reajuste, carência e cobertura em linguagem que o RH consegue repetir sem consultar ninguém." },
+      { "titulo": "Rigor", "texto": "Toda recomendação vem com o dado que a sustenta. Quando não há dado, dizemos que é opinião." },
+      { "titulo": "Presença", "texto": "Quem vendeu continua respondendo. O cliente fala com a AXLO fora da época de renovação." },
+      { "titulo": "Franqueza", "texto": "Dizemos quando não vale trocar de operadora, mesmo que isso signifique não vender." }
+    ]
+  },
+  "simbolo": {
+    "titulo": "A reta é o dado. A curva é o cuidado.",
+    "texto": "Todo contrato de saúde tem um X: o motivo do reajuste, o grupo que concentra o uso, a cobertura que falta. O símbolo da AXLO mostra como trabalhamos: a decisão acontece onde o dado e o cuidado se cruzam."
+  },
+  "lideranca": {
+    "titulo": "Liderança médica, com vivência em saúde ocupacional",
+    "texto": "A leitura do contrato passa por quem entende de saúde. Isso muda a conversa com a operadora e a escolha das ações de prevenção."
+  },
+  "registro": {
+    "titulo": "Corretora registrada na SUSEP",
+    "texto": "A AXLO é registrada na Superintendência de Seguros Privados sob o nº 252175030. Você pode consultar o registro no site da SUSEP."
+  }
+}

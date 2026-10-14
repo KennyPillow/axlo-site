@@ -1,0 +1,87 @@
+{
+  "slug": "responsabilidade-civil",
+  "categoria": "seguros",
+  "ordem": 2,
+  "titulo": "Seguro de Responsabilidade Civil",
+  "nomeCurto": "Responsabilidade Civil",
+  "icone": "scale",
+  "resumo": "Cobre indenizações e defesa quando a operação, um produto ou um serviço da empresa causa dano a terceiros.",
+  "hero": {
+    "eyebrow": "Seguros Corporativos",
+    "titulo": "Quando a operação causa um dano, a conta não precisa sair do caixa",
+    "subtitulo": "O seguro de Responsabilidade Civil responde por danos materiais e corporais causados a terceiros pela atividade da empresa, por seus produtos ou pelos serviços profissionais que ela presta."
+  },
+  "paraQuem": "Indústrias, comércio, prestadores de serviço, empresas de tecnologia, consultorias e escritórios profissionais. Qualquer empresa que recebe visitantes, entrega produtos ou presta serviços pode ser cobrada por um dano que não previu. O financeiro e o jurídico ganham previsibilidade, e contratos com clientes que exigem essa apólice passam a ser atendidos.",
+  "protege": [
+    {
+      "titulo": "RC Geral de operações",
+      "texto": "Danos a terceiros causados no estabelecimento ou durante as atividades da empresa, como um acidente com um visitante."
+    },
+    {
+      "titulo": "RC Produtos",
+      "texto": "Danos causados por produtos fabricados ou comercializados, depois de entregues ao cliente, conforme a apólice."
+    },
+    {
+      "titulo": "RC Profissional (E&O)",
+      "texto": "Erros, omissões ou falhas na prestação de serviços profissionais que gerem prejuízo financeiro ao cliente."
+    },
+    {
+      "titulo": "RC do Empregador",
+      "texto": "Indenizações cobradas pelo colaborador em caso de acidente de trabalho com culpa da empresa, quando contratada essa cobertura."
+    },
+    {
+      "titulo": "Custos de defesa",
+      "texto": "Honorários advocatícios e custas para responder à reclamação, dentro dos limites contratados."
+    }
+  ],
+  "situacoes": [
+    "Um cliente escorrega no piso molhado da loja e pede indenização por despesas médicas e lucros perdidos.",
+    "Um lote de peças com defeito causa a parada da linha de produção de um cliente industrial.",
+    "Uma consultoria entrega um parecer com erro de cálculo e o cliente cobra o prejuízo na Justiça.",
+    "Uma empresa terceirizada danifica a instalação de um condomínio durante a manutenção contratada."
+  ],
+  "comoAxloAtua": [
+    {
+      "titulo": "Mapeamento da atividade",
+      "texto": "Entendemos o que a empresa faz, onde opera e o que seus contratos exigem, para definir quais modalidades de RC fazem sentido."
+    },
+    {
+      "titulo": "Limites que cabem no risco",
+      "texto": "Comparamos propostas por limite, franquia e exclusões, e dizemos com franqueza quando uma cobertura extra não se paga."
+    },
+    {
+      "titulo": "Apoio na reclamação",
+      "texto": "Quando um terceiro reclama, orientamos o aviso à seguradora e acompanhamos a regulação do sinistro até o desfecho."
+    },
+    {
+      "titulo": "Revisão ao longo do ano",
+      "texto": "Novos contratos, produtos ou unidades mudam o risco. Revisamos a apólice antes da renovação para que ela acompanhe a operação."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "Qual a diferença entre RC Geral e RC Profissional?",
+      "resposta": "RC Geral cobre danos materiais e corporais causados a terceiros pela operação. RC Profissional, também chamado de E&O, cobre prejuízos financeiros causados por erro ou omissão na prestação de um serviço."
+    },
+    {
+      "pergunta": "Danos a bens da própria empresa estão cobertos?",
+      "resposta": "Não. Responsabilidade Civil cobre danos a terceiros. Bens próprios são protegidos pelo seguro patrimonial."
+    },
+    {
+      "pergunta": "Meu cliente exige apólice de RC no contrato. Como atender?",
+      "resposta": "Analisamos as exigências do contrato, como limite mínimo e inclusão do cliente como beneficiário, e estruturamos a apólice para atendê-las."
+    },
+    {
+      "pergunta": "A apólice cobre fatos que aconteceram antes da contratação?",
+      "resposta": "Depende da forma de contratação. Algumas apólices respondem por fatos ocorridos na vigência e outras por reclamações apresentadas na vigência, com período de retroatividade negociado."
+    }
+  ],
+  "cta": {
+    "titulo": "Descubra o X da questão nos seus contratos",
+    "texto": "O primeiro passo é um diagnóstico das responsabilidades da sua operação e das apólices que você já tem."
+  },
+  "seo": {
+    "title": "Seguro de Responsabilidade Civil empresarial | AXLO",
+    "description": "Seguro de Responsabilidade Civil para empresas: RC Geral, Produtos, Profissional e Empregador, com diagnóstico da operação e apoio da AXLO no sinistro."
+  }
+}
