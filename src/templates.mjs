@@ -719,7 +719,7 @@ function sobre() {
   <section class="sec">
     <div class="wrap simbolo">
       <div class="simbolo-x" aria-hidden="true"><img src="${C.base}/assets/brand/axlo-x.svg" alt="" width="220" height="246" loading="lazy"></div>
-      <div><p class="eyebrow">O símbolo</p><h2 class="rv">${esc(p.simbolo.titulo)}</h2><p class="rv big-p">${esc(p.simbolo.texto)}</p></div>
+      <div><p class="eyebrow">O nome</p><h2 class="rv">${esc(p.simbolo.titulo)}</h2><p class="rv big-p">${esc(p.simbolo.texto)}</p></div>
     </div>
   </section>
   <section class="sec sec-nevoa">
