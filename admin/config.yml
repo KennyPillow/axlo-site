@@ -342,7 +342,7 @@ collections:
           - { label: Manifesto, name: manifesto, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Parágrafos, name: paragrafos, widget: list, field: { label: Parágrafo, name: p, widget: text } }] }
           - { label: "Propósito, missão e visão", name: pilares, widget: list, fields: [{ label: Rótulo, name: rotulo, widget: string }, { label: Texto, name: texto, widget: text }] }
           - { label: Valores, name: valores, widget: object, fields: [{ label: Título, name: titulo, widget: string }, { label: Valores, name: itens, widget: list, fields: *titulo_texto }] }
-          - { label: O símbolo, name: simbolo, widget: object, fields: *titulo_texto }
+          - { label: O nome (axolote), name: simbolo, widget: object, fields: *titulo_texto }
           - { label: Liderança, name: lideranca, widget: object, fields: *titulo_texto }
           - { label: Registro SUSEP, name: registro, widget: object, fields: *titulo_texto }
 
