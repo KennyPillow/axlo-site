@@ -3,18 +3,43 @@ import { enviarParaKommo, kommoConfigurado } from '../lib/kommo.js';
 
 const LIMITE = new Map(); // tentativas por IP (melhor esforço; zera quando a função reinicia)
 
-const str = (v, max) => String(v ?? '').trim().slice(0, max);
+const str = (v, max) =>
+  String(v ?? '')
+    .trim()
+    .slice(0, max);
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export function validar(b) {
   const l = {
-    nome: str(b.nome, 120), empresa: str(b.empresa, 120), email: str(b.email, 160).toLowerCase(),
-    telefone: str(b.telefone, 20), cargo: str(b.cargo, 60), colaboradores: str(b.colaboradores, 30),
-    interesse: str(b.interesse, 80), mensagem: str(b.mensagem, 1500), origem: str(b.origem, 60) || 'site',
-    pagina: str(b.pagina, 200), tracking: {},
+    nome: str(b.nome, 120),
+    empresa: str(b.empresa, 120),
+    email: str(b.email, 160).toLowerCase(),
+    telefone: str(b.telefone, 20),
+    cargo: str(b.cargo, 60),
+    colaboradores: str(b.colaboradores, 30),
+    interesse: str(b.interesse, 80),
+    mensagem: str(b.mensagem, 1500),
+    origem: str(b.origem, 60) || 'site',
+    pagina: str(b.pagina, 200),
+    tracking: {},
   };
-  for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'referrer', 'landing', 'first_source', 'first_landing', 'first_at']) {
-    if (b.tracking && b.tracking[k]) l.tracking[k] = str(b.tracking[k], 300);
+  for (const k of [
+    'utm_source',
+    'utm_medium',
+    'utm_campaign',
+    'utm_content',
+    'utm_term',
+    'gclid',
+    'gbraid',
+    'wbraid',
+    'fbclid',
+    'referrer',
+    'landing',
+    'first_source',
+    'first_landing',
+    'first_at',
+  ]) {
+    if (b.tracking?.[k]) l.tracking[k] = str(b.tracking[k], 300);
   }
   const erros = [];
   if (l.nome.length < 3) erros.push('nome');
@@ -48,19 +73,28 @@ const responder = (res, status, obj) => {
 export default async function handler(req, res) {
   if (req.method !== 'POST') return responder(res, 405, { ok: false, erro: 'Use POST.' });
 
-  const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '').split(',')[0].trim();
-  const agora = Date.now(), janela = (LIMITE.get(ip) || []).filter(t => agora - t < 10 * 60 * 1000);
-  if (janela.length >= 8) return responder(res, 429, { ok: false, erro: 'Muitas tentativas. Tente de novo em alguns minutos.' });
+  const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '')
+    .split(',')[0]
+    .trim();
+  const agora = Date.now(),
+    janela = (LIMITE.get(ip) || []).filter(t => agora - t < 10 * 60 * 1000);
+  if (janela.length >= 8)
+    return responder(res, 429, { ok: false, erro: 'Muitas tentativas. Tente de novo em alguns minutos.' });
   LIMITE.set(ip, [...janela, agora]);
 
   let body;
-  try { body = await lerCorpo(req); } catch { return responder(res, 400, { ok: false, erro: 'Dados inválidos.' }); }
+  try {
+    body = await lerCorpo(req);
+  } catch {
+    return responder(res, 400, { ok: false, erro: 'Dados inválidos.' });
+  }
 
   // robôs: campo escondido preenchido ou envio rápido demais
   if (body.website || Number(body.tempo) < 3) return responder(res, 200, { ok: true });
 
   const { lead, erros } = validar(body);
-  if (erros.length) return responder(res, 422, { ok: false, erro: 'Campos inválidos: ' + erros.join(', ') + '.', campos: erros });
+  if (erros.length)
+    return responder(res, 422, { ok: false, erro: `Campos inválidos: ${erros.join(', ')}.`, campos: erros });
 
   if (!kommoConfigurado()) {
     console.error('[lead] Kommo não configurado; lead não salvo:', lead.email);

@@ -8,7 +8,10 @@
     "dev": "node scripts/dev.mjs",
     "cms": "npx decap-server",
     "test": "node scripts/test.mjs",
-    "brand": "node scripts/brand.mjs"
+    "brand": "node scripts/brand.mjs",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "format": "biome format . --write"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
   },
   "homepage": "https://github.com/KennyPillow/axlo-site#readme",
   "devDependencies": {
+    "@biomejs/biome": "^2.6.4",
     "decap-server": "^3.11.3",
     "puppeteer-core": "^25.13.0",
     "sharp": "^0.35.5"

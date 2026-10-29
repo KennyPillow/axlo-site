@@ -7,16 +7,36 @@ import { montarLead, montarNota } from '../lib/kommo.js';
 
 const ENV = { KOMMO_SUBDOMAIN: 'axlo', KOMMO_TOKEN: 't', KOMMO_PIPELINE_ID: '10', KOMMO_STATUS_ID: '20' };
 const BOM = {
-  nome: 'Ana Teste', empresa: 'Empresa X', email: 'ana@x.com.br', telefone: '(11) 98888-7777', cargo: 'Financeiro',
-  colaboradores: '30 a 99', interesse: 'Seguros corporativos', mensagem: '', origem: 'd-o', pagina: '/seguros-corporativos/d-o',
-  consentimento: true, tempo: 12, tracking: { utm_source: 'linkedin', utm_campaign: 'do-2026', landing: '/seguros-corporativos/d-o' },
+  nome: 'Ana Teste',
+  empresa: 'Empresa X',
+  email: 'ana@x.com.br',
+  telefone: '(11) 98888-7777',
+  cargo: 'Financeiro',
+  colaboradores: '30 a 99',
+  interesse: 'Seguros corporativos',
+  mensagem: '',
+  origem: 'd-o',
+  pagina: '/seguros-corporativos/d-o',
+  consentimento: true,
+  tempo: 12,
+  tracking: { utm_source: 'linkedin', utm_campaign: 'do-2026', landing: '/seguros-corporativos/d-o' },
 };
 
-function chamar(body, ip = '1.1.1.' + Math.floor(Math.random() * 250)) {
+function chamar(body, ip = `1.1.1.${Math.floor(Math.random() * 250)}`) {
   const req = Readable.from([Buffer.from(JSON.stringify(body))]);
-  req.method = 'POST'; req.headers = { 'x-forwarded-for': ip };
+  req.method = 'POST';
+  req.headers = { 'x-forwarded-for': ip };
   return new Promise(resolve => {
-    const res = { statusCode: 200, headers: {}, setHeader(k, v) { this.headers[k] = v; }, end(b) { resolve({ status: this.statusCode, body: JSON.parse(b) }); } };
+    const res = {
+      statusCode: 200,
+      headers: {},
+      setHeader(k, v) {
+        this.headers[k] = v;
+      },
+      end(b) {
+        resolve({ status: this.statusCode, body: JSON.parse(b) });
+      },
+    };
     handler(req, res);
   });
 }
@@ -65,7 +85,10 @@ t('nota guarda a origem e o consentimento', () => {
 
 t('envio feliz devolve o ID do lead', async () => {
   Object.assign(process.env, ENV);
-  fakeFetch([{ status: 200, body: [{ id: 555 }] }, { status: 200, body: {} }]);
+  fakeFetch([
+    { status: 200, body: [{ id: 555 }] },
+    { status: 200, body: {} },
+  ]);
   const r = await chamar(BOM);
   assert.equal(r.status, 200);
   assert.deepEqual(r.body, { ok: true, id: 555 });
@@ -115,9 +138,16 @@ t('limite de tentativas por IP', async () => {
 });
 
 let falhas = 0;
-const log = console.error; console.error = () => {};
+const log = console.error;
+console.error = () => {};
 for (const [nome, fn] of testes) {
-  try { await fn(); console.log('✔', nome); } catch (e) { falhas++; console.log('✖', nome, '\n   ', e.message); }
+  try {
+    await fn();
+    console.log('✔', nome);
+  } catch (e) {
+    falhas++;
+    console.log('✖', nome, '\n   ', e.message);
+  }
 }
 console.error = log;
 console.log(falhas ? `\n${falhas} falha(s)` : `\nTodos os ${testes.length} testes passaram.`);
