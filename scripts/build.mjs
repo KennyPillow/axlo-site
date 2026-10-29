@@ -79,15 +79,19 @@ async function prepareImages(dir, publicPrefix) {
     const meta = await sharp(file).metadata();
     const name = f.replace(/\.[^.]+$/, '');
     const stamp = crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
-    const widths = [...new Set(WIDTHS.filter(w => w < meta.width).concat(meta.width <= 2400 ? [meta.width] : []))];
+    // fotos do topo ocupam a tela inteira no desktop: se o original for menor, gera também 2000 px com reamostragem lanczos,
+    // mais nítida que deixar o navegador ampliar (não cria detalhe; o ideal continua sendo o original em alta)
+    const amplia = /^hero-/.test(name) && meta.width < 2000;
+    const widths = [...new Set(WIDTHS.filter(w => w < meta.width).concat(meta.width <= 2400 ? [meta.width] : [], amplia ? [2000] : []))];
     const variants = { avif: [], webp: [] };
     for (const w of widths) {
       for (const fmt of ['avif', 'webp']) {
         const out = `_img/${name}-${stamp}-${w}.${fmt}`;
         const cached = path.join(cacheDir, path.basename(out));
         if (!fs.existsSync(cached)) {
-          let img = sharp(file).resize({ width: w, withoutEnlargement: true });
+          let img = sharp(file).resize({ width: w, withoutEnlargement: !amplia, kernel: 'lanczos3' });
           if (w < meta.width) img = img.sharpen({ sigma: 0.5 });
+          else if (w > meta.width) img = img.sharpen({ sigma: 0.9, m1: 0.6, m2: 2 });
           img = fmt === 'avif' ? img.avif({ quality: 62, effort: 4 }) : img.webp({ quality: 86, smartSubsample: true });
           await img.toFile(cached);
         }
