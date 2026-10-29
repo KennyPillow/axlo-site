@@ -1696,6 +1696,12 @@ details[open]:not(.fechando) .plus::after {
 details[open] .ans {
   grid-template-rows: 1fr;
 }
+/* a resposta fechada não é desenhada, então a abertura precisa de um estado inicial explícito para animar */
+@starting-style {
+  details[open] .ans {
+    grid-template-rows: 0fr;
+  }
+}
 .ans > div {
   overflow: hidden;
 }
@@ -2538,7 +2544,8 @@ details[open] .ans {
   border: 2px solid #25d366;
   opacity: 0;
 }
-.wa.show::after {
+/* pulsa só na primeira vez que o botão aparece (no celular ele some e volta conforme a rolagem) */
+.wa.show:not(.pulsou)::after {
   animation: ring 2.4s ease-out 0.6s 2;
 }
 @keyframes ring {
@@ -3787,8 +3794,10 @@ details[open] .ans {
     padding-top: clamp(64px, 9vh, 112px);
     pointer-events: none;
   }
+  /* cada bloco do texto só ocupa a própria largura: em 100% os botões cobriam o cartão e o mouse não chegava nele */
   .hero-copy > * {
     pointer-events: auto;
+    width: fit-content;
   }
   .hero-copy h1 {
     max-width: min(680px, 46vw);
@@ -3913,7 +3922,10 @@ details[open] .ans {
 
 /* sanfonas do menu, do rodapé e do sumário: abrem e fecham com altura animada onde o navegador permite */
 @supports (interpolate-size: allow-keywords) {
-  :root {
+  /* só nas sanfonas: no :root valeria para qualquer transição até "auto" do site */
+  .drawer details,
+  .f-col,
+  .toc-d {
     interpolate-size: allow-keywords;
   }
   .drawer details::details-content,

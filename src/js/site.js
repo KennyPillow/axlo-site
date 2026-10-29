@@ -314,9 +314,11 @@
       next = $('.next', hs);
     prev?.addEventListener('click', () => show(cur - 1, true));
     next?.addEventListener('click', () => show(cur + 1, true));
-    const stageEl = $('.hs-stage', hs);
-    stageEl.addEventListener('pointerenter', e => e.pointerType === 'mouse' && pausa('mouse', true));
-    stageEl.addEventListener('pointerleave', e => e.pointerType === 'mouse' && pausa('mouse', false));
+    // pausa com o mouse sobre o cartão, que é o que se lê; no desktop a foto ocupa a tela toda e travaria o slider
+    $$('.hs-card', hs).forEach(c => {
+      c.addEventListener('pointerenter', e => e.pointerType === 'mouse' && pausa('mouse', true));
+      c.addEventListener('pointerleave', e => e.pointerType === 'mouse' && pausa('mouse', false));
+    });
     // só o foco de teclado pausa: clicar numa barra com o mouse também foca o botão e travaria o slider
     hs.addEventListener('focusin', e => e.target.matches(':focus-visible') && pausa('foco', true));
     hs.addEventListener('focusout', e => !hs.contains(e.relatedTarget) && pausa('foco', false));
@@ -344,7 +346,11 @@
   /* ---------- WhatsApp: abre a conversa com a origem marcada ---------- */
   const wa = $('.wa');
   function waShow() {
-    if (wa) wa.classList.toggle('show', innerWidth > 640 || scrollY > innerHeight * 0.7);
+    if (!wa) return;
+    const on = innerWidth > 640 || scrollY > innerHeight * 0.7;
+    wa.classList.toggle('show', on);
+    // depois do primeiro aparecimento o anel não pulsa mais (0,6s de espera + 2 × 2,4s)
+    if (on && !wa._pulso) wa._pulso = setTimeout(() => wa.classList.add('pulsou'), 5500);
   }
   const waLink = origem => {
     const msg = `${CFG.whatsappMensagem || 'Olá!'}\n\n(ref: ${origemTexto()} · ${location.pathname}${origem ? ` · ${origem}` : ''})`;
@@ -589,12 +595,16 @@
       if (!d.open || reduce || !ans) return;
       e.preventDefault();
       d.classList.add('fechando');
+      // termina por quem chegar primeiro (fim da transição ou o tempo de segurança) e desfaz o outro gatilho
       const fim = () => {
+        clearTimeout(seguranca);
+        ans.removeEventListener('transitionend', fim);
+        if (!d.classList.contains('fechando')) return;
         d.classList.remove('fechando');
         d.open = false;
       };
-      ans.addEventListener('transitionend', fim, { once: true });
-      setTimeout(() => d.classList.contains('fechando') && fim(), 450);
+      ans.addEventListener('transitionend', fim);
+      const seguranca = setTimeout(fim, 450);
     });
   });
 
