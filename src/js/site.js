@@ -328,12 +328,23 @@
     $$('.hs-card', hs).forEach(c => {
       c.addEventListener('pointerenter', e => e.pointerType === 'mouse' && pausa('mouse', true));
       c.addEventListener('pointerleave', e => e.pointerType === 'mouse' && pausa('mouse', false));
-      // no celular não há "passar o mouse": tocar no cartão pausa até tocar fora do slider ou trocar de slide
-      c.addEventListener('pointerdown', e => e.pointerType !== 'mouse' && pausa('toque', true));
+      // no celular não há "passar o mouse": um toque no cartão (não uma rolagem que começou nele) pausa
+      // até tocar fora do cartão ou trocar de slide
+      let toque = null;
+      c.addEventListener('pointerdown', e => {
+        toque = e.pointerType === 'mouse' ? null : [e.clientX, e.clientY];
+      });
+      c.addEventListener('pointercancel', () => {
+        toque = null;
+      });
+      c.addEventListener('pointerup', e => {
+        if (toque && Math.hypot(e.clientX - toque[0], e.clientY - toque[1]) < 10) pausa('toque', true);
+        toque = null;
+      });
     });
     document.addEventListener(
       'pointerdown',
-      e => !hs.contains(e.target) && motivos.has('toque') && pausa('toque', false),
+      e => motivos.has('toque') && !e.target.closest('.hs-card') && pausa('toque', false),
     );
     // só o foco de teclado pausa: clicar numa barra com o mouse também foca o botão e travaria o slider
     hs.addEventListener('focusin', e => e.target.matches(':focus-visible') && pausa('foco', true));
@@ -608,6 +619,12 @@
   $$('.faq details').forEach(d => {
     const ans = $('.ans', d);
     $('summary', d).addEventListener('click', e => {
+      // clicou de novo enquanto recolhia: desiste de fechar e a resposta volta a abrir
+      if (d.classList.contains('fechando')) {
+        e.preventDefault();
+        d._cancela();
+        return;
+      }
       if (!d.open) {
         d.classList.add('abrindo');
         setTimeout(() => d.classList.remove('abrindo'), 500);
@@ -626,6 +643,11 @@
       };
       ans.addEventListener('transitionend', fim);
       const seguranca = setTimeout(fim, 450);
+      d._cancela = () => {
+        clearTimeout(seguranca);
+        ans.removeEventListener('transitionend', fim);
+        d.classList.remove('fechando');
+      };
     });
   });
 
