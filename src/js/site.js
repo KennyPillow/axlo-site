@@ -118,8 +118,10 @@
   megas.forEach(m => {
     const btn = $('.menu-btn', m);
     let t;
-    const open = () => {
+    let abertoPeloMouse = 0;
+    const open = (peloMouse = false) => {
       clearTimeout(t);
+      if (peloMouse) abertoPeloMouse = performance.now();
       closeMegas(m);
       m.classList.add('open');
       btn.setAttribute('aria-expanded', 'true');
@@ -130,13 +132,17 @@
         btn.setAttribute('aria-expanded', 'false');
       }, 160);
     };
-    btn.addEventListener('click', () => (m.classList.contains('open') ? close() : open()));
+    // quem passa o mouse e clica em seguida quer o menu aberto: o clique logo após a abertura pelo mouse não fecha
+    btn.addEventListener('click', () => {
+      if (!m.classList.contains('open')) return open();
+      if (performance.now() - abertoPeloMouse > 700) close();
+    });
     // intenção: o mouse que só cruza o menu não abre o painel; indo de um menu aberto para o vizinho, troca na hora
     m.addEventListener('mouseenter', () => {
       if (!matchMedia('(hover:hover)').matches) return;
       clearTimeout(t);
-      if (megas.some(x => x.classList.contains('open'))) open();
-      else t = setTimeout(open, 90);
+      if (megas.some(x => x.classList.contains('open'))) open(true);
+      else t = setTimeout(() => open(true), 90);
     });
     m.addEventListener('mouseleave', () => {
       if (!matchMedia('(hover:hover)').matches) return;
@@ -289,6 +295,10 @@
     const show = (i, manual = false) => {
       // troca pedida pela pessoa: o cartão monta rápido; na troca automática ele conta a história com calma
       hs.classList.toggle('manual', manual);
+      // o cartão anterior some debaixo do mouse/dedo sem disparar a saída: essas pausas não sobrevivem à troca
+      motivos.delete('mouse');
+      motivos.delete('toque');
+      hs.classList.toggle('paused', motivos.size > 0);
       cur = (i + slides.length) % slides.length;
       slides.forEach((s, j) => {
         s.classList.toggle('on', j === cur);
@@ -318,7 +328,13 @@
     $$('.hs-card', hs).forEach(c => {
       c.addEventListener('pointerenter', e => e.pointerType === 'mouse' && pausa('mouse', true));
       c.addEventListener('pointerleave', e => e.pointerType === 'mouse' && pausa('mouse', false));
+      // no celular não há "passar o mouse": tocar no cartão pausa até tocar fora do slider ou trocar de slide
+      c.addEventListener('pointerdown', e => e.pointerType !== 'mouse' && pausa('toque', true));
     });
+    document.addEventListener(
+      'pointerdown',
+      e => !hs.contains(e.target) && motivos.has('toque') && pausa('toque', false),
+    );
     // só o foco de teclado pausa: clicar numa barra com o mouse também foca o botão e travaria o slider
     hs.addEventListener('focusin', e => e.target.matches(':focus-visible') && pausa('foco', true));
     hs.addEventListener('focusout', e => !hs.contains(e.relatedTarget) && pausa('foco', false));
@@ -349,9 +365,9 @@
     if (!wa) return;
     const on = innerWidth > 640 || scrollY > innerHeight * 0.7;
     wa.classList.toggle('show', on);
-    // depois do primeiro aparecimento o anel não pulsa mais (0,6s de espera + 2 × 2,4s)
-    if (on && !wa._pulso) wa._pulso = setTimeout(() => wa.classList.add('pulsou'), 5500);
   }
+  // depois que o anel completa os 2 pulsos ele não volta mais, mesmo que o botão suma e reapareça na rolagem
+  wa?.addEventListener('animationend', e => e.pseudoElement === '::after' && wa.classList.add('pulsou'));
   const waLink = origem => {
     const msg = `${CFG.whatsappMensagem || 'Olá!'}\n\n(ref: ${origemTexto()} · ${location.pathname}${origem ? ` · ${origem}` : ''})`;
     return `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(msg)}`;
@@ -592,7 +608,12 @@
   $$('.faq details').forEach(d => {
     const ans = $('.ans', d);
     $('summary', d).addEventListener('click', e => {
-      if (!d.open || reduce || !ans) return;
+      if (!d.open) {
+        d.classList.add('abrindo');
+        setTimeout(() => d.classList.remove('abrindo'), 500);
+        return;
+      }
+      if (reduce || !ans) return;
       e.preventDefault();
       d.classList.add('fechando');
       // termina por quem chegar primeiro (fim da transição ou o tempo de segurança) e desfaz o outro gatilho

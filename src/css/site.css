@@ -1698,7 +1698,7 @@ details[open] .ans {
 }
 /* a resposta fechada não é desenhada, então a abertura precisa de um estado inicial explícito para animar */
 @starting-style {
-  details[open] .ans {
+  details.abrindo[open] .ans {
     grid-template-rows: 0fr;
   }
 }
@@ -1908,8 +1908,6 @@ details[open] .ans {
   display: inline-block;
   width: 16px;
   height: 16px;
-  margin-right: 10px;
-  vertical-align: -3px;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.35);
   border-top-color: #fff;
@@ -3968,6 +3966,10 @@ details[open] .ans {
   .hs-card li,
   .st {
     transform: none;
+  }
+  .hs-card li,
+  .st {
+    transition-delay: 0s !important;
   }
   .js .simbolo-x.rv img {
     clip-path: none;
