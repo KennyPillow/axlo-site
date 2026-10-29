@@ -233,7 +233,7 @@ p {
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
   transition:
     background 0.2s,
     color 0.2s,
@@ -381,7 +381,7 @@ p {
   font-size: 15px;
   color: var(--grafite);
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
   white-space: nowrap;
 }
 .menu > a:hover,
@@ -460,7 +460,7 @@ p {
   padding: 11px 12px;
   border-radius: 12px;
   color: var(--grafite);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .mega-item:hover {
   background: var(--nevoa);
@@ -576,7 +576,7 @@ p {
   padding: 10px;
   border-radius: 14px;
   color: var(--grafite);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .bp-item:hover {
   background: var(--nevoa);
@@ -683,7 +683,7 @@ p {
   color: var(--indigo);
   cursor: pointer;
   list-style: none;
-  text-decoration: none;
+  text-decoration: none !important;
   border-bottom: 1px solid var(--linha);
 }
 .drawer details summary {
@@ -1307,7 +1307,7 @@ p {
   border: 1px solid var(--linha);
   background: #fff;
   color: var(--grafite);
-  text-decoration: none;
+  text-decoration: none !important;
   transition:
     border-color 0.25s,
     transform 0.3s var(--ease),
@@ -1387,7 +1387,7 @@ p {
   background: #fff;
   border: 1px solid var(--linha);
   color: var(--grafite);
-  text-decoration: none;
+  text-decoration: none !important;
   transition:
     border-color 0.25s,
     transform 0.3s var(--ease),
@@ -2152,7 +2152,7 @@ details[open] .ans {
   font-weight: 400;
   font-size: 26px;
   letter-spacing: 0.08em;
-  color: var(--lilas);
+  color: var(--lilas) !important;
 }
 .manif p {
   font-size: clamp(19px, 1.9vw, 24px);
@@ -2709,7 +2709,7 @@ details[open] .ans {
   border: 1px solid var(--linha);
   background: #fff;
   color: var(--grafite);
-  text-decoration: none;
+  text-decoration: none !important;
   transition:
     border-color 0.25s,
     transform 0.3s var(--ease),
@@ -2876,7 +2876,7 @@ details[open] .ans {
   border: 1px solid var(--linha);
   background: #fff;
   color: var(--grafite);
-  text-decoration: none;
+  text-decoration: none !important;
   transition:
     border-color 0.25s,
     transform 0.3s var(--ease),
@@ -3792,10 +3792,10 @@ details[open] .ans {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    transition-duration: 0.01ms;
-    scroll-behavior: auto;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   .js .rv {
     opacity: 1;

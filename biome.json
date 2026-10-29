@@ -60,6 +60,9 @@
       "style": {
         "useNamingConvention": "off",
         "noDescendingSpecificity": "off"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
       }
     }
   },
