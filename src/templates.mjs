@@ -426,7 +426,7 @@ function postCard(p, { destaque = false } = {}) {
 function faqBlock(titulo, itens, id = 'duvidas') {
   return `<section class="sec sec-nevoa" id="${id}">
     <div class="wrap faq-grid">
-      <div><h2 class="rv">${esc(titulo)}</h2></div>
+      <div><h2>${esc(titulo)}</h2></div>
       <div class="faq rv">${itens.map((f, i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(f.pergunta)}<span class="plus" aria-hidden="true"></span></summary><div class="ans"><div><p>${esc(f.resposta)}</p></div></div></details>`).join('')}</div>
     </div>
   </section>`;
@@ -476,8 +476,8 @@ function ctaForm({ eyebrow: eb = 'Primeiro passo', titulo, texto, origem, intere
     <div class="wrap cta-grid">
       <div class="cta-copy">
         ${eyebrow(eb)}
-        <h2 class="rv">${esc(titulo)}</h2>
-        <p class="rv">${esc(texto)}</p>
+        <h2>${esc(titulo)}</h2>
+        <p>${esc(texto)}</p>
         <ul class="cta-steps">${C.paginas.contato.proximosPassos.itens.map((t, i) => `<li><span>${i + 1}</span>${esc(t)}</li>`).join('')}</ul>
       </div>
       <div class="cta-form rv">${leadForm({ origem, interesse })}</div>
@@ -588,7 +588,7 @@ function home() {
   <section class="sec" id="solucoes">
     <div class="wrap">
       <div class="sec-head sec-head-row">
-        <div>${eyebrow(h.solucoes.eyebrow)}<h2 class="rv">${esc(h.solucoes.titulo)}</h2></div>
+        <div>${eyebrow(h.solucoes.eyebrow)}<h2>${esc(h.solucoes.titulo)}</h2></div>
         <div class="tabs" role="tablist" aria-label="Soluções">
           ${h.solucoes.abas.map((a, i) => `<button type="button" role="tab" id="tab-${a.categoria}" aria-controls="painel-${a.categoria}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${esc(a.titulo)}</button>`).join('')}
           <span class="tab-ink" aria-hidden="true"></span>
@@ -610,7 +610,7 @@ function home() {
 
   <section class="sec sec-nevoa como">
     <div class="wrap">
-      <div class="sec-head">${eyebrow(h.como.eyebrow)}<h2 class="rv">${esc(h.como.titulo)}</h2></div>
+      <div class="sec-head">${eyebrow(h.como.eyebrow)}<h2>${esc(h.como.titulo)}</h2></div>
       <ol class="timeline" style="--prog:0">
         <span class="tl-line" aria-hidden="true"><i></i></span>
         ${h.como.etapas.map((e, i) => `<li class="tl-step" style="--i:${i}"><span class="tl-dot">${String(i + 1).padStart(2, '0')}</span><h3>${esc(e.titulo)}</h3><p>${esc(e.texto)}</p></li>`).join('')}
@@ -621,7 +621,7 @@ function home() {
   <section class="sec sec-noite">
     <div class="x-mark x-right" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sec-head">${eyebrow(h.provas.eyebrow)}<h2 class="rv">${esc(h.provas.titulo)}</h2></div>
+      <div class="sec-head">${eyebrow(h.provas.eyebrow)}<h2>${esc(h.provas.titulo)}</h2></div>
       <div class="provas">${h.provas.itens.map((p, i) => `<div class="prova rv" style="--d:${i * 0.06}s"><span class="prova-ic">${icon(p.icone)}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></div>`).join('')}</div>
     </div>
   </section>
@@ -630,7 +630,7 @@ function home() {
     ultimos.length
       ? `<section class="sec">
     <div class="wrap">
-      <div class="sec-head sec-head-row"><div>${eyebrow(h.blog.eyebrow)}<h2 class="rv">${esc(h.blog.titulo)}</h2></div><a class="link-arrow" href="${u('/blog')}">${esc(h.blog.linkTexto)} ${icon('arrow-right')}</a></div>
+      <div class="sec-head sec-head-row"><div>${eyebrow(h.blog.eyebrow)}<h2>${esc(h.blog.titulo)}</h2></div><a class="link-arrow" href="${u('/blog')}">${esc(h.blog.linkTexto)} ${icon('arrow-right')}</a></div>
       <div class="post-grid post-grid-scroll">${ultimos.map(p => postCard(p)).join('')}</div>
     </div>
   </section>`
@@ -661,17 +661,17 @@ function hubSaude() {
   ${pageHero({ ...p.hero, ic: 'heart-pulse' })}
   <section class="sec">
     <div class="wrap">
-      <div class="sec-head sec-head-split"><div><h2 class="rv">${esc(p.intro.titulo)}</h2></div><p class="rv">${esc(p.intro.texto)}</p></div>
+      <div class="sec-head sec-head-split"><div><h2>${esc(p.intro.titulo)}</h2></div><p>${esc(p.intro.texto)}</p></div>
       ${gradeProdutos('beneficios', { cols: 3 })}
     </div>
   </section>
   <section class="sec sec-nevoa" id="servicos">
     <div class="wrap">
-      <div class="sec-head"><h2 class="rv">${esc(p.servicos.titulo)}</h2></div>
+      <div class="sec-head"><h2>${esc(p.servicos.titulo)}</h2></div>
       <div class="servicos servicos-4">${p.servicos.itens.map(s => `<div class="servico rv"><span class="p-ic">${icon(s.icone)}</span><div><h3>${esc(s.titulo)}</h3><p>${esc(s.texto)}</p></div></div>`).join('')}</div>
     </div>
   </section>
-  ${posts.length ? `<section class="sec"><div class="wrap"><div class="sec-head sec-head-row"><div><p class="eyebrow">Conteúdos</p><h2 class="rv">Para entender antes de decidir</h2></div><a class="link-arrow" href="${u('/blog')}">Ver o blog ${icon('arrow-right')}</a></div><div class="post-grid post-grid-scroll">${posts.map(x => postCard(x)).join('')}</div></div></section>` : ''}
+  ${posts.length ? `<section class="sec"><div class="wrap"><div class="sec-head sec-head-row"><div><p class="eyebrow">Conteúdos</p><h2>Para entender antes de decidir</h2></div><a class="link-arrow" href="${u('/blog')}">Ver o blog ${icon('arrow-right')}</a></div><div class="post-grid post-grid-scroll">${posts.map(x => postCard(x)).join('')}</div></div></section>` : ''}
   ${ctaForm({ titulo: p.ctaFinal.titulo, texto: p.ctaFinal.texto, origem: 'saude-e-beneficios', interesse: 'Benefícios corporativos' })}`;
   return {
     route: '/saude-e-beneficios',
@@ -696,18 +696,18 @@ function hubSeguros() {
   ${pageHero({ ...p.hero, ic: 'shield' })}
   <section class="sec">
     <div class="wrap">
-      <div class="sec-head sec-head-split"><div><h2 class="rv">${esc(p.intro.titulo)}</h2></div><p class="rv">${esc(p.intro.texto)}</p></div>
+      <div class="sec-head sec-head-split"><div><h2>${esc(p.intro.titulo)}</h2></div><p>${esc(p.intro.texto)}</p></div>
       ${gradeProdutos('seguros')}
     </div>
   </section>
   <section class="sec sec-noite">
     <div class="x-mark x-right" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sec-head"><h2 class="rv">${esc(p.etapas.titulo)}</h2></div>
+      <div class="sec-head"><h2>${esc(p.etapas.titulo)}</h2></div>
       ${steps(p.etapas.itens)}
     </div>
   </section>
-  ${posts.length ? `<section class="sec"><div class="wrap"><div class="sec-head sec-head-row"><div><p class="eyebrow">Conteúdos</p><h2 class="rv">Para entender antes de decidir</h2></div><a class="link-arrow" href="${u('/blog')}">Ver o blog ${icon('arrow-right')}</a></div><div class="post-grid post-grid-scroll">${posts.map(x => postCard(x)).join('')}</div></div></section>` : ''}
+  ${posts.length ? `<section class="sec"><div class="wrap"><div class="sec-head sec-head-row"><div><p class="eyebrow">Conteúdos</p><h2>Para entender antes de decidir</h2></div><a class="link-arrow" href="${u('/blog')}">Ver o blog ${icon('arrow-right')}</a></div><div class="post-grid post-grid-scroll">${posts.map(x => postCard(x)).join('')}</div></div></section>` : ''}
   ${ctaForm({ titulo: p.ctaFinal.titulo, texto: p.ctaFinal.texto, origem: 'seguros-corporativos', interesse: 'Seguros corporativos' })}`;
   return {
     route: '/seguros-corporativos',
@@ -739,26 +739,26 @@ function produtoPage(p) {
   ${pageHero({ eyebrow: p.hero.eyebrow, titulo: p.hero.titulo, subtitulo: p.hero.subtitulo, ic: p.icone })}
   <section class="sec">
     <div class="wrap pq-grid">
-      <div><h2 class="rv">Para quem é</h2><p class="rv big-p">${esc(p.paraQuem)}</p></div>
+      <div><h2>Para quem é</h2><p class="big-p">${esc(p.paraQuem)}</p></div>
       <div class="situacoes rv"><p class="label">Situações em que faz diferença</p><ul>${p.situacoes.map(s => `<li>${icon('check')}${esc(s)}</li>`).join('')}</ul></div>
     </div>
   </section>
   <section class="sec sec-nevoa">
     <div class="wrap">
-      <div class="sec-head"><h2 class="rv">${p.categoria === 'seguros' ? 'O que a apólice pode proteger' : 'O que está incluído'}</h2><p class="rv sub">Coberturas, limites e exclusões dependem ${p.categoria === 'seguros' ? 'da apólice escolhida' : 'da operadora e do contrato escolhidos'}.</p></div>
+      <div class="sec-head"><h2>${p.categoria === 'seguros' ? 'O que a apólice pode proteger' : 'O que está incluído'}</h2><p class="sub">Coberturas, limites e exclusões dependem ${p.categoria === 'seguros' ? 'da apólice escolhida' : 'da operadora e do contrato escolhidos'}.</p></div>
       <div class="protege">${p.protege.map((x, i) => `<div class="pr-i rv" style="--d:${i * 0.05}s"><span class="pr-n">${String(i + 1).padStart(2, '0')}</span><h3>${esc(x.titulo)}</h3><p>${esc(x.texto)}</p></div>`).join('')}</div>
     </div>
   </section>
   <section class="sec sec-noite">
     <div class="x-mark x-right" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Como trabalhamos</p><h2 class="rv">Como a AXLO atua</h2></div>
+      <div class="sec-head"><p class="eyebrow">Como trabalhamos</p><h2>Como a AXLO atua</h2></div>
       ${steps(p.comoAxloAtua)}
     </div>
   </section>
   ${faqBlock('Perguntas frequentes', p.faq)}
-  ${posts.length ? `<section class="sec sec-tight-top"><div class="wrap"><div class="sec-head"><p class="eyebrow">Conteúdos</p><h2 class="rv">Para saber mais</h2></div><div class="post-grid post-grid-scroll">${posts.map(x => postCard(x)).join('')}</div></div></section>` : ''}
-  ${outros.length ? `<section class="sec sec-tight-top"><div class="wrap"><div class="sec-head"><h2 class="rv">Veja também</h2></div><div class="p-grid p-grid-3">${outros.map(produtoCard).join('')}</div></div></section>` : ''}
+  ${posts.length ? `<section class="sec sec-tight-top"><div class="wrap"><div class="sec-head"><p class="eyebrow">Conteúdos</p><h2>Para saber mais</h2></div><div class="post-grid post-grid-scroll">${posts.map(x => postCard(x)).join('')}</div></div></section>` : ''}
+  ${outros.length ? `<section class="sec sec-tight-top"><div class="wrap"><div class="sec-head"><h2>Veja também</h2></div><div class="p-grid p-grid-3">${outros.map(produtoCard).join('')}</div></div></section>` : ''}
   ${ctaForm({ titulo: p.cta.titulo, texto: p.cta.texto, origem: p.slug, interesse: p.titulo })}`;
   const service = {
     '@type': 'Service',
@@ -854,7 +854,7 @@ function postPage(p) {
       </div>
     </div>
   </article>
-  ${mesmos.length ? `<section class="sec sec-nevoa"><div class="wrap"><div class="sec-head"><h2 class="rv">Continue lendo</h2></div><div class="post-grid post-grid-scroll">${mesmos.map(x => postCard(x)).join('')}</div></div></section>` : ''}
+  ${mesmos.length ? `<section class="sec sec-nevoa"><div class="wrap"><div class="sec-head"><h2>Continue lendo</h2></div><div class="post-grid post-grid-scroll">${mesmos.map(x => postCard(x)).join('')}</div></div></section>` : ''}
   ${ctaForm({ titulo: 'Fale com quem acompanha o contrato o ano inteiro', texto: 'Conte o que a empresa precisa. Uma pessoa da AXLO responde em horário comercial, com nome e prazo.', origem: `blog:${p.slug}`, interesse })}`;
   const article = {
     '@type': 'BlogPosting',
@@ -906,7 +906,7 @@ function gestao() {
   ${pageHero({ ...p.hero, ic: 'chart' })}
   <section class="sec">
     <div class="wrap">
-      <div class="sec-head"><h2 class="rv">${esc(p.metodo.titulo)}</h2></div>
+      <div class="sec-head"><h2>${esc(p.metodo.titulo)}</h2></div>
       ${steps(p.metodo.etapas)}
     </div>
   </section>
@@ -914,10 +914,10 @@ function gestao() {
     <div class="wrap dash-grid">
       <div>
         <p class="eyebrow">Relatórios AXLO</p>
-        <h2 class="rv">${esc(p.dashboard.titulo)}</h2>
-        <p class="rv big-p">${esc(p.dashboard.texto)}</p>
+        <h2>${esc(p.dashboard.titulo)}</h2>
+        <p class="big-p">${esc(p.dashboard.texto)}</p>
         <ul class="ticks rv">${p.dashboard.indicadores.map(t => `<li>${icon('check')}${esc(t)}</li>`).join('')}</ul>
-        <p class="note rv">${icon('lock')} ${esc(p.dashboard.nota)}</p>
+        <p class="note">${icon('lock')} ${esc(p.dashboard.nota)}</p>
       </div>
       <figure class="dash rv" aria-label="Exemplo de gráfico de um relatório AXLO">
         <div class="dash-top"><img src="${C.base}/assets/brand/axlo-x.svg" alt="" width="20" height="22"><span>Relatório do contrato</span><span class="dash-tag">Exemplo ilustrativo</span></div>
@@ -931,14 +931,14 @@ function gestao() {
   </section>
   <section class="sec">
     <div class="wrap pq-grid">
-      <div><h2 class="rv">${esc(p.relatorios.titulo)}</h2></div>
-      <p class="rv big-p">${esc(p.relatorios.texto)}</p>
+      <div><h2>${esc(p.relatorios.titulo)}</h2></div>
+      <p class="big-p">${esc(p.relatorios.texto)}</p>
     </div>
   </section>
   <section class="sec sec-noite" id="programas">
     <div class="x-mark x-right" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Prevenção</p><h2 class="rv">${esc(p.programas.titulo)}</h2><p class="rv lead-dark">${esc(p.programas.texto)}</p></div>
+      <div class="sec-head"><p class="eyebrow">Prevenção</p><h2>${esc(p.programas.titulo)}</h2><p class="lead-dark">${esc(p.programas.texto)}</p></div>
       <div class="msg-grid msg-grid-3">${p.programas.itens.map(x => `<div class="msg rv"><p class="label">${esc(x.titulo)}</p><p>${esc(x.texto)}</p></div>`).join('')}</div>
     </div>
   </section>
@@ -963,7 +963,7 @@ function sobre() {
     <div class="x-mark" aria-hidden="true"></div>
     <div class="wrap manif-grid">
       <h2 class="label-lg">${esc(p.manifesto.titulo)}</h2>
-      <div class="manif">${p.manifesto.paragrafos.map((t, i) => `<p class="rv${i === 0 || i === p.manifesto.paragrafos.length - 1 ? ' manif-strong' : ''}">${esc(t)}</p>`).join('')}</div>
+      <div class="manif">${p.manifesto.paragrafos.map((t, i) => `<p${i === 0 || i === p.manifesto.paragrafos.length - 1 ? ' class="manif-strong"' : ''}>${esc(t)}</p>`).join('')}</div>
     </div>
   </section>
   <section class="sec">
@@ -971,19 +971,19 @@ function sobre() {
   </section>
   <section class="sec sec-nevoa">
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Como trabalhamos</p><h2 class="rv">${esc(p.metodo.titulo)}</h2></div>
+      <div class="sec-head"><p class="eyebrow">Como trabalhamos</p><h2>${esc(p.metodo.titulo)}</h2></div>
       ${steps(p.metodo.etapas)}
     </div>
   </section>
   <section class="sec">
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Valores</p><h2 class="rv">${esc(p.valores.titulo)}</h2></div>
+      <div class="sec-head"><p class="eyebrow">Valores</p><h2>${esc(p.valores.titulo)}</h2></div>
       <div class="valores">${p.valores.itens.map((v, i) => `<div class="valor rv" style="--d:${i * 0.05}s"><span class="valor-n">${i + 1}</span><h3>${esc(v.titulo)}</h3><p>${esc(v.texto)}</p></div>`).join('')}</div>
     </div>
   </section>
   <section class="sec sec-nevoa">
     <div class="wrap">
-      <div class="sec-head">${eyebrow(cmp.eyebrow)}<h2 class="rv">${esc(cmp.titulo)}</h2></div>
+      <div class="sec-head">${eyebrow(cmp.eyebrow)}<h2>${esc(cmp.titulo)}</h2></div>
       <div class="cmp rv" role="table" aria-label="${esc(cmp.titulo)}">
         <div class="cmp-row cmp-head" role="row"><span role="columnheader">${esc(cmp.colunaAxlo)}</span><span role="columnheader">${esc(cmp.colunaOutro)}</span></div>
         ${cmp.linhas.map(l => `<div class="cmp-row" role="row"><span role="cell">${icon('check')}${esc(l.axlo)}</span><span role="cell">${icon('x')}${esc(l.outro)}</span></div>`).join('')}
@@ -992,8 +992,8 @@ function sobre() {
   </section>
   <section class="sec">
     <div class="wrap simbolo">
-      <div class="simbolo-x" aria-hidden="true"><img src="${C.base}/assets/brand/axlo-x.svg" alt="" width="220" height="246" loading="lazy"></div>
-      <div><p class="eyebrow">O nome</p><h2 class="rv">${esc(p.simbolo.titulo)}</h2><p class="rv big-p">${esc(p.simbolo.texto)}</p></div>
+      <div class="simbolo-x rv" aria-hidden="true"><img src="${C.base}/assets/brand/axlo-x.svg" alt="" width="220" height="246" loading="lazy"></div>
+      <div><p class="eyebrow">O nome</p><h2>${esc(p.simbolo.titulo)}</h2><p class="big-p">${esc(p.simbolo.texto)}</p></div>
     </div>
   </section>
   <section class="sec sec-nevoa">

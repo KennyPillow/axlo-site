@@ -25,6 +25,25 @@
     window.dataLayer.push({ event, ...data });
   };
 
+  // mostrar e esconder com movimento: a saída roda a animação .saindo e só depois esconde de verdade
+  const mostra = el => {
+    clearTimeout(el._saida);
+    el.classList.remove('saindo');
+    el.hidden = false;
+  };
+  const esconde = (el, ms = 160) => {
+    if (el.hidden || el.classList.contains('saindo')) return;
+    el.classList.add('saindo');
+    el._saida = setTimeout(
+      () => {
+        el.hidden = true;
+        el.classList.remove('saindo');
+      },
+      reduce ? 0 : ms,
+    );
+  };
+  const visivel = el => !el.hidden && !el.classList.contains('saindo');
+
   /* ---------- origem da visita (UTM, gclid, fbclid, referrer) ---------- */
   const qs = new URLSearchParams(location.search);
   const KEYS = [
@@ -112,8 +131,18 @@
       }, 160);
     };
     btn.addEventListener('click', () => (m.classList.contains('open') ? close() : open()));
-    m.addEventListener('mouseenter', () => matchMedia('(hover:hover)').matches && open());
-    m.addEventListener('mouseleave', () => matchMedia('(hover:hover)').matches && close());
+    // intenção: o mouse que só cruza o menu não abre o painel; indo de um menu aberto para o vizinho, troca na hora
+    m.addEventListener('mouseenter', () => {
+      if (!matchMedia('(hover:hover)').matches) return;
+      clearTimeout(t);
+      if (megas.some(x => x.classList.contains('open'))) open();
+      else t = setTimeout(open, 90);
+    });
+    m.addEventListener('mouseleave', () => {
+      if (!matchMedia('(hover:hover)').matches) return;
+      clearTimeout(t);
+      close();
+    });
     m.addEventListener('focusout', e => {
       if (!m.contains(e.relatedTarget)) close();
     });
@@ -143,12 +172,13 @@
     ringT;
   const setBell = open => {
     if (!bell) return;
-    panel.hidden = !open;
+    if (open) mostra(panel);
+    else esconde(panel, 150);
     bell.setAttribute('aria-expanded', open);
     if (open && !seen) {
       seen = true;
       store.set('axlo_novidades_vistas', true, sessionStorage);
-      clearInterval(ringT);
+      clearTimeout(ringT);
       const d = $('.bell-dot');
       d?.remove();
     }
@@ -164,14 +194,14 @@
       void bell.offsetWidth;
       bell.classList.add('ring');
     };
-    setTimeout(ring, 2000);
-    ringT = setInterval(ring, 10000);
+    // toca uma vez para avisar que há novidade; repetir a cada poucos segundos vira ruído
+    ringT = setTimeout(ring, 2000);
     bell.addEventListener('click', e => {
       e.stopPropagation();
-      setBell(panel.hidden);
+      setBell(!visivel(panel));
     });
     document.addEventListener('click', e => {
-      if (!panel.hidden && !e.target.closest('.bell-wrap')) setBell(false);
+      if (visivel(panel) && !e.target.closest('.bell-wrap')) setBell(false);
     });
   }
 
@@ -234,8 +264,31 @@
       counter = $('.hs-count', hs);
     const DUR = 7000;
     let cur = 0,
-      timer;
-    const show = i => {
+      timer,
+      t0 = 0,
+      resta = DUR;
+    // pausa enquanto alguém lê o cartão (mouse em cima, foco do teclado ou aba escondida); a barra congela junto
+    const motivos = new Set();
+    const agenda = ms => {
+      clearTimeout(timer);
+      resta = ms;
+      t0 = performance.now();
+      if (!reduce && !motivos.size) timer = setTimeout(() => show(cur + 1), ms);
+    };
+    const pausa = (motivo, on) => {
+      const antes = motivos.size;
+      if (on) motivos.add(motivo);
+      else motivos.delete(motivo);
+      if (!antes && motivos.size) {
+        clearTimeout(timer);
+        resta = Math.max(resta - (performance.now() - t0), 600);
+      }
+      if (antes && !motivos.size) agenda(resta);
+      hs.classList.toggle('paused', motivos.size > 0);
+    };
+    const show = (i, manual = false) => {
+      // troca pedida pela pessoa: o cartão monta rápido; na troca automática ele conta a história com calma
+      hs.classList.toggle('manual', manual);
       cur = (i + slides.length) % slides.length;
       slides.forEach((s, j) => {
         s.classList.toggle('on', j === cur);
@@ -252,16 +305,21 @@
       if (counter)
         counter.textContent = `${String(cur + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
       $$('[data-count]', slides[cur]).forEach(count);
-      clearTimeout(timer);
-      if (!reduce) timer = setTimeout(() => show(cur + 1), DUR);
+      agenda(DUR);
     };
     bars.forEach((b, j) => {
-      b.addEventListener('click', () => show(j));
+      b.addEventListener('click', () => show(j, true));
     });
     const prev = $('.prev', hs),
       next = $('.next', hs);
-    prev?.addEventListener('click', () => show(cur - 1));
-    next?.addEventListener('click', () => show(cur + 1));
+    prev?.addEventListener('click', () => show(cur - 1, true));
+    next?.addEventListener('click', () => show(cur + 1, true));
+    const stageEl = $('.hs-stage', hs);
+    stageEl.addEventListener('pointerenter', e => e.pointerType === 'mouse' && pausa('mouse', true));
+    stageEl.addEventListener('pointerleave', e => e.pointerType === 'mouse' && pausa('mouse', false));
+    // só o foco de teclado pausa: clicar numa barra com o mouse também foca o botão e travaria o slider
+    hs.addEventListener('focusin', e => e.target.matches(':focus-visible') && pausa('foco', true));
+    hs.addEventListener('focusout', e => !hs.contains(e.relatedTarget) && pausa('foco', false));
     const stage = $('.hs-stage', hs);
     let x0 = null,
       y0 = 0;
@@ -274,12 +332,12 @@
       const dx = e.clientX - x0,
         dy = e.clientY - y0;
       x0 = null;
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1), true);
     });
     stage.addEventListener('pointercancel', () => {
       x0 = null;
     });
-    document.addEventListener('visibilitychange', () => (document.hidden ? clearTimeout(timer) : show(cur)));
+    document.addEventListener('visibilitychange', () => pausa('aba', document.hidden));
     show(0); // o primeiro slide já vem visível no HTML; aqui só contam os números e começa o tempo
   }
 
@@ -349,6 +407,7 @@
     form.addEventListener('submit', async e => {
       e.preventDefault();
       err.hidden = true;
+      void err.offsetWidth; // a mensagem de erro volta a entrar com movimento a cada tentativa
       let ok = true,
         first = null;
       for (const [name, fn] of Object.entries(validators)) {
@@ -388,7 +447,7 @@
       };
       btn.disabled = true;
       const label = btn.innerHTML;
-      btn.textContent = 'Enviando…';
+      btn.innerHTML = '<span class="spin" aria-hidden="true"></span>Enviando…';
       try {
         if (CFG.preview) throw new Error('preview');
         const res = await fetch(`${CFG.base || ''}/api/lead`, {
@@ -523,6 +582,22 @@
   ajustaSanfonas();
   addEventListener('resize', ajustaSanfonas);
 
+  // perguntas frequentes: o <details> nativo some na hora ao fechar; segura aberto até a resposta recolher
+  $$('.faq details').forEach(d => {
+    const ans = $('.ans', d);
+    $('summary', d).addEventListener('click', e => {
+      if (!d.open || reduce || !ans) return;
+      e.preventDefault();
+      d.classList.add('fechando');
+      const fim = () => {
+        d.classList.remove('fechando');
+        d.open = false;
+      };
+      ans.addEventListener('transitionend', fim, { once: true });
+      setTimeout(() => d.classList.contains('fechando') && fim(), 450);
+    });
+  });
+
   /* ---------- cookies (LGPD) com Consent Mode do Google ---------- */
   const banner = $('#cookie');
   if (banner) {
@@ -537,14 +612,14 @@
           ad_personalization: c.marketing ? 'granted' : 'denied',
         });
       push('consent_update', { consent_medicao: c.medicao, consent_marketing: c.marketing });
-      banner.hidden = true;
+      esconde(banner, 220);
     };
     const open = (showPrefs = false) => {
       const c = store.get('axlo_consent') || {};
       $('#ck-medicao').checked = !!c.medicao;
       $('#ck-marketing').checked = !!c.marketing;
       prefs.hidden = !showPrefs;
-      banner.hidden = false;
+      mostra(banner);
     };
     if (!store.get('axlo_consent') && !qs.has('shot')) setTimeout(() => open(false), 800);
     banner.addEventListener('click', e => {
