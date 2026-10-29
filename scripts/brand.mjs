@@ -28,14 +28,18 @@ function fillGroups(svg) {
   const re = /<g fill="#[0-9a-f]{6}" fill-opacity="1">/gi;
   let m;
   while ((m = re.exec(svg))) {
-    let depth = 0, i = m.index;
+    let depth = 0,
+      i = m.index;
     const tag = /<\/?g\b[^>]*?(\/?)>/g;
     tag.lastIndex = i;
     let t;
     while ((t = tag.exec(svg))) {
       if (t[0].startsWith('</')) depth--;
       else if (!t[1]) depth++;
-      if (depth === 0) { groups.push({ start: i, end: tag.lastIndex }); break; }
+      if (depth === 0) {
+        groups.push({ start: i, end: tag.lastIndex });
+        break;
+      }
     }
     re.lastIndex = tag.lastIndex;
   }
@@ -54,8 +58,10 @@ function symbolX(svg, fill) {
   });
   out += svg.slice(last);
   const p = 0.5;
-  return clean(out, `${X_BOX.x - p} ${X_BOX.y - p} ${X_BOX.w + p * 2} ${X_BOX.h + p * 2}`)
-    .replace('aria-label="AXLO Health &amp; Insurance"', 'aria-label="AXLO"');
+  return clean(out, `${X_BOX.x - p} ${X_BOX.y - p} ${X_BOX.w + p * 2} ${X_BOX.h + p * 2}`).replace(
+    'aria-label="AXLO Health &amp; Insurance"',
+    'aria-label="AXLO"',
+  );
 }
 
 const files = {
