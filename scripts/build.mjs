@@ -1,11 +1,12 @@
 // Gera o site estático em dist/ a partir de content/ (editado pelo painel Decap) e src/.
 //   node scripts/build.mjs                              produção (Vercel)
 //   BASE_PATH=/axlo-site PREVIEW=1 node scripts/build.mjs   prévia no GitHub Pages (noindex)
+
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import sharp from 'sharp';
-import { renderSite, palavras } from '../src/templates.mjs';
+import { palavras, renderSite } from '../src/templates.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -18,20 +19,53 @@ if (process.env.SITE_URL) site.url = process.env.SITE_URL;
 site.url = site.url.replace(/\/$/, '');
 
 const paginas = Object.fromEntries(
-  fs.readdirSync('content/paginas').filter(f => f.endsWith('.json')).map(f => [f.replace('.json', ''), readJSON('content/paginas/' + f)])
+  fs
+    .readdirSync('content/paginas')
+    .filter(f => f.endsWith('.json'))
+    .map(f => [f.replace('.json', ''), readJSON(`content/paginas/${f}`)]),
 );
 const prodDir = 'content/produtos';
 const produtos = fs.existsSync(prodDir)
-  ? fs.readdirSync(prodDir).filter(f => f.endsWith('.json')).map(f => readJSON(prodDir + '/' + f)).sort((a, b) => a.ordem - b.ordem)
+  ? fs
+      .readdirSync(prodDir)
+      .filter(f => f.endsWith('.json'))
+      .map(f => readJSON(`${prodDir}/${f}`))
+      .sort((a, b) => a.ordem - b.ordem)
   : [];
 
 // blog: mais recente primeiro; no mesmo dia, segue a ordem editorial abaixo (os temas centrais do cliente na frente)
-const ORDEM_BLOG = ['reajuste-plano-de-saude-empresarial', 'seguro-d-o-o-que-cobre', 'nr-01-riscos-psicossociais', 'sinistralidade-plano-de-saude', 'seguro-riscos-ciberneticos-lgpd', 'plano-de-saude-pme', 'gestao-de-beneficios-rh', 'seguro-garantia-tipos', 'coparticipacao-plano-de-saude-empresarial', 'seguro-responsabilidade-civil-empresas', 'seguro-de-vida-em-grupo-empresas', 'telemedicina-beneficio-corporativo', 'seguro-de-frota-empresas', 'como-escolher-corretora-de-seguros-corporativos'];
+const ORDEM_BLOG = [
+  'reajuste-plano-de-saude-empresarial',
+  'seguro-d-o-o-que-cobre',
+  'nr-01-riscos-psicossociais',
+  'sinistralidade-plano-de-saude',
+  'seguro-riscos-ciberneticos-lgpd',
+  'plano-de-saude-pme',
+  'gestao-de-beneficios-rh',
+  'seguro-garantia-tipos',
+  'coparticipacao-plano-de-saude-empresarial',
+  'seguro-responsabilidade-civil-empresas',
+  'seguro-de-vida-em-grupo-empresas',
+  'telemedicina-beneficio-corporativo',
+  'seguro-de-frota-empresas',
+  'como-escolher-corretora-de-seguros-corporativos',
+];
 const blogDir = 'content/blog';
-const posts = (fs.existsSync(blogDir) ? fs.readdirSync(blogDir).filter(f => f.endsWith('.json')).map(f => readJSON(blogDir + '/' + f)) : [])
+const posts = (
+  fs.existsSync(blogDir)
+    ? fs
+        .readdirSync(blogDir)
+        .filter(f => f.endsWith('.json'))
+        .map(f => readJSON(`${blogDir}/${f}`))
+    : []
+)
   .filter(p => !p.rascunho)
   .map(p => ({ ...p, leitura: Math.max(2, Math.round(palavras(p.corpo) / 200)) }))
-  .sort((a, b) => b.publicadoEm.localeCompare(a.publicadoEm) || ((ORDEM_BLOG.indexOf(a.slug) + 1 || 99) - (ORDEM_BLOG.indexOf(b.slug) + 1 || 99)));
+  .sort(
+    (a, b) =>
+      b.publicadoEm.localeCompare(a.publicadoEm) ||
+      (ORDEM_BLOG.indexOf(a.slug) + 1 || 99) - (ORDEM_BLOG.indexOf(b.slug) + 1 || 99),
+  );
 const buildDate = new Date().toISOString().slice(0, 10);
 
 fs.rmSync(DIST, { recursive: true, force: true });
@@ -48,13 +82,21 @@ copyDir('src/uploads', path.join(DIST, 'uploads'));
 
 // CSS e JS com hash no nome, para o cache do navegador nunca servir versão velha
 const hashed = {};
-for (const [src, name] of [['src/css/site.css', 'site'], ['src/js/site.js', 'site']]) {
+for (const [src, name] of [
+  ['src/css/site.css', 'site'],
+  ['src/js/site.js', 'site'],
+]) {
   const ext = path.extname(src);
   let body = fs.readFileSync(src, 'utf8');
   if (ext === '.css') body = body.replaceAll('url(/assets/', `url(${BASE}/assets/`);
   if (ext === '.css') {
     // minifica e guarda para embutir no <head> (CSS bloqueia a renderização; embutido economiza uma ida ao servidor)
-    body = body.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{};:,>])\s*/g, '$1').replace(/;}/g, '}').trim();
+    body = body
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/\s+/g, ' ')
+      .replace(/\s*([{};:,>])\s*/g, '$1')
+      .replace(/;}/g, '}')
+      .trim();
     hashed.inline = body;
   }
   const h = crypto.createHash('md5').update(body).digest('hex').slice(0, 8);
@@ -82,7 +124,11 @@ async function prepareImages(dir, publicPrefix) {
     // fotos do topo ocupam a tela inteira no desktop: se o original for menor, gera também 2000 px com reamostragem lanczos,
     // mais nítida que deixar o navegador ampliar (não cria detalhe; o ideal continua sendo o original em alta)
     const amplia = /^hero-/.test(name) && meta.width < 2000;
-    const widths = [...new Set(WIDTHS.filter(w => w < meta.width).concat(meta.width <= 2400 ? [meta.width] : [], amplia ? [2000] : []))];
+    const widths = [
+      ...new Set(
+        WIDTHS.filter(w => w < meta.width).concat(meta.width <= 2400 ? [meta.width] : [], amplia ? [2000] : []),
+      ),
+    ];
     const variants = { avif: [], webp: [] };
     for (const w of widths) {
       for (const fmt of ['avif', 'webp']) {
@@ -99,7 +145,12 @@ async function prepareImages(dir, publicPrefix) {
         variants[fmt].push({ w, url: `${BASE}/${out}` });
       }
     }
-    images[`${publicPrefix}/${f}`] = { w: meta.width, h: meta.height, variants, fallback: `${BASE}${publicPrefix}/${f}` };
+    images[`${publicPrefix}/${f}`] = {
+      w: meta.width,
+      h: meta.height,
+      variants,
+      fallback: `${BASE}${publicPrefix}/${f}`,
+    };
   }
 }
 await prepareImages('src/assets/img', '/assets/img');
@@ -108,28 +159,45 @@ await prepareImages('src/uploads', '/uploads');
 /* ---------- favicon e imagem de compartilhamento ---------- */
 const xBranco = fs.readFileSync('src/assets/brand/axlo-x-branco.svg', 'utf8');
 const xInner = xBranco.replace(/^[\s\S]*?<svg[^>]*viewBox="([^"]+)"[^>]*>/, '').replace(/<\/svg>\s*$/, '');
-const xViewBox = xBranco.match(/viewBox="([^"]+)"/)[1].split(' ').map(Number);
+const xViewBox = xBranco
+  .match(/viewBox="([^"]+)"/)[1]
+  .split(' ')
+  .map(Number);
 const faviconSvg = size => {
   const [vx, vy, vw, vh] = xViewBox;
-  const s = 0.62 * size / Math.max(vw, vh);
-  const tx = (size - vw * s) / 2 - vx * s, ty = (size - vh * s) / 2 - vy * s;
+  const s = (0.62 * size) / Math.max(vw, vh);
+  const tx = (size - vw * s) / 2 - vx * s,
+    ty = (size - vh * s) / 2 - vy * s;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" rx="${size * 0.22}" fill="#280F91"/><g transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${s.toFixed(4)})">${xInner}</g></svg>`;
 };
 fs.writeFileSync(path.join(DIST, 'favicon.svg'), faviconSvg(64));
 for (const s of [16, 32, 48, 180, 192, 512]) {
-  await sharp(Buffer.from(faviconSvg(s))).png().toFile(path.join(DIST, s === 180 ? 'apple-touch-icon.png' : `favicon-${s}.png`));
+  await sharp(Buffer.from(faviconSvg(s)))
+    .png()
+    .toFile(path.join(DIST, s === 180 ? 'apple-touch-icon.png' : `favicon-${s}.png`));
 }
 // .ico com PNG 32px embutido (formato aceito por todos os navegadores)
 {
-  const png = await sharp(Buffer.from(faviconSvg(32))).png().toBuffer();
+  const png = await sharp(Buffer.from(faviconSvg(32)))
+    .png()
+    .toBuffer();
   const head = Buffer.alloc(22);
-  head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(1, 4);
-  head.writeUInt8(32, 6); head.writeUInt8(32, 7); head.writeUInt8(0, 8); head.writeUInt8(0, 9);
-  head.writeUInt16LE(1, 10); head.writeUInt16LE(32, 12); head.writeUInt32LE(png.length, 14); head.writeUInt32LE(22, 18);
+  head.writeUInt16LE(0, 0);
+  head.writeUInt16LE(1, 2);
+  head.writeUInt16LE(1, 4);
+  head.writeUInt8(32, 6);
+  head.writeUInt8(32, 7);
+  head.writeUInt8(0, 8);
+  head.writeUInt8(0, 9);
+  head.writeUInt16LE(1, 10);
+  head.writeUInt16LE(32, 12);
+  head.writeUInt32LE(png.length, 14);
+  head.writeUInt32LE(22, 18);
   fs.writeFileSync(path.join(DIST, 'favicon.ico'), Buffer.concat([head, png]));
 }
 {
-  const logo = fs.readFileSync('src/assets/brand/axlo-horizontal-negativa.svg', 'utf8')
+  const logo = fs
+    .readFileSync('src/assets/brand/axlo-horizontal-negativa.svg', 'utf8')
     .replace(/<svg /, '<svg x="96" y="200" width="640" height="120" ');
   const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
     <rect width="1200" height="630" fill="#140A3F"/>
@@ -141,18 +209,42 @@ for (const s of [16, 32, 48, 180, 192, 512]) {
   fs.mkdirSync(path.join(DIST, 'assets/og'), { recursive: true });
   await sharp(Buffer.from(og)).png().toFile(path.join(DIST, 'assets/og/axlo-og.png'));
 }
-fs.writeFileSync(path.join(DIST, 'site.webmanifest'), JSON.stringify({
-  name: `${site.nome} | ${site.descritor}`, short_name: site.nome,
-  icons: [{ src: `${BASE}/favicon-192.png`, sizes: '192x192', type: 'image/png' }, { src: `${BASE}/favicon-512.png`, sizes: '512x512', type: 'image/png' }],
-  theme_color: '#280F91', background_color: '#FFFFFF', display: 'browser', start_url: `${BASE}/`,
-}, null, 2));
+fs.writeFileSync(
+  path.join(DIST, 'site.webmanifest'),
+  JSON.stringify(
+    {
+      name: `${site.nome} | ${site.descritor}`,
+      short_name: site.nome,
+      icons: [
+        { src: `${BASE}/favicon-192.png`, sizes: '192x192', type: 'image/png' },
+        { src: `${BASE}/favicon-512.png`, sizes: '512x512', type: 'image/png' },
+      ],
+      theme_color: '#280F91',
+      background_color: '#FFFFFF',
+      display: 'browser',
+      start_url: `${BASE}/`,
+    },
+    null,
+    2,
+  ),
+);
 
 /* ---------- páginas ---------- */
-const pages = renderSite({ site, paginas, produtos, posts, images, base: BASE, preview: PREVIEW, assets: hashed, buildDate });
+const pages = renderSite({
+  site,
+  paginas,
+  produtos,
+  posts,
+  images,
+  base: BASE,
+  preview: PREVIEW,
+  assets: hashed,
+  buildDate,
+});
 const routes = [];
 const lastmod = Object.fromEntries(posts.map(p => [`/blog/${p.slug}`, p.atualizadoEm]));
 for (const p of pages) {
-  const file = p.route === '/' ? 'index.html' : p.route === '/404' ? '404.html' : p.route.slice(1) + '.html';
+  const file = p.route === '/' ? 'index.html' : p.route === '/404' ? '404.html' : `${p.route.slice(1)}.html`;
   const full = path.join(DIST, file);
   fs.mkdirSync(path.dirname(full), { recursive: true });
   fs.writeFileSync(full, p.html);
@@ -162,8 +254,14 @@ for (const p of pages) {
 /* ---------- imagem de compartilhamento de cada página (título sobre o fundo da marca) ---------- */
 const xmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const quebra = (txt, max) => {
-  const linhas = []; let l = '';
-  for (const w of txt.split(' ')) { if ((l + ' ' + w).trim().length > max) { linhas.push(l.trim()); l = w; } else l += ' ' + w; }
+  const linhas = [];
+  let l = '';
+  for (const w of txt.split(' ')) {
+    if (`${l} ${w}`.trim().length > max) {
+      linhas.push(l.trim());
+      l = w;
+    } else l += ` ${w}`;
+  }
   if (l.trim()) linhas.push(l.trim());
   return linhas.slice(0, 3);
 };
@@ -178,14 +276,24 @@ async function ogImage(route, titulo, rotulo) {
     ${linhas.map((l, i) => `<text x="80" y="${340 - (linhas.length - 1) * 20 + i * 72}" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#FFFFFF">${xmlEsc(l)}</text>`).join('')}
     <text x="80" y="566" font-family="Arial, sans-serif" font-size="26" fill="#FFFFFF" opacity="0.75">${xmlEsc(site.tagline)}  ·  SUSEP nº ${site.empresa.susep}</text>
   </svg>`;
-  const out = path.join(DIST, 'og', (route === '/' ? 'home' : route.slice(1)) + '.png');
+  const out = path.join(DIST, 'og', `${route === '/' ? 'home' : route.slice(1)}.png`);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile(out);
 }
 for (const p of pages) {
   const h1 = (p.html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || site.nome;
-  const titulo = h1.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').trim();
-  const rotulo = p.route.startsWith('/blog/') ? 'Blog AXLO' : p.route.startsWith('/seguros-corporativos') ? 'Seguros Corporativos' : p.route.startsWith('/saude-e-beneficios') ? 'Saúde & Benefícios' : site.descritor;
+  const titulo = h1
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .trim();
+  const rotulo = p.route.startsWith('/blog/')
+    ? 'Blog AXLO'
+    : p.route.startsWith('/seguros-corporativos')
+      ? 'Seguros Corporativos'
+      : p.route.startsWith('/saude-e-beneficios')
+        ? 'Saúde & Benefícios'
+        : site.descritor;
   await ogImage(p.route, titulo, rotulo);
 }
 
@@ -200,10 +308,16 @@ const llms = `# ${site.nome} | ${site.descritor}
 Contato: ${site.contato.telefone} · ${site.contato.email} · ${site.url}/contato
 
 ## Saúde e benefícios corporativos
-${produtos.filter(p => p.categoria === 'beneficios').map(p => `- [${p.titulo}](${site.url}${prodUrlB(p)}): ${p.resumo}`).join('\n')}
+${produtos
+  .filter(p => p.categoria === 'beneficios')
+  .map(p => `- [${p.titulo}](${site.url}${prodUrlB(p)}): ${p.resumo}`)
+  .join('\n')}
 
 ## Seguros corporativos
-${produtos.filter(p => p.categoria === 'seguros').map(p => `- [${p.titulo}](${site.url}${prodUrlB(p)}): ${p.resumo}`).join('\n')}
+${produtos
+  .filter(p => p.categoria === 'seguros')
+  .map(p => `- [${p.titulo}](${site.url}${prodUrlB(p)}): ${p.resumo}`)
+  .join('\n')}
 
 ## Institucional
 - [Sobre a ${site.nome}](${site.url}/sobre): propósito, método, valores e registro na SUSEP.
@@ -219,10 +333,14 @@ ${posts.map(p => `- [${p.titulo}](${site.url}/blog/${p.slug}): ${p.resumo}`).joi
 fs.writeFileSync(path.join(DIST, 'llms.txt'), llms);
 const full = [`# ${site.nome} | ${site.descritor}\n\n${sobreTxt}\n`];
 for (const p of produtos) {
-  full.push(`\n---\n\n# ${p.titulo}\n\nURL: ${site.url}${prodUrlB(p)}\n\n${p.hero.subtitulo}\n\n## Para quem é\n\n${p.paraQuem}\n\n## O que ${p.categoria === 'seguros' ? 'a apólice pode proteger' : 'está incluído'}\n\n${p.protege.map(x => `- **${x.titulo}:** ${x.texto}`).join('\n')}\n\n## Como a ${site.nome} atua\n\n${p.comoAxloAtua.map(x => `- **${x.titulo}:** ${x.texto}`).join('\n')}\n\n## Perguntas frequentes\n\n${p.faq.map(f => `**${f.pergunta}**\n${f.resposta}`).join('\n\n')}\n`);
+  full.push(
+    `\n---\n\n# ${p.titulo}\n\nURL: ${site.url}${prodUrlB(p)}\n\n${p.hero.subtitulo}\n\n## Para quem é\n\n${p.paraQuem}\n\n## O que ${p.categoria === 'seguros' ? 'a apólice pode proteger' : 'está incluído'}\n\n${p.protege.map(x => `- **${x.titulo}:** ${x.texto}`).join('\n')}\n\n## Como a ${site.nome} atua\n\n${p.comoAxloAtua.map(x => `- **${x.titulo}:** ${x.texto}`).join('\n')}\n\n## Perguntas frequentes\n\n${p.faq.map(f => `**${f.pergunta}**\n${f.resposta}`).join('\n\n')}\n`,
+  );
 }
 for (const p of posts) {
-  full.push(`\n---\n\n# ${p.titulo}\n\nURL: ${site.url}/blog/${p.slug} · Atualizado em ${p.atualizadoEm}\n\n## Em resumo\n\n${(p.emResumo || []).map(t => `- ${t}`).join('\n')}\n\n${p.corpo}\n\n## Perguntas frequentes\n\n${(p.faq || []).map(f => `**${f.pergunta}**\n${f.resposta}`).join('\n\n')}\n`);
+  full.push(
+    `\n---\n\n# ${p.titulo}\n\nURL: ${site.url}/blog/${p.slug} · Atualizado em ${p.atualizadoEm}\n\n## Em resumo\n\n${(p.emResumo || []).map(t => `- ${t}`).join('\n')}\n\n${p.corpo}\n\n## Perguntas frequentes\n\n${(p.faq || []).map(f => `**${f.pergunta}**\n${f.resposta}`).join('\n\n')}\n`,
+  );
 }
 fs.writeFileSync(path.join(DIST, 'llms-full.txt'), full.join(''));
 
@@ -232,7 +350,7 @@ const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <title>Blog ${xmlEsc(site.nome)}</title><link>${site.url}/blog</link><language>pt-BR</language>
 <description>Saúde, benefícios e seguros corporativos explicados sem jargão.</description>
 <atom:link href="${site.url}/blog/feed.xml" rel="self" type="application/rss+xml"/>
-${posts.map(p => `<item><title>${xmlEsc(p.titulo)}</title><link>${site.url}/blog/${p.slug}</link><guid>${site.url}/blog/${p.slug}</guid><pubDate>${new Date(p.publicadoEm + 'T09:00:00-03:00').toUTCString()}</pubDate><category>${xmlEsc(p.categoria)}</category><description>${xmlEsc(p.resumo)}</description></item>`).join('\n')}
+${posts.map(p => `<item><title>${xmlEsc(p.titulo)}</title><link>${site.url}/blog/${p.slug}</link><guid>${site.url}/blog/${p.slug}</guid><pubDate>${new Date(`${p.publicadoEm}T09:00:00-03:00`).toUTCString()}</pubDate><category>${xmlEsc(p.categoria)}</category><description>${xmlEsc(p.resumo)}</description></item>`).join('\n')}
 </channel></rss>
 `;
 fs.mkdirSync(path.join(DIST, 'blog'), { recursive: true });
@@ -243,19 +361,47 @@ fs.mkdirSync(path.join(DIST, 'admin'), { recursive: true });
 fs.copyFileSync('admin/index.html', path.join(DIST, 'admin/index.html'));
 const cmsRepo = process.env.CMS_REPO || 'KennyPillow/axlo-site';
 const cmsBranch = process.env.CMS_BRANCH || 'main';
-fs.writeFileSync(path.join(DIST, 'admin/config.yml'),
-  fs.readFileSync('admin/config.yml', 'utf8').replaceAll('__CMS_REPO__', cmsRepo).replaceAll('__CMS_BRANCH__', cmsBranch).replaceAll('__SITE_URL__', site.url));
+fs.writeFileSync(
+  path.join(DIST, 'admin/config.yml'),
+  fs
+    .readFileSync('admin/config.yml', 'utf8')
+    .replaceAll('__CMS_REPO__', cmsRepo)
+    .replaceAll('__CMS_BRANCH__', cmsBranch)
+    .replaceAll('__SITE_URL__', site.url),
+);
 
 /* ---------- sitemap e robots ---------- */
-fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
+fs.writeFileSync(
+  path.join(DIST, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
-  routes.map(r => `  <url><loc>${site.url}${r === '/' ? '/' : r}</loc><lastmod>${lastmod[r] || buildDate}</lastmod><image:image><image:loc>${site.url}/og/${r === '/' ? 'home' : r.slice(1)}.png</image:loc></image:image></url>`).join('\n') +
-  `\n</urlset>\n`);
+    routes
+      .map(
+        r =>
+          `  <url><loc>${site.url}${r === '/' ? '/' : r}</loc><lastmod>${lastmod[r] || buildDate}</lastmod><image:image><image:loc>${site.url}/og/${r === '/' ? 'home' : r.slice(1)}.png</image:loc></image:image></url>`,
+      )
+      .join('\n') +
+    `\n</urlset>\n`,
+);
 // buscadores e assistentes de IA podem ler o site; o painel e as funções ficam de fora
-const IA = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot'];
-fs.writeFileSync(path.join(DIST, 'robots.txt'), PREVIEW
-  ? 'User-agent: *\nDisallow: /\n'
-  : `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\n${IA.map(b => `User-agent: ${b}\nAllow: /\nDisallow: /admin/\nDisallow: /api/`).join('\n\n')}\n\nSitemap: ${site.url}/sitemap.xml\n`);
+const IA = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-SearchBot',
+  'Claude-User',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'Applebot-Extended',
+  'Bingbot',
+];
+fs.writeFileSync(
+  path.join(DIST, 'robots.txt'),
+  PREVIEW
+    ? 'User-agent: *\nDisallow: /\n'
+    : `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\n${IA.map(b => `User-agent: ${b}\nAllow: /\nDisallow: /admin/\nDisallow: /api/`).join('\n\n')}\n\nSitemap: ${site.url}/sitemap.xml\n`,
+);
 
 /* ---------- checagem de links internos ---------- */
 const broken = [];
@@ -264,9 +410,16 @@ const exists = url => {
   if (BASE && p.startsWith(BASE)) p = p.slice(BASE.length);
   if (p === '' || p === '/') return fs.existsSync(path.join(DIST, 'index.html'));
   const f = path.join(DIST, decodeURIComponent(p));
-  return fs.existsSync(f) && fs.statSync(f).isFile() || fs.existsSync(f + '.html') || fs.existsSync(path.join(f, 'index.html'));
+  return (
+    (fs.existsSync(f) && fs.statSync(f).isFile()) ||
+    fs.existsSync(`${f}.html`) ||
+    fs.existsSync(path.join(f, 'index.html'))
+  );
 };
-const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+const walk = d =>
+  fs
+    .readdirSync(d, { withFileTypes: true })
+    .flatMap(e => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
 for (const f of walk(DIST).filter(f => f.endsWith('.html'))) {
   const html = fs.readFileSync(f, 'utf8');
   for (const m of html.matchAll(/(?:href|src|srcset)="([^"]+)"/g)) {
@@ -276,9 +429,11 @@ for (const f of walk(DIST).filter(f => f.endsWith('.html'))) {
     }
   }
 }
-console.log(`✔ ${pages.length} páginas, ${Object.keys(images).length} imagens otimizadas, ${routes.length} URLs no sitemap${PREVIEW ? ' (prévia, noindex)' : ''}`);
+console.log(
+  `✔ ${pages.length} páginas, ${Object.keys(images).length} imagens otimizadas, ${routes.length} URLs no sitemap${PREVIEW ? ' (prévia, noindex)' : ''}`,
+);
 if (broken.length) {
-  console.error(`✖ ${broken.length} link(s) quebrado(s):\n  ` + [...new Set(broken)].join('\n  '));
+  console.error(`✖ ${broken.length} link(s) quebrado(s):\n  ${[...new Set(broken)].join('\n  ')}`);
   process.exit(1);
 }
 console.log('✔ nenhum link interno quebrado');
