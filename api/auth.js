@@ -5,7 +5,10 @@ import crypto from 'node:crypto';
 
 export default function handler(req, res) {
   const id = process.env.GITHUB_CLIENT_ID;
-  if (!id) { res.statusCode = 500; return res.end('GITHUB_CLIENT_ID não configurado.'); }
+  if (!id) {
+    res.statusCode = 500;
+    return res.end('GITHUB_CLIENT_ID não configurado.');
+  }
   const host = req.headers['x-forwarded-host'] || req.headers.host;
   const proto = req.headers['x-forwarded-proto'] || 'https';
   const state = crypto.randomBytes(16).toString('hex');
