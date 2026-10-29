@@ -366,7 +366,7 @@ function heroSlider(slides) {
         const side = s.lado === 'esquerda' ? 'left' : 'right';
         return `<article class="hs-slide${k ? '' : ' on'}" data-side="${side}" aria-roledescription="slide" aria-label="${k + 1} de ${slides.length}: ${esc(s.card.titulo)}">
           <div class="hs-media">
-            ${picture(s.foto, { alt: '', sizes: '(max-width: 640px) 100vw, (max-width: 1260px) calc(100vw - 48px), 1200px', eager: k === 0 ? true : 'low', style: `--mx:${esc(s.posicaoMobile)}` })}
+            ${picture(s.foto, { alt: '', sizes: '(max-width: 640px) 100vw, (max-width: 1060px) calc(100vw - 48px), 100vw', eager: k === 0 ? true : 'low', style: `--mx:${esc(s.posicaoMobile)}` })}
             <div class="hs-notif"><span class="ni">${icon('check')}</span><span><small>${esc(s.notificacao.titulo)}</small>${esc(s.notificacao.texto)}</span></div>
           </div>
           <div class="hs-card">
@@ -406,7 +406,7 @@ function solGrid(cat) {
 function home() {
   const h = C.paginas.home;
   const first = C.images[h.slides[0].foto];
-  const preload = first ? `<link rel="preload" as="image" type="image/avif" imagesrcset="${first.variants.avif.map(v => `${v.url} ${v.w}w`).join(', ')}" imagesizes="(max-width: 640px) 100vw, (max-width: 1260px) calc(100vw - 48px), 1200px" fetchpriority="high">` : '';
+  const preload = first ? `<link rel="preload" as="image" type="image/avif" imagesrcset="${first.variants.avif.map(v => `${v.url} ${v.w}w`).join(', ')}" imagesizes="(max-width: 640px) 100vw, (max-width: 1060px) calc(100vw - 48px), 100vw" fetchpriority="high">` : '';
   const ultimos = C.posts.slice(0, 3);
   const body = `
   <section class="hero">

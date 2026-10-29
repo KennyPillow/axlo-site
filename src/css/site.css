@@ -769,6 +769,28 @@ details[open] .ans{grid-template-rows:1fr}
   .st{font-size:10.5px;padding:3px 8px}
   .tabs button{font-size:13px;padding:10px 6px}
 }
+/* desktop: foto de ponta a ponta (como a referência), texto sobre o céu à esquerda e o cartão ao lado da pessoa */
+@media (min-width:1061px){
+  .hero{display:grid;padding-top:0;background:#fff}
+  .hero > .hero-copy,.hero > .hs{grid-area:1/1}
+  .x-hero{display:none}
+  .hero-copy{z-index:4;align-self:start;width:100%;padding-top:clamp(64px,9vh,112px);pointer-events:none}
+  .hero-copy > *{pointer-events:auto}
+  .hero-copy h1{max-width:min(680px,46vw);font-size:clamp(40px,3.6vw,60px)}
+  .hero-copy .lead{max-width:min(520px,40vw)}
+  .hs{max-width:none;margin:0;padding:0 0 40px}
+  .hs-media{height:clamp(640px,calc(100svh - 150px),900px);border-radius:0}
+  .hs-media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(245,244,248,.94) 0%,rgba(245,244,248,.78) 26%,rgba(245,244,248,0) 52%)}
+  .hs-media img{object-position:center 8%}
+  /* todas as pessoas do lado direito: o texto fica sempre no céu livre */
+  [data-side=right] .hs-media img{transform:scaleX(-1)}
+  .hs-card,[data-side=left] .hs-card{left:auto;right:max(32px,calc(50% - 600px));bottom:52px;width:380px}
+  .hs-notif,[data-side=left] .hs-notif{display:flex;right:auto;top:auto;left:max(24px,calc(50% - 576px));bottom:40px}
+  .hs-nav{max-width:1200px;margin:22px auto 0;padding-inline:24px}
+}
+/* notebooks com tela baixa: cartão mais enxuto para não cobrir o rosto */
+@media (min-width:1061px) and (max-height:860px){.hs-it small{display:none}.hs-card li{padding:6px 0}.hs-head{margin-bottom:10px;padding-bottom:10px}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
