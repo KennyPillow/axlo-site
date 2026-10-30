@@ -922,8 +922,9 @@ function gestao() {
       <figure class="dash rv" aria-label="Exemplo de gráfico de um relatório AXLO">
         <div class="dash-top"><img src="${C.base}/assets/brand/axlo-x.svg" alt="" width="20" height="22"><span>Relatório do contrato</span><span class="dash-tag">Exemplo ilustrativo</span></div>
         <figcaption class="dash-title">Sinistralidade acima do ponto de equilíbrio em ${acima} dos ${meses.length} meses</figcaption>
+        <div class="dash-leg"><span><i class="lg-hi"></i>Acima do equilíbrio</span><span><i class="lg-lo"></i>Abaixo</span><span><i class="lg-be"></i>Ponto de equilíbrio (70%)</span></div>
         <div class="chart" style="--be:70%">
-          <span class="be-line"><em>Ponto de equilíbrio 70%</em></span>
+          <span class="be-line" aria-hidden="true"></span>
           ${meses.map(([m, v]) => `<div class="bar${v > 70 ? ' hi' : ''}" style="--v:${v}%"><b>${v}%</b><span>${m}</span></div>`).join('')}
         </div>
       </figure>

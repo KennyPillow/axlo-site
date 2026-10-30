@@ -2110,9 +2110,40 @@ details[open] .ans {
   grid-template-columns: repeat(6, 1fr);
   gap: 12px;
   align-items: end;
-  height: 220px;
-  padding-top: 10px;
+  height: 220px; /* sem padding: a linha (bottom %) e as barras (height %) medem a mesma altura */
+  margin-bottom: 30px; /* espaço para os meses, que ficam abaixo da base */
   border-bottom: 1px solid var(--linha);
+}
+/* legenda fora do gráfico: o rótulo da linha não disputa espaço com as barras */
+.dash-leg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: -6px 0 22px;
+  font-size: 12px;
+  color: var(--cinza);
+}
+.dash-leg span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dash-leg i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+.lg-hi {
+  background: var(--violeta);
+}
+.lg-lo {
+  background: var(--indigo);
+}
+.dash-leg .lg-be {
+  width: 16px;
+  height: 0;
+  border-radius: 0;
+  border-top: 2px dashed var(--cinza);
 }
 .be-line {
   position: absolute;
@@ -2120,20 +2151,11 @@ details[open] .ans {
   right: 0;
   bottom: var(--be);
   border-top: 2px dashed var(--cinza);
-  z-index: 1;
-}
-.be-line em {
-  position: absolute;
-  right: 0;
-  top: -24px;
-  font-style: normal;
-  font-size: 12px;
-  color: var(--cinza);
-  background: #fff;
-  padding: 0 4px;
+  z-index: 0;
 }
 .bar {
   position: relative;
+  z-index: 1;
   height: var(--v);
   background: var(--indigo);
   border-radius: 8px 8px 0 0;
@@ -2146,8 +2168,11 @@ details[open] .ans {
 .bar b {
   position: absolute;
   top: -22px;
-  left: 0;
-  right: 0;
+  left: 50%;
+  translate: -50% 0;
+  padding: 0 4px;
+  background: #fff;
+  border-radius: 4px;
   text-align: center;
   font-size: 12px;
   color: var(--grafite);
